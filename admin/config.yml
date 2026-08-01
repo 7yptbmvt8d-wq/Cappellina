@@ -47,6 +47,7 @@ collections:
         label: Prochains rendez-vous
         file: assets/data/agenda.json
         description: >-
+          ⚠️ Enregistrer ici ne met PAS le site en ligne. Une fois vos modifications terminées, allez sur GitHub → onglet Actions → « Publier le site » → « Run workflow ». 
           Les événements passés disparaissent automatiquement du site : inutile
           de les supprimer. Les deux prochains s'affichent aussi sur l'accueil.
         fields:
@@ -96,6 +97,7 @@ collections:
         label: Photos de la galerie
         file: assets/data/galerie.json
         description: >-
+          ⚠️ Enregistrer ici ne met PAS le site en ligne. Une fois vos modifications terminées, allez sur GitHub → onglet Actions → « Publier le site » → « Run workflow ». 
           Glissez-déposez vos photos. L'ordre de la liste est celui de la page.
           Compressez les images avant envoi (viser moins de 300 Ko) pour que le
           site reste rapide.
@@ -138,6 +140,7 @@ collections:
         label: Photos des pages et bureau
         file: assets/data/site.json
         description: >-
+          ⚠️ Enregistrer ici ne met PAS le site en ligne. Une fois vos modifications terminées, allez sur GitHub → onglet Actions → « Publier le site » → « Run workflow ». 
           Tant qu'une photo n'est pas choisie, la zone rayée de la maquette
           reste affichée à sa place.
         fields:
