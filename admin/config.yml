@@ -1,9 +1,9 @@
 # ==========================================================================
 # Espace admin Cappellina — configuration
 #
-# Le contenu et les photos sont écrits directement dans le dépôt GitHub.
-# À chaque enregistrement, Netlify redéploie le site : les modifications sont
-# en ligne en une à deux minutes.
+# Decap CMS — même outil que le site Kanjo Aïkido.
+# Le contenu et les photos sont écrits dans le dépôt GitHub : rien n'est
+# stocké sur un service tiers.
 #
 # PUBLICATION EN UN SEUL DÉPLOIEMENT
 # L'admin n'écrit PAS sur la branche publiée : il écrit sur « brouillon ».
@@ -16,6 +16,9 @@
 # doivent rester cohérents.
 # ==========================================================================
 
+# L'authentification passe par le fournisseur OAuth GitHub de Netlify :
+# à activer dans Netlify → Site configuration → Access control → OAuth.
+# C'est le même mécanisme que le site Kanjo Aïkido.
 backend:
   name: github
   repo: 7yptbmvt8d-wq/Cappellina
@@ -39,7 +42,6 @@ collections:
   # ------------------------------------------------------------------------
   - name: agenda
     label: Agenda
-    icon: event
     files:
       - name: evenements
         label: Prochains rendez-vous
@@ -89,7 +91,6 @@ collections:
   # ------------------------------------------------------------------------
   - name: galerie
     label: Galerie photos
-    icon: photo_library
     files:
       - name: photos
         label: Photos de la galerie
@@ -132,7 +133,6 @@ collections:
   # ------------------------------------------------------------------------
   - name: site
     label: Photos du site & bureau
-    icon: groups
     files:
       - name: contenu
         label: Photos des pages et bureau

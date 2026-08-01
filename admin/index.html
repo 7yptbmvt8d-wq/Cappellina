@@ -4,22 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Espace admin — Cappellina</title>
+<title>Administration · Cappellina</title>
 <link rel="icon" href="/assets/logo-cappellina.png">
 </head>
 <body>
 <!--
   Espace d'administration du site Cappellina.
 
-  Propulsé par Sveltia CMS, qui écrit directement dans le dépôt GitHub :
-  les photos déposées et les événements saisis deviennent des fichiers du
-  dépôt, et Netlify redéploie le site automatiquement à chaque modification.
-  Rien n'est stocké ailleurs que sur GitHub.
+  Decap CMS, même outil que le site Kanjo Aïkido : l'authentification passe
+  par le fournisseur OAuth GitHub de Netlify, à activer dans les réglages du
+  site (Access control → OAuth → GitHub).
+
+  Tout ce qui est enregistré — textes comme photos — devient un fichier du
+  dépôt GitHub. Rien n'est stocké sur un service tiers.
 
   La configuration (rubriques, champs, dossiers) est dans config.yml.
-  La version est figée volontairement : mettre à jour le numéro ci-dessous
-  pour passer à une version plus récente, après l'avoir testée.
 -->
-<script src="https://unpkg.com/@sveltia/cms@0.176.1/dist/sveltia-cms.js" type="module"></script>
+<script src="https://unpkg.com/decap-cms@^3.3.3/dist/decap-cms.js"></script>
 </body>
 </html>

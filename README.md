@@ -37,8 +37,10 @@ python3 -m http.server 8000
 ├── netlify.toml          Configuration Netlify
 ├── robots.txt
 ├── admin/
-│   ├── index.html        Espace admin (Sveltia CMS)
+│   ├── index.html        Espace admin (Decap CMS)
 │   └── config.yml        Rubriques et champs de l'admin
+├── .github/workflows/
+│   └── publier.yml       Bouton « Publier le site » (brouillon → main)
 └── assets/
     ├── css/style.css     Feuille de style unique (tous les tokens du design)
     ├── css/fonts.css     Déclarations @font-face des polices auto-hébergées
@@ -104,12 +106,16 @@ Le trésorier et le secrétaire restent à nommer.
 ## Mise en ligne sur Netlify
 
 1. Sur [app.netlify.com](https://app.netlify.com) → **Add new site** → **Import an existing project**
-2. Connecter le dépôt GitHub, choisir la branche à publier
+2. Connecter le dépôt GitHub, choisir la branche **`main`** comme branche de production
 3. Laisser les réglages tels quels : `netlify.toml` fixe déjà
    *publish directory = racine* et **aucune commande de build**
 4. Déployer
+5. **Site configuration → Access control → OAuth → Install provider → GitHub**
+   (nécessaire pour que l'espace admin fonctionne)
 
-Chaque `git push` sur la branche publiée redéclenche un déploiement.
+Ensuite, seul un push sur `main` redéclenche un déploiement — c'est-à-dire
+uniquement quand on actionne « Publier le site ». Les enregistrements faits
+dans l'admin partent sur `brouillon` et ne déploient rien.
 
 ### Formulaire de contact
 
@@ -211,10 +217,9 @@ au bureau de gérer, sans toucher au code :
 | **Galerie photos** | Les photos de la page Galerie et leur taille dans la mosaïque |
 | **Photos du site & bureau** | Les 5 photos d'illustration des pages, et les membres du bureau |
 
-L'admin repose sur **Sveltia CMS** avec le dépôt GitHub comme backend :
-tout ce qui est enregistré (textes **et** photos) devient un fichier du dépôt,
-puis Netlify redéploie le site. Les modifications sont en ligne en une à deux
-minutes. Rien n'est stocké sur un service tiers.
+L'admin repose sur **Decap CMS** — le même outil que le site Kanjo Aïkido —
+avec le dépôt GitHub comme backend : tout ce qui est enregistré (textes **et**
+photos) devient un fichier du dépôt. Rien n'est stocké sur un service tiers.
 
 ### Deux automatismes utiles
 
@@ -252,28 +257,20 @@ Deux branches à créer une fois pour toutes : `main` (publiée par Netlify) et
 
 ### Mise en service
 
-**1. Se connecter.** Ouvrir `/admin` puis **Sign In with Token** : Sveltia
-propose un lien vers GitHub avec les autorisations déjà cochées. On génère le
-jeton, on le colle, et c'est fini. Aucune configuration serveur.
+**1. Activer l'authentification GitHub dans Netlify.** Dans le tableau de
+bord du site : **Site configuration → Access control → OAuth → Install
+provider → GitHub**. C'est exactement le réglage déjà en place sur le site
+Kanjo Aïkido — aucun serveur ni service supplémentaire à déployer.
 
-**2. (Recommandé, plus tard) Passer au bouton « Se connecter avec GitHub ».**
-Le jeton convient pour démarrer, mais il expire et reste peu commode pour une
-personne non technique. Pour un vrai bouton de connexion, déployer
-[sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) sur Cloudflare
-Workers (gratuit, ~10 minutes), créer une OAuth App GitHub, puis ajouter dans
-`admin/config.yml` :
+**2. Se connecter.** Ouvrir `/admin` et cliquer sur **Login with GitHub**.
 
-```yaml
-backend:
-  name: github
-  repo: 7yptbmvt8d-wq/Cappellina
-  branch: brouillon
-  base_url: https://<votre-worker>.workers.dev
-```
+Chaque personne du bureau devra avoir un **compte GitHub** et être
+collaboratrice du dépôt : c'est la contrepartie du choix « tout sur GitHub ».
 
-Dans tous les cas, chaque personne du bureau devra avoir un **compte GitHub**
-et être collaboratrice du dépôt : c'est la contrepartie du choix « tout sur
-GitHub ».
+> Le mode `publish_mode: editorial_workflow` (celui du site Kanjo) n'est
+> volontairement pas activé ici : la branche `brouillon` joue déjà le rôle
+> d'espace de travail, et cumuler les deux ajouterait une étape de validation
+> sans bénéfice. Pour le réactiver, ajouter la ligne dans `admin/config.yml`.
 
 ### Bon à savoir
 
