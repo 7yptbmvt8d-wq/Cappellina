@@ -48,6 +48,14 @@
     return new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
   }
 
+  // Ne remplace la source d'une image que si elle diffère réellement.
+  // Sans ce contrôle, le navigateur télécharge une seconde fois un fichier
+  // déjà en cours de chargement — la bannière pèse plusieurs centaines de Ko.
+  function poserSource(img, chemin) {
+    var cible = new URL(chemin, document.baseURI).href;
+    if (img.src !== cible) { img.src = cible; }
+  }
+
   function chargerJSON(chemin) {
     // no-cache : après une modification dans l'admin, les visiteurs voient
     // la nouvelle version sans attendre l'expiration du cache navigateur.
@@ -288,10 +296,10 @@
         // chemins quand un fichier est envoyé depuis l'espace admin.
         var identite = (donnees && donnees.identite) || {};
         if (identite.logo) {
-          logos.forEach(function (img) { img.src = identite.logo; });
+          logos.forEach(function (img) { poserSource(img, identite.logo); });
         }
         if (identite.banniere && banniere) {
-          banniere.src = identite.banniere;
+          poserSource(banniere, identite.banniere);
         }
 
         var photos = (donnees && donnees.photos) || {};

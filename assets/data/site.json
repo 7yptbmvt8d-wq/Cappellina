@@ -1,7 +1,7 @@
 {
   "identite": {
-    "logo": "/assets/photos/logo-cappellina.png",
-    "banniere": "/assets/photos/banniere.jpg"
+    "logo": "/assets/logo-cappellina.png",
+    "banniere": "/assets/banniere.jpg"
   },
   "photos": {
     "accueil": "",
