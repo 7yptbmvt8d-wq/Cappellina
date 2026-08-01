@@ -5,16 +5,21 @@
 # À chaque enregistrement, Netlify redéploie le site : les modifications sont
 # en ligne en une à deux minutes.
 #
-# IMPORTANT — « branch » doit correspondre à la branche que Netlify publie.
-# Tant que le site est publié depuis une autre branche, remplacer « main »
-# ci-dessous par le nom exact de cette branche, sinon l'admin écrira au
-# mauvais endroit et les modifications n'apparaîtront jamais en ligne.
+# PUBLICATION EN UN SEUL DÉPLOIEMENT
+# L'admin n'écrit PAS sur la branche publiée : il écrit sur « brouillon ».
+# On peut donc enchaîner autant de modifications que l'on veut sans que le
+# site public ne bouge. Quand tout est prêt, une seule action publie le lot :
+#   onglet Actions du dépôt → « Publier le site » → « Run workflow »
+# ce qui fusionne « brouillon » dans « main » et déclenche UN déploiement.
+#
+# Les deux noms de branches ci-dessous et dans .github/workflows/publier.yml
+# doivent rester cohérents.
 # ==========================================================================
 
 backend:
   name: github
   repo: 7yptbmvt8d-wq/Cappellina
-  branch: main
+  branch: brouillon
 
 # Dossier de dépôt des photos envoyées depuis l'admin
 media_folder: assets/photos

@@ -1,0 +1,81 @@
+# ==========================================================================
+# « Publier le site »
+#
+# L'espace admin enregistre sur la branche « brouillon » : on peut y accumuler
+# autant de modifications que l'on veut sans que le site public ne bouge.
+# Ce workflow fusionne « brouillon » dans « main » à la demande — ce qui
+# déclenche UN seul déploiement Netlify pour l'ensemble des modifications.
+#
+# Comment publier : onglet Actions du dépôt → « Publier le site » →
+# bouton « Run workflow ».
+# ==========================================================================
+
+name: Publier le site
+
+on:
+  workflow_dispatch:
+
+# Deux publications simultanées se marcheraient dessus
+concurrency:
+  group: publication-du-site
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    name: Mettre le site en ligne
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Vérifier qu'il y a quelque chose à publier
+        id: controle
+        run: |
+          if ! git show-ref --verify --quiet refs/remotes/origin/brouillon; then
+            echo "La branche « brouillon » n'existe pas encore."
+            echo "publier=non" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if git diff --quiet origin/main origin/brouillon; then
+            echo "Aucune modification en attente : le site est déjà à jour."
+            echo "publier=non" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "Modifications en attente :"
+          git diff --stat origin/main origin/brouillon
+          echo "publier=oui" >> "$GITHUB_OUTPUT"
+
+      - name: Fusionner les modifications de l'espace admin
+        if: steps.controle.outputs.publier == 'oui'
+        run: |
+          git config user.name "Espace admin Cappellina"
+          git config user.email "actions@users.noreply.github.com"
+
+          git merge --no-ff origin/brouillon \
+            -m "Publication des modifications faites depuis l'espace admin"
+          git push origin main
+
+          # Remet « brouillon » au niveau de « main », pour que la prochaine
+          # série de modifications reparte d'une base propre.
+          git push origin main:brouillon
+
+      - name: Résumé
+        run: |
+          if [ "${{ steps.controle.outputs.publier }}" = "oui" ]; then
+            echo "### Site publié :rocket:" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Netlify met le site en ligne dans une à deux minutes." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "### Rien à publier" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "Aucune modification en attente dans l'espace admin." >> "$GITHUB_STEP_SUMMARY"
+          fi

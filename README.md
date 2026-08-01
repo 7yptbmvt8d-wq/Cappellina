@@ -223,18 +223,40 @@ minutes. Rien n'est stocké sur un service tiers.
 - **Les deux prochains rendez-vous remontent automatiquement sur l'accueil.**
   Il n'y a qu'un seul endroit à tenir à jour.
 
+### Publier plusieurs modifications en un seul déploiement
+
+L'admin n'écrit **pas** sur la branche publiée : il écrit sur une branche
+`brouillon`. On peut donc enchaîner dix modifications sans que le site public
+ne bouge d'un pixel.
+
+```
+Espace admin ──enregistre──▶ branche « brouillon »   (site public inchangé)
+                                     │
+                    « Publier le site » (1 clic)
+                                     ▼
+                              branche « main » ──▶ 1 seul déploiement Netlify
+```
+
+Pour publier : onglet **Actions** du dépôt GitHub → **Publier le site** →
+bouton **Run workflow**. Le site est en ligne une à deux minutes après.
+S'il n'y a rien à publier, l'action le dit et ne fait rien.
+
+Deux branches à créer une fois pour toutes : `main` (publiée par Netlify) et
+`brouillon`. Elles doivent porter exactement ces noms, sinon corriger
+`admin/config.yml` et `.github/workflows/publier.yml` en conséquence.
+
+> **Conseil :** activer le *branch deploy* de `brouillon` dans Netlify
+> (**Site configuration → Build & deploy → Branch deploys**). Le bureau
+> dispose alors d'une adresse de prévisualisation pour vérifier ses
+> modifications **avant** de publier.
+
 ### Mise en service
 
-**1. Vérifier la branche.** Dans `admin/config.yml`, le champ `branch` doit
-correspondre exactement à la branche publiée par Netlify. C'est l'erreur la
-plus courante : si les deux diffèrent, l'admin enregistre sans erreur mais rien
-n'apparaît en ligne.
-
-**2. Se connecter.** Ouvrir `/admin` puis **Sign In with Token** : Sveltia
+**1. Se connecter.** Ouvrir `/admin` puis **Sign In with Token** : Sveltia
 propose un lien vers GitHub avec les autorisations déjà cochées. On génère le
 jeton, on le colle, et c'est fini. Aucune configuration serveur.
 
-**3. (Recommandé, plus tard) Passer au bouton « Se connecter avec GitHub ».**
+**2. (Recommandé, plus tard) Passer au bouton « Se connecter avec GitHub ».**
 Le jeton convient pour démarrer, mais il expire et reste peu commode pour une
 personne non technique. Pour un vrai bouton de connexion, déployer
 [sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) sur Cloudflare
@@ -245,7 +267,7 @@ Workers (gratuit, ~10 minutes), créer une OAuth App GitHub, puis ajouter dans
 backend:
   name: github
   repo: 7yptbmvt8d-wq/Cappellina
-  branch: main
+  branch: brouillon
   base_url: https://<votre-worker>.workers.dev
 ```
 
