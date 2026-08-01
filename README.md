@@ -39,8 +39,6 @@ python3 -m http.server 8000
 ├── admin/
 │   ├── index.html        Espace admin (Decap CMS)
 │   └── config.yml        Rubriques et champs de l'admin
-├── .github/workflows/
-│   └── publier.yml       Bouton « Publier le site » (brouillon → main)
 └── assets/
     ├── css/style.css     Feuille de style unique (tous les tokens du design)
     ├── css/fonts.css     Déclarations @font-face des polices auto-hébergées
@@ -113,9 +111,8 @@ Le trésorier et le secrétaire restent à nommer.
 5. **Site configuration → Access control → OAuth → Install provider → GitHub**
    (nécessaire pour que l'espace admin fonctionne)
 
-Ensuite, seul un push sur `main` redéclenche un déploiement — c'est-à-dire
-uniquement quand on actionne « Publier le site ». Les enregistrements faits
-dans l'admin partent sur `brouillon` et ne déploient rien.
+Ensuite, chaque push sur `main` redéclenche un déploiement — y compris ceux
+faits depuis l'espace admin.
 
 ### Formulaire de contact
 
@@ -228,32 +225,18 @@ photos) devient un fichier du dépôt. Rien n'est stocké sur un service tiers.
 - **Les deux prochains rendez-vous remontent automatiquement sur l'accueil.**
   Il n'y a qu'un seul endroit à tenir à jour.
 
-### Publier plusieurs modifications en un seul déploiement
+### Publier
 
-L'admin n'écrit **pas** sur la branche publiée : il écrit sur une branche
-`brouillon`. On peut donc enchaîner dix modifications sans que le site public
-ne bouge d'un pixel.
+Le bouton **Publish** de l'admin enregistre dans le dépôt sur la branche
+`main`, ce qui déclenche le déploiement Netlify. Le site est à jour une à deux
+minutes après. Il n'y a rien d'autre à faire.
 
-```
-Espace admin ──enregistre──▶ branche « brouillon »   (site public inchangé)
-                                     │
-                    « Publier le site » (1 clic)
-                                     ▼
-                              branche « main » ──▶ 1 seul déploiement Netlify
-```
-
-Pour publier : onglet **Actions** du dépôt GitHub → **Publier le site** →
-bouton **Run workflow**. Le site est en ligne une à deux minutes après.
-S'il n'y a rien à publier, l'action le dit et ne fait rien.
-
-Deux branches à créer une fois pour toutes : `main` (publiée par Netlify) et
-`brouillon`. Elles doivent porter exactement ces noms, sinon corriger
-`admin/config.yml` et `.github/workflows/publier.yml` en conséquence.
-
-> **Conseil :** activer le *branch deploy* de `brouillon` dans Netlify
-> (**Site configuration → Build & deploy → Branch deploys**). Le bureau
-> dispose alors d'une adresse de prévisualisation pour vérifier ses
-> modifications **avant** de publier.
+> Un montage à deux temps a existé un moment — l'admin écrivait sur une
+> branche `brouillon` et une action GitHub publiait le lot d'un coup, pour
+> n'avoir qu'un seul déploiement. Il a été retiré : le libellé « Publish » de
+> Decap laissait croire que le site partait en ligne, et le site n'ayant
+> aucune étape de build, multiplier les déploiements ne coûte rien.
+> Le nécessaire reste dans l'historique Git si le besoin revenait.
 
 ### Mise en service
 
@@ -267,10 +250,10 @@ Kanjo Aïkido — aucun serveur ni service supplémentaire à déployer.
 Chaque personne du bureau devra avoir un **compte GitHub** et être
 collaboratrice du dépôt : c'est la contrepartie du choix « tout sur GitHub ».
 
-> Le mode `publish_mode: editorial_workflow` (celui du site Kanjo) n'est
-> volontairement pas activé ici : la branche `brouillon` joue déjà le rôle
-> d'espace de travail, et cumuler les deux ajouterait une étape de validation
-> sans bénéfice. Pour le réactiver, ajouter la ligne dans `admin/config.yml`.
+> Le mode `publish_mode: editorial_workflow` (celui du site Kanjo) n'est pas
+> activé : il fait passer chaque modification par une pull request à valider,
+> ce qui rallonge le circuit sans bénéfice pour une petite équipe. Pour
+> l'ajouter, il suffit de la ligne correspondante dans `admin/config.yml`.
 
 ### Bon à savoir
 
