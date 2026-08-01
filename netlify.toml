@@ -20,14 +20,25 @@
 
 # --------------------------------------------------------------------------
 # Mise en cache des ressources statiques
-# Une semaine : suffisant pour les performances, sans bloquer une mise à jour
-# du logo ou d'une photo pendant des mois.
+#
+# Les polices ne changent jamais : cache long, sans revalidation.
 # --------------------------------------------------------------------------
+[[headers]]
+  for = "/assets/fonts/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Les images, elles, sont remplaçables depuis l'espace admin. Une heure de
+# cache avec revalidation : le navigateur ne retélécharge pas l'image à chaque
+# page, mais un logo ou une photo remplacé apparaît sans délai. Un cache long
+# ferait pire : il mémoriserait aussi l'absence d'un fichier pas encore
+# déposé, et le visiteur garderait une image cassée pendant des jours.
 [[headers]]
   for = "/assets/*"
 
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=3600, must-revalidate"
 
 # Les fichiers de données sont réécrits par l'espace admin : ils doivent être
 # revalidés à chaque visite, sinon une modification de l'agenda mettrait
