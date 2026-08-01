@@ -141,6 +141,25 @@ collections:
           Tant qu'une photo n'est pas choisie, la zone rayée de la maquette
           reste affichée à sa place.
         fields:
+          - name: identite
+            label: Identité visuelle
+            widget: object
+            fields:
+              - name: logo
+                label: Logo
+                widget: image
+                required: false
+                hint: >-
+                  Apparaît en haut et en bas de toutes les pages.
+                  Un PNG à fond transparent donne le meilleur résultat.
+              - name: banniere
+                label: Bannière de l'accueil
+                widget: image
+                required: false
+                hint: >-
+                  Grande image en haut de la page d'accueil.
+                  Format paysage très large, au moins 2000 px.
+
           - name: photos
             label: Photos des pages
             widget: object

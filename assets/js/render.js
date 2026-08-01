@@ -277,10 +277,23 @@
 
   var bureau = document.getElementById('bureau-liste');
   var emplacementsPhoto = document.querySelectorAll('[data-photo]');
+  var logos = document.querySelectorAll('[data-logo]');
+  var banniere = document.querySelector('[data-banniere]');
 
-  if (bureau || emplacementsPhoto.length) {
+  if (bureau || emplacementsPhoto.length || logos.length || banniere) {
     chargerJSON('assets/data/site.json')
       .then(function (donnees) {
+        // Logo et bannière : le HTML pointe déjà vers assets/logo-cappellina.png
+        // et assets/banniere.jpg. Ces champs ne servent qu'à surcharger ces
+        // chemins quand un fichier est envoyé depuis l'espace admin.
+        var identite = (donnees && donnees.identite) || {};
+        if (identite.logo) {
+          logos.forEach(function (img) { img.src = identite.logo; });
+        }
+        if (identite.banniere && banniere) {
+          banniere.src = identite.banniere;
+        }
+
         var photos = (donnees && donnees.photos) || {};
         emplacementsPhoto.forEach(function (node) {
           remplacerPhoto(node.getAttribute('data-photo'), photos[node.getAttribute('data-photo')]);
