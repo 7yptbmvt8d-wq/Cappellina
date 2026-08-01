@@ -518,6 +518,13 @@ h1, h2, h3 {
 
 .split--action .split__media { height: 300px; }
 
+/* Quand une vraie photo remplace le placeholder, elle occupe la même boîte */
+img.split__media,
+img.team__photo {
+  object-fit: cover;
+  display: block;
+}
+
 /* Blocs alternés qui se suivent (page « Nos actions ») */
 .split + .split { margin-top: 40px; }
 
@@ -739,6 +746,16 @@ h1, h2, h3 {
 }
 
 .event__cta:hover { color: var(--ink); }
+
+/* Message d'attente / d'absence de contenu (agenda, galerie) */
+.vide {
+  font-family: var(--font-body);
+  color: var(--ink-3);
+  font-size: 16px;
+  margin: 0;
+  padding: 8px 0;
+  text-wrap: pretty;
+}
 
 /* En-tête « Prochains rendez-vous » avec lien à droite */
 .section-head {

@@ -36,11 +36,19 @@ python3 -m http.server 8000
 ├── 404.html              Page introuvable
 ├── netlify.toml          Configuration Netlify
 ├── robots.txt
+├── admin/
+│   ├── index.html        Espace admin (Sveltia CMS)
+│   └── config.yml        Rubriques et champs de l'admin
 └── assets/
     ├── css/style.css     Feuille de style unique (tous les tokens du design)
     ├── css/fonts.css     Déclarations @font-face des polices auto-hébergées
     ├── fonts/            Quicksand + Nunito au format woff2
     ├── js/main.js        Menu mobile + sélection du montant de don
+    ├── js/render.js      Affiche agenda, galerie, photos et bureau
+    ├── data/agenda.json  Événements — modifiable depuis l'admin
+    ├── data/galerie.json Photos de la galerie — modifiable depuis l'admin
+    ├── data/site.json    Photos des pages et bureau — modifiable depuis l'admin
+    ├── photos/           Photos envoyées depuis l'admin
     ├── logo-cappellina.png   ← à déposer
     └── banniere.jpg          ← à déposer
 ```
@@ -79,16 +87,17 @@ grep -rn "VOTRE-ASSOCIATION" .
 HelloAsso gère le paiement sécurisé et l'édition automatique du reçu fiscal :
 rien à installer côté site.
 
-### 3. Les coordonnées et le bureau
+### 3. Les coordonnées
 
-- Téléphone `06 00 00 00 00` — placeholder présent dans le pied de page des 9 pages.
 - Adresse `contact@cappellina.fr` — à confirmer.
 - Liens Facebook / Instagram — actuellement du texte simple, à transformer en liens.
-- `association.html` : les trois « Prénom Nom » du bureau et leurs photos.
 
-### 4. Les photos
+Le téléphone (`06.33.25.34.97`) est en place et cliquable sur mobile.
 
-Les zones rayées sont des placeholders (`class="ph"`). Voir `assets/README.md`.
+### 4. Les photos et le bureau
+
+Tout se fait depuis l'espace admin (voir plus bas) — aucune retouche de code.
+Le trésorier et le secrétaire restent à nommer.
 
 ---
 
@@ -191,12 +200,83 @@ tablette, `20px` en mobile).
 
 ---
 
-## Ajouter un événement à l'agenda
+## Espace admin
 
-Ouvrir `agenda.html`, dupliquer un bloc `<article class="event">` et adapter le
-jour, le mois, le titre et la ligne d'informations. La couleur du chiffre
-alterne entre `c-peach`, `c-sage` et `c-blue`. Un commentaire dans le fichier
-détaille la marche à suivre.
+Accessible sur `/admin` (par exemple `https://cappellina.fr/admin`). Il permet
+au bureau de gérer, sans toucher au code :
 
-Penser à reporter les deux prochains événements sur l'accueil (`index.html`,
-section « Prochains rendez-vous »).
+| Rubrique | Contenu |
+|---|---|
+| **Agenda** | Les rendez-vous : titre, date, heure, lieu, précision |
+| **Galerie photos** | Les photos de la page Galerie et leur taille dans la mosaïque |
+| **Photos du site & bureau** | Les 5 photos d'illustration des pages, et les membres du bureau |
+
+L'admin repose sur **Sveltia CMS** avec le dépôt GitHub comme backend :
+tout ce qui est enregistré (textes **et** photos) devient un fichier du dépôt,
+puis Netlify redéploie le site. Les modifications sont en ligne en une à deux
+minutes. Rien n'est stocké sur un service tiers.
+
+### Deux automatismes utiles
+
+- **Les événements passés disparaissent tout seuls** du site. Inutile de faire
+  le ménage : il suffit d'ajouter les nouveaux.
+- **Les deux prochains rendez-vous remontent automatiquement sur l'accueil.**
+  Il n'y a qu'un seul endroit à tenir à jour.
+
+### Mise en service
+
+**1. Vérifier la branche.** Dans `admin/config.yml`, le champ `branch` doit
+correspondre exactement à la branche publiée par Netlify. C'est l'erreur la
+plus courante : si les deux diffèrent, l'admin enregistre sans erreur mais rien
+n'apparaît en ligne.
+
+**2. Se connecter.** Ouvrir `/admin` puis **Sign In with Token** : Sveltia
+propose un lien vers GitHub avec les autorisations déjà cochées. On génère le
+jeton, on le colle, et c'est fini. Aucune configuration serveur.
+
+**3. (Recommandé, plus tard) Passer au bouton « Se connecter avec GitHub ».**
+Le jeton convient pour démarrer, mais il expire et reste peu commode pour une
+personne non technique. Pour un vrai bouton de connexion, déployer
+[sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth) sur Cloudflare
+Workers (gratuit, ~10 minutes), créer une OAuth App GitHub, puis ajouter dans
+`admin/config.yml` :
+
+```yaml
+backend:
+  name: github
+  repo: 7yptbmvt8d-wq/Cappellina
+  branch: main
+  base_url: https://<votre-worker>.workers.dev
+```
+
+Dans tous les cas, chaque personne du bureau devra avoir un **compte GitHub**
+et être collaboratrice du dépôt : c'est la contrepartie du choix « tout sur
+GitHub ».
+
+### Bon à savoir
+
+L'agenda et la galerie sont assemblés dans le navigateur à partir des fichiers
+`assets/data/*.json`. C'est ce qui permet de garder un site sans build tout en
+ayant une admin. Conséquence : ces contenus ne sont pas dans le HTML livré, et
+un moteur de recherche les indexe moins bien qu'un texte statique. Sans
+importance pour des événements par nature éphémères ; si l'agenda devait un
+jour être un vrai levier de référencement, il faudrait ajouter un générateur
+statique (Eleventy) qui pré-calcule les pages.
+
+## Ajouter un événement sans passer par l'admin
+
+Ouvrir `assets/data/agenda.json` et ajouter un objet à la liste :
+
+```json
+{
+  "titre": "Atelier cuisine de saison",
+  "date": "2026-11-14",
+  "horaire": "15h",
+  "lieu": "Cantine scolaire",
+  "precision": "gratuit"
+}
+```
+
+La date s'écrit `AAAA-MM-JJ`. L'ordre dans le fichier n'a pas d'importance :
+le tri, le regroupement par mois et la couleur du chiffre sont calculés à
+l'affichage.

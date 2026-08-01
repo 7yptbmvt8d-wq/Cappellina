@@ -1,0 +1,26 @@
+{
+  "photos": {
+    "accueil": "",
+    "association": "",
+    "actions_ateliers": "",
+    "actions_rencontres": "",
+    "actions_sorties": ""
+  },
+  "bureau": [
+    {
+      "nom": "Christophe Mori",
+      "role": "Président",
+      "photo": ""
+    },
+    {
+      "nom": "",
+      "role": "Trésorier",
+      "photo": ""
+    },
+    {
+      "nom": "",
+      "role": "Secrétaire",
+      "photo": ""
+    }
+  ]
+}

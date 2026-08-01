@@ -54,23 +54,15 @@
     <section class="section--sm">
 
       <!--
-        REMPLACER LES PLACEHOLDERS PAR LES VRAIES PHOTOS
-        Chaque case peut recevoir une image à la place du <div class="ph"> :
-          <img src="assets/photos/atelier-01.jpg" alt="Description de la photo" class="g-w2 g-h2">
-        Les classes g-w2 (2 colonnes) et g-h2 (2 rangées) donnent le rythme
-        de la mosaïque — les conserver telles quelles.
+        Les photos sont gérées depuis l'espace admin (/admin) : les fichiers
+        sont déposés dans assets/photos/ et listés dans assets/data/galerie.json.
+        Tant qu'aucune photo n'est ajoutée, la mosaïque affiche des placeholders.
       -->
+      <div class="gallery" id="galerie-grille"></div>
 
-      <div class="gallery">
-        <div class="ph g-w2 g-h2">photo</div>
-        <div class="ph">photo</div>
-        <div class="ph">photo</div>
-        <div class="ph">photo</div>
-        <div class="ph g-w2">photo</div>
-        <div class="ph">photo</div>
-        <div class="ph">photo</div>
-        <div class="ph g-w2">photo</div>
-      </div>
+      <noscript>
+        <p class="vide">La galerie nécessite JavaScript pour s'afficher.</p>
+      </noscript>
 
     </section>
   </div>
@@ -93,8 +85,7 @@
     <div class="footer-col">
       <strong>Contact</strong><br>
       <a href="mailto:contact@cappellina.fr">contact@cappellina.fr</a><br>
-      <!-- TODO : numéro de téléphone à confirmer -->
-      06 00 00 00 00<br>
+      <a href="tel:+33633253497">06.33.25.34.97</a><br>
       <a href="don.html">Faire un don</a>
     </div>
     <div class="footer-col">
@@ -108,5 +99,6 @@
 </footer>
 
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/render.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,157 @@
+# ==========================================================================
+# Espace admin Cappellina — configuration
+#
+# Le contenu et les photos sont écrits directement dans le dépôt GitHub.
+# À chaque enregistrement, Netlify redéploie le site : les modifications sont
+# en ligne en une à deux minutes.
+#
+# IMPORTANT — « branch » doit correspondre à la branche que Netlify publie.
+# Tant que le site est publié depuis une autre branche, remplacer « main »
+# ci-dessous par le nom exact de cette branche, sinon l'admin écrira au
+# mauvais endroit et les modifications n'apparaîtront jamais en ligne.
+# ==========================================================================
+
+backend:
+  name: github
+  repo: 7yptbmvt8d-wq/Cappellina
+  branch: main
+
+# Dossier de dépôt des photos envoyées depuis l'admin
+media_folder: assets/photos
+public_folder: /assets/photos
+
+# Langue de l'interface
+locale: fr
+
+# Message des enregistrements dans l'historique GitHub
+site_url: /
+display_url: /
+
+collections:
+
+  # ------------------------------------------------------------------------
+  # Agenda
+  # ------------------------------------------------------------------------
+  - name: agenda
+    label: Agenda
+    icon: event
+    files:
+      - name: evenements
+        label: Prochains rendez-vous
+        file: assets/data/agenda.json
+        description: >-
+          Les événements passés disparaissent automatiquement du site : inutile
+          de les supprimer. Les deux prochains s'affichent aussi sur l'accueil.
+        fields:
+          - name: evenements
+            label: Événements
+            label_singular: Événement
+            widget: list
+            summary: "{{fields.date}} · {{fields.titre}}"
+            fields:
+              - name: titre
+                label: Titre
+                widget: string
+                hint: "Exemple : Atelier « Apprivoiser son smartphone »"
+
+              - name: date
+                label: Date
+                widget: datetime
+                time_format: false
+                date_format: DD/MM/YYYY
+                format: YYYY-MM-DD
+
+              - name: horaire
+                label: Heure
+                widget: string
+                required: false
+                hint: "Exemple : 14h"
+
+              - name: lieu
+                label: Lieu
+                widget: string
+                required: false
+                hint: "Exemple : Salle des fêtes"
+
+              - name: precision
+                label: Précision
+                widget: string
+                required: false
+                hint: "Exemple : gratuit, ouvert à tous"
+
+  # ------------------------------------------------------------------------
+  # Galerie photos
+  # ------------------------------------------------------------------------
+  - name: galerie
+    label: Galerie photos
+    icon: photo_library
+    files:
+      - name: photos
+        label: Photos de la galerie
+        file: assets/data/galerie.json
+        description: >-
+          Glissez-déposez vos photos. L'ordre de la liste est celui de la page.
+          Compressez les images avant envoi (viser moins de 300 Ko) pour que le
+          site reste rapide.
+        fields:
+          - name: photos
+            label: Photos
+            label_singular: Photo
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - name: image
+                label: Photo
+                widget: image
+
+              - name: alt
+                label: Description
+                widget: string
+                required: false
+                hint: >-
+                  Décrit la photo en quelques mots. Lu à voix haute par les
+                  lecteurs d'écran et utilisé par Google.
+
+              - name: format
+                label: Taille dans la mosaïque
+                widget: select
+                default: auto
+                options:
+                  - { label: "Automatique (recommandé)", value: auto }
+                  - { label: "Normale", value: normale }
+                  - { label: "Large — 2 colonnes", value: large }
+                  - { label: "Grande — 2 colonnes sur 2 rangées", value: grande }
+
+  # ------------------------------------------------------------------------
+  # Photos des pages et composition du bureau
+  # ------------------------------------------------------------------------
+  - name: site
+    label: Photos du site & bureau
+    icon: groups
+    files:
+      - name: contenu
+        label: Photos des pages et bureau
+        file: assets/data/site.json
+        description: >-
+          Tant qu'une photo n'est pas choisie, la zone rayée de la maquette
+          reste affichée à sa place.
+        fields:
+          - name: photos
+            label: Photos des pages
+            widget: object
+            fields:
+              - { name: accueil, label: "Accueil — moment de partage", widget: image, required: false }
+              - { name: association, label: "Association — fondateurs / premiers ateliers", widget: image, required: false }
+              - { name: actions_ateliers, label: "Nos actions — atelier numérique", widget: image, required: false }
+              - { name: actions_rencontres, label: "Nos actions — goûter convivial", widget: image, required: false }
+              - { name: actions_sorties, label: "Nos actions — sortie de groupe", widget: image, required: false }
+
+          - name: bureau
+            label: Le bureau
+            label_singular: Membre
+            widget: list
+            summary: "{{fields.nom}} — {{fields.role}}"
+            fields:
+              - { name: nom, label: "Nom et prénom", widget: string }
+              - { name: role, label: "Fonction", widget: string, hint: "Exemple : Président, Trésorier, Secrétaire" }
+              - { name: photo, label: "Portrait", widget: image, required: false }

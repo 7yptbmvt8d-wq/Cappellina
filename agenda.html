@@ -54,91 +54,19 @@
     <section class="section--sm">
 
       <!--
-        AJOUTER UN ÉVÉNEMENT
-        Copier un bloc <article class="event"> … </article> et adapter :
-          - la couleur du jour : c-peach, c-sage ou c-blue (on alterne)
-          - le jour, le mois, le titre et la ligne d'informations
-        Pour un nouveau mois : ajouter un <h2 class="agenda-month"> puis un
-        nouveau conteneur <div class="events">.
+        Les événements sont gérés depuis l'espace admin (/admin) et stockés
+        dans assets/data/agenda.json. Les événements passés disparaissent
+        automatiquement, et le regroupement par mois est calculé à l'affichage.
       -->
-
-      <h2 class="agenda-month">Septembre 2026</h2>
-      <div class="events">
-        <article class="event">
-          <div class="event__date">
-            <div class="event__day c-peach">12</div>
-            <div class="event__month">Sept</div>
-          </div>
-          <div class="event__body">
-            <div class="event__title">Atelier « Apprivoiser son smartphone »</div>
-            <div class="event__meta">14h · Salle des fêtes · gratuit</div>
-          </div>
-          <a class="btn btn--sm event__cta" href="adherer.html">S'inscrire</a>
-        </article>
-
-        <article class="event">
-          <div class="event__date">
-            <div class="event__day c-sage">20</div>
-            <div class="event__month">Sept</div>
-          </div>
-          <div class="event__body">
-            <div class="event__title">Goûter-rencontre intergénérationnel</div>
-            <div class="event__meta">16h · Jardin partagé · ouvert à tous</div>
-          </div>
-          <a class="btn btn--sm event__cta" href="adherer.html">S'inscrire</a>
-        </article>
-
-        <article class="event">
-          <div class="event__date">
-            <div class="event__day c-blue">27</div>
-            <div class="event__month">Sept</div>
-          </div>
-          <div class="event__body">
-            <div class="event__title">Café-discussion « Nos souvenirs de village »</div>
-            <div class="event__meta">10h · Maison des associations</div>
-          </div>
-          <a class="btn btn--sm event__cta" href="adherer.html">S'inscrire</a>
-        </article>
+      <div id="agenda-liste">
+        <p class="vide">Chargement de l'agenda…</p>
       </div>
 
-      <h2 class="agenda-month">Octobre 2026</h2>
-      <div class="events">
-        <article class="event">
-          <div class="event__date">
-            <div class="event__day c-peach">04</div>
-            <div class="event__month">Oct</div>
-          </div>
-          <div class="event__body">
-            <div class="event__title">Sortie au musée &amp; pique-nique</div>
-            <div class="event__meta">10h · Départ place centrale</div>
-          </div>
-          <a class="btn btn--sm event__cta" href="adherer.html">S'inscrire</a>
-        </article>
-
-        <article class="event">
-          <div class="event__date">
-            <div class="event__day c-sage">11</div>
-            <div class="event__month">Oct</div>
-          </div>
-          <div class="event__body">
-            <div class="event__title">Atelier cuisine de saison</div>
-            <div class="event__meta">15h · Cantine scolaire</div>
-          </div>
-          <a class="btn btn--sm event__cta" href="adherer.html">S'inscrire</a>
-        </article>
-
-        <article class="event">
-          <div class="event__date">
-            <div class="event__day c-blue">25</div>
-            <div class="event__month">Oct</div>
-          </div>
-          <div class="event__body">
-            <div class="event__title">Après-midi jeux de société</div>
-            <div class="event__meta">14h · Salle des fêtes · gratuit</div>
-          </div>
-          <a class="btn btn--sm event__cta" href="adherer.html">S'inscrire</a>
-        </article>
-      </div>
+      <noscript>
+        <p class="vide">L'agenda nécessite JavaScript pour s'afficher.
+        Écrivez-nous à <a href="mailto:contact@cappellina.fr">contact@cappellina.fr</a>
+        pour connaître les prochains rendez-vous.</p>
+      </noscript>
 
     </section>
   </div>
@@ -161,8 +89,7 @@
     <div class="footer-col">
       <strong>Contact</strong><br>
       <a href="mailto:contact@cappellina.fr">contact@cappellina.fr</a><br>
-      <!-- TODO : numéro de téléphone à confirmer -->
-      06 00 00 00 00<br>
+      <a href="tel:+33633253497">06.33.25.34.97</a><br>
       <a href="don.html">Faire un don</a>
     </div>
     <div class="footer-col">
@@ -176,5 +103,6 @@
 </footer>
 
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/render.js" defer></script>
 </body>
 </html>

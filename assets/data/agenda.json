@@ -1,0 +1,46 @@
+{
+  "evenements": [
+    {
+      "titre": "Atelier « Apprivoiser son smartphone »",
+      "date": "2026-09-12",
+      "horaire": "14h",
+      "lieu": "Salle des fêtes",
+      "precision": "gratuit"
+    },
+    {
+      "titre": "Goûter-rencontre intergénérationnel",
+      "date": "2026-09-20",
+      "horaire": "16h",
+      "lieu": "Jardin partagé",
+      "precision": "ouvert à tous"
+    },
+    {
+      "titre": "Café-discussion « Nos souvenirs de village »",
+      "date": "2026-09-27",
+      "horaire": "10h",
+      "lieu": "Maison des associations",
+      "precision": ""
+    },
+    {
+      "titre": "Sortie au musée & pique-nique",
+      "date": "2026-10-04",
+      "horaire": "10h",
+      "lieu": "Départ place centrale",
+      "precision": ""
+    },
+    {
+      "titre": "Atelier cuisine de saison",
+      "date": "2026-10-11",
+      "horaire": "15h",
+      "lieu": "Cantine scolaire",
+      "precision": ""
+    },
+    {
+      "titre": "Après-midi jeux de société",
+      "date": "2026-10-25",
+      "horaire": "14h",
+      "lieu": "Salle des fêtes",
+      "precision": "gratuit"
+    }
+  ]
+}

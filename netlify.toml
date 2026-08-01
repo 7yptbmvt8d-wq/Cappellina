@@ -29,6 +29,23 @@
   [headers.values]
     Cache-Control = "public, max-age=604800"
 
+# Les fichiers de données sont réécrits par l'espace admin : ils doivent être
+# revalidés à chaque visite, sinon une modification de l'agenda mettrait
+# jusqu'à une semaine à apparaître dans les navigateurs déjà venus.
+[[headers]]
+  for = "/assets/data/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# L'espace admin ne doit être ni mis en cache ni indexé
+[[headers]]
+  for = "/admin/*"
+
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow"
+
 # --------------------------------------------------------------------------
 # Redirections
 # Netlify sert automatiquement /404.html pour les pages inconnues.
