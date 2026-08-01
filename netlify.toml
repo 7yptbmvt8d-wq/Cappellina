@@ -1,0 +1,40 @@
+# ==========================================================================
+# Configuration Netlify — site vitrine Cappellina
+# Site statique : aucune commande de build, on publie la racine du dépôt.
+# ==========================================================================
+
+[build]
+  publish = "."
+
+# --------------------------------------------------------------------------
+# En-têtes de sécurité appliqués à toutes les pages
+# --------------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# --------------------------------------------------------------------------
+# Mise en cache des ressources statiques
+# Une semaine : suffisant pour les performances, sans bloquer une mise à jour
+# du logo ou d'une photo pendant des mois.
+# --------------------------------------------------------------------------
+[[headers]]
+  for = "/assets/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# --------------------------------------------------------------------------
+# Redirections
+# Netlify sert automatiquement /404.html pour les pages inconnues.
+# L'ancienne page d'accueil Google Sites peut être redirigée ici si besoin :
+#   [[redirects]]
+#     from = "/ancienne-adresse"
+#     to = "/"
+#     status = 301
+# --------------------------------------------------------------------------

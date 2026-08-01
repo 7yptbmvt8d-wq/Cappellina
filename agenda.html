@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenda — Cappellina</title>
+<meta name="description" content="Retrouvez tous les prochains rendez-vous de Cappellina : ateliers, goûters-rencontres, cafés-discussions et sorties.">
+<meta property="og:title" content="Agenda — Cappellina">
+<meta property="og:description" content="Retrouvez toutes nos activités. L'inscription se fait sur place ou en nous contactant.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/banniere.jpg">
+<meta property="og:locale" content="fr_FR">
+<link rel="icon" href="assets/logo-cappellina.png">
+<link rel="preload" href="assets/fonts/quicksand-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/nunito-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <img class="brand__logo" src="assets/logo-cappellina.png" alt="Cappellina">
+    <span class="brand__tagline">Le lien qui<br>nous rassemble</span>
+  </a>
+
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-principal" aria-label="Ouvrir le menu">
+    <span class="nav-toggle__bar"></span>
+    <span class="nav-toggle__bar"></span>
+    <span class="nav-toggle__bar"></span>
+  </button>
+
+  <nav class="nav" id="nav-principal" aria-label="Navigation principale">
+    <a class="nav__link" href="index.html">Accueil</a>
+    <a class="nav__link" href="association.html">Association</a>
+    <a class="nav__link" href="actions.html">Nos actions</a>
+    <a class="nav__link" href="agenda.html" aria-current="page">Agenda</a>
+    <a class="nav__link" href="galerie.html">Galerie</a>
+    <a class="nav__cta" href="adherer.html">Nous rejoindre</a>
+  </nav>
+</header>
+
+<main id="contenu">
+
+  <div class="page-head">
+    <span class="badge">Agenda</span>
+    <h1>Nos prochains rendez-vous</h1>
+    <p>Retrouvez toutes nos activités. L'inscription se fait sur place ou en nous contactant.</p>
+  </div>
+
+  <div class="wrap">
+    <section class="section--sm">
+
+      <!--
+        AJOUTER UN ÉVÉNEMENT
+        Copier un bloc <article class="event"> … </article> et adapter :
+          - la couleur du jour : c-peach, c-sage ou c-blue (on alterne)
+          - le jour, le mois, le titre et la ligne d'informations
+        Pour un nouveau mois : ajouter un <h2 class="agenda-month"> puis un
+        nouveau conteneur <div class="events">.
+      -->
+
+      <h2 class="agenda-month">Septembre 2026</h2>
+      <div class="events">
+        <article class="event">
+          <div class="event__date">
+            <div class="event__day c-peach">12</div>
+            <div class="event__month">Sept</div>
+          </div>
+          <div class="event__body">
+            <div class="event__title">Atelier « Apprivoiser son smartphone »</div>
+            <div class="event__meta">14h · Salle des fêtes · gratuit</div>
+          </div>
+          <a class="btn btn--sm event__cta" href="adherer.html">S'inscrire</a>
+        </article>
+
+        <article class="event">
+          <div class="event__date">
+            <div class="event__day c-sage">20</div>
+            <div class="event__month">Sept</div>
+          </div>
+          <div class="event__body">
+            <div class="event__title">Goûter-rencontre intergénérationnel</div>
+            <div class="event__meta">16h · Jardin partagé · ouvert à tous</div>
+          </div>
+          <a class="btn btn--sm event__cta" href="adherer.html">S'inscrire</a>
+        </article>
+
+        <article class="event">
+          <div class="event__date">
+            <div class="event__day c-blue">27</div>
+            <div class="event__month">Sept</div>
+          </div>
+          <div class="event__body">
+            <div class="event__title">Café-discussion « Nos souvenirs de village »</div>
+            <div class="event__meta">10h · Maison des associations</div>
+          </div>
+          <a class="btn btn--sm event__cta" href="adherer.html">S'inscrire</a>
+        </article>
+      </div>
+
+      <h2 class="agenda-month">Octobre 2026</h2>
+      <div class="events">
+        <article class="event">
+          <div class="event__date">
+            <div class="event__day c-peach">04</div>
+            <div class="event__month">Oct</div>
+          </div>
+          <div class="event__body">
+            <div class="event__title">Sortie au musée &amp; pique-nique</div>
+            <div class="event__meta">10h · Départ place centrale</div>
+          </div>
+          <a class="btn btn--sm event__cta" href="adherer.html">S'inscrire</a>
+        </article>
+
+        <article class="event">
+          <div class="event__date">
+            <div class="event__day c-sage">11</div>
+            <div class="event__month">Oct</div>
+          </div>
+          <div class="event__body">
+            <div class="event__title">Atelier cuisine de saison</div>
+            <div class="event__meta">15h · Cantine scolaire</div>
+          </div>
+          <a class="btn btn--sm event__cta" href="adherer.html">S'inscrire</a>
+        </article>
+
+        <article class="event">
+          <div class="event__date">
+            <div class="event__day c-blue">25</div>
+            <div class="event__month">Oct</div>
+          </div>
+          <div class="event__body">
+            <div class="event__title">Après-midi jeux de société</div>
+            <div class="event__meta">14h · Salle des fêtes · gratuit</div>
+          </div>
+          <a class="btn btn--sm event__cta" href="adherer.html">S'inscrire</a>
+        </article>
+      </div>
+
+    </section>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__cols">
+    <div class="site-footer__brand">
+      <img class="site-footer__logo" src="assets/logo-cappellina.png" alt="Cappellina">
+      <p>Créer du lien entre les générations, un moment à la fois.</p>
+    </div>
+    <div class="footer-col">
+      <strong>Navigation</strong><br>
+      <a href="association.html">Association</a><br>
+      <a href="actions.html">Nos actions</a><br>
+      <a href="agenda.html">Agenda</a><br>
+      <a href="galerie.html">Galerie</a>
+    </div>
+    <div class="footer-col">
+      <strong>Contact</strong><br>
+      <a href="mailto:contact@cappellina.fr">contact@cappellina.fr</a><br>
+      <!-- TODO : numéro de téléphone à confirmer -->
+      06 00 00 00 00<br>
+      <a href="don.html">Faire un don</a>
+    </div>
+    <div class="footer-col">
+      <strong>Nous suivre</strong><br>
+      <!-- TODO : remplacer par les URL réelles des pages Facebook / Instagram -->
+      Facebook<br>
+      Instagram
+    </div>
+  </div>
+  <div class="site-footer__legal">© 2026 Cappellina · Association loi 1901</div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

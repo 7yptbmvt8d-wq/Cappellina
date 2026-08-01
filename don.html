@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faire un don — Cappellina</title>
+<meta name="description" content="Chaque contribution finance un atelier, un goûter, une sortie. Soutenez Cappellina et le lien intergénérationnel — reçu fiscal sur demande.">
+<meta property="og:title" content="Faire un don — Cappellina">
+<meta property="og:description" content="Chaque contribution finance un atelier, un goûter, une sortie. Merci de faire partie de l'aventure.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/banniere.jpg">
+<meta property="og:locale" content="fr_FR">
+<link rel="icon" href="assets/logo-cappellina.png">
+<link rel="preload" href="assets/fonts/quicksand-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/nunito-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <img class="brand__logo" src="assets/logo-cappellina.png" alt="Cappellina">
+    <span class="brand__tagline">Le lien qui<br>nous rassemble</span>
+  </a>
+
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-principal" aria-label="Ouvrir le menu">
+    <span class="nav-toggle__bar"></span>
+    <span class="nav-toggle__bar"></span>
+    <span class="nav-toggle__bar"></span>
+  </button>
+
+  <nav class="nav" id="nav-principal" aria-label="Navigation principale">
+    <a class="nav__link" href="index.html">Accueil</a>
+    <a class="nav__link" href="association.html">Association</a>
+    <a class="nav__link" href="actions.html">Nos actions</a>
+    <a class="nav__link" href="agenda.html">Agenda</a>
+    <a class="nav__link" href="galerie.html">Galerie</a>
+    <a class="nav__cta" href="adherer.html">Nous rejoindre</a>
+  </nav>
+</header>
+
+<main id="contenu">
+
+  <div class="page-head">
+    <span class="badge">Faire un don</span>
+    <h1>Votre soutien fait vivre le lien</h1>
+    <p>Chaque contribution finance un atelier, un goûter, une sortie. Merci de faire partie de l'aventure.</p>
+  </div>
+
+  <div class="wrap">
+    <section class="section--sm">
+      <div class="two-col">
+
+        <div>
+          <h2 class="block-title">À quoi sert votre don ?</h2>
+          <div class="tiers">
+            <div class="tier">
+              <div class="tier__dot bg-peach"></div>
+              <div>
+                <div class="tier__amount">15 €</div>
+                <p>le matériel d'un atelier numérique</p>
+              </div>
+            </div>
+            <div class="tier">
+              <div class="tier__dot bg-sage"></div>
+              <div>
+                <div class="tier__amount">30 €</div>
+                <p>un goûter-rencontre pour dix personnes</p>
+              </div>
+            </div>
+            <div class="tier">
+              <div class="tier__dot bg-blue"></div>
+              <div>
+                <div class="tier__amount">60 €</div>
+                <p>le transport d'une sortie de groupe</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2 class="panel__title panel__title--center">Je fais un don</h2>
+
+          <div class="amounts" role="group" aria-label="Choisir un montant">
+            <button class="amount" type="button" aria-pressed="false">15 €</button>
+            <button class="amount" type="button" aria-pressed="true">30 €</button>
+            <button class="amount" type="button" aria-pressed="false">60 €</button>
+          </div>
+
+          <label class="sr-only" for="montant-libre">Autre montant en euros</label>
+          <input class="input input--lg" id="montant-libre" type="number" min="1" step="1" inputmode="numeric" placeholder="Autre montant…">
+
+          <!--
+            TODO — PAIEMENT HELLOASSO
+            Remplacer l'URL ci-dessous par celle du formulaire de don HelloAsso
+            de l'association. HelloAsso gère le paiement sécurisé et l'édition
+            automatique du reçu fiscal.
+          -->
+          <a class="btn btn--block"
+             href="https://www.helloasso.com/associations/VOTRE-ASSOCIATION/formulaires/VOTRE-FORMULAIRE-DE-DON"
+             rel="noopener">Faire mon don</a>
+
+          <p class="panel__note">Paiement sécurisé · reçu fiscal sur demande</p>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__cols">
+    <div class="site-footer__brand">
+      <img class="site-footer__logo" src="assets/logo-cappellina.png" alt="Cappellina">
+      <p>Créer du lien entre les générations, un moment à la fois.</p>
+    </div>
+    <div class="footer-col">
+      <strong>Navigation</strong><br>
+      <a href="association.html">Association</a><br>
+      <a href="actions.html">Nos actions</a><br>
+      <a href="agenda.html">Agenda</a><br>
+      <a href="galerie.html">Galerie</a>
+    </div>
+    <div class="footer-col">
+      <strong>Contact</strong><br>
+      <a href="mailto:contact@cappellina.fr">contact@cappellina.fr</a><br>
+      <!-- TODO : numéro de téléphone à confirmer -->
+      06 00 00 00 00<br>
+      <a href="don.html">Faire un don</a>
+    </div>
+    <div class="footer-col">
+      <strong>Nous suivre</strong><br>
+      <!-- TODO : remplacer par les URL réelles des pages Facebook / Instagram -->
+      Facebook<br>
+      Instagram
+    </div>
+  </div>
+  <div class="site-footer__legal">© 2026 Cappellina · Association loi 1901</div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

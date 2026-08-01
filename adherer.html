@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nous rejoindre — Cappellina</title>
+<meta name="description" content="Adhérer à Cappellina, c'est participer à toutes nos activités et soutenir le lien intergénérationnel. Cotisation 15 € par personne, 25 € par famille.">
+<meta property="og:title" content="Nous rejoindre — Cappellina">
+<meta property="og:description" content="Adhérer, c'est participer à toutes nos activités et soutenir le lien intergénérationnel dans notre village.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/banniere.jpg">
+<meta property="og:locale" content="fr_FR">
+<link rel="icon" href="assets/logo-cappellina.png">
+<link rel="preload" href="assets/fonts/quicksand-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/nunito-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <img class="brand__logo" src="assets/logo-cappellina.png" alt="Cappellina">
+    <span class="brand__tagline">Le lien qui<br>nous rassemble</span>
+  </a>
+
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-principal" aria-label="Ouvrir le menu">
+    <span class="nav-toggle__bar"></span>
+    <span class="nav-toggle__bar"></span>
+    <span class="nav-toggle__bar"></span>
+  </button>
+
+  <nav class="nav" id="nav-principal" aria-label="Navigation principale">
+    <a class="nav__link" href="index.html">Accueil</a>
+    <a class="nav__link" href="association.html">Association</a>
+    <a class="nav__link" href="actions.html">Nos actions</a>
+    <a class="nav__link" href="agenda.html">Agenda</a>
+    <a class="nav__link" href="galerie.html">Galerie</a>
+    <a class="nav__cta" href="adherer.html" aria-current="page">Nous rejoindre</a>
+  </nav>
+</header>
+
+<main id="contenu">
+
+  <div class="page-head">
+    <span class="badge">Nous rejoindre</span>
+    <h1>Devenez membre de Cappellina</h1>
+    <p>Adhérer, c'est participer à toutes nos activités et soutenir le lien intergénérationnel dans notre village.</p>
+  </div>
+
+  <div class="wrap">
+    <section class="section--sm">
+      <div class="two-col two-col--form">
+
+        <div>
+          <h2 class="block-title">Pourquoi adhérer ?</h2>
+          <ul class="checklist">
+            <li>Accès à tous les ateliers, rencontres et sorties</li>
+            <li>Une communauté chaleureuse et solidaire</li>
+            <li>Vous soutenez le lien entre les générations</li>
+          </ul>
+
+          <div class="note">
+            <div class="note__title">Cotisation annuelle</div>
+            <p>15 € par personne · 25 € par famille<br>Tarif réduit pour les étudiants et petits budgets.</p>
+
+            <!--
+              TODO — ADHÉSION HELLOASSO
+              Remplacer l'URL ci-dessous par celle du formulaire d'adhésion
+              HelloAsso de l'association.
+            -->
+            <p class="note__action">
+              <a class="btn btn--primary"
+                 href="https://www.helloasso.com/associations/VOTRE-ASSOCIATION/adhesions/VOTRE-FORMULAIRE-D-ADHESION"
+                 rel="noopener">Adhérer en ligne</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2 class="panel__title">Formulaire de contact</h2>
+
+          <!--
+            Formulaire géré par Netlify Forms : aucune configuration serveur.
+            Les demandes arrivent dans l'onglet « Forms » du tableau de bord
+            Netlify, avec notification par e-mail si elle est activée.
+          -->
+          <form class="form-fields"
+                name="contact"
+                method="POST"
+                action="/merci.html"
+                data-netlify="true"
+                netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact">
+            <p class="hp">
+              <label>Ne pas remplir si vous êtes humain : <input name="bot-field"></label>
+            </p>
+
+            <div class="field">
+              <label for="nom">Nom et prénom</label>
+              <input class="input" id="nom" name="nom" type="text" autocomplete="name" placeholder="Votre nom…" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="vous@email.fr" required>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea class="input" id="message" name="message" rows="4" placeholder="Je souhaite rejoindre Cappellina…" required></textarea>
+            </div>
+
+            <button class="btn btn--block" type="submit">Envoyer ma demande</button>
+          </form>
+
+          <p class="panel__note panel__note--lg">Ou écrivez-nous à <a href="mailto:contact@cappellina.fr">contact@cappellina.fr</a></p>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__cols">
+    <div class="site-footer__brand">
+      <img class="site-footer__logo" src="assets/logo-cappellina.png" alt="Cappellina">
+      <p>Créer du lien entre les générations, un moment à la fois.</p>
+    </div>
+    <div class="footer-col">
+      <strong>Navigation</strong><br>
+      <a href="association.html">Association</a><br>
+      <a href="actions.html">Nos actions</a><br>
+      <a href="agenda.html">Agenda</a><br>
+      <a href="galerie.html">Galerie</a>
+    </div>
+    <div class="footer-col">
+      <strong>Contact</strong><br>
+      <a href="mailto:contact@cappellina.fr">contact@cappellina.fr</a><br>
+      <!-- TODO : numéro de téléphone à confirmer -->
+      06 00 00 00 00<br>
+      <a href="don.html">Faire un don</a>
+    </div>
+    <div class="footer-col">
+      <strong>Nous suivre</strong><br>
+      <!-- TODO : remplacer par les URL réelles des pages Facebook / Instagram -->
+      Facebook<br>
+      Instagram
+    </div>
+  </div>
+  <div class="site-footer__legal">© 2026 Cappellina · Association loi 1901</div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
