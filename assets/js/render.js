@@ -290,7 +290,7 @@
       .catch(function (erreur) {
         console.error('Agenda indisponible :', erreur);
         var texte = 'L’agenda n’a pas pu être chargé. ' +
-                    'Écrivez-nous à contact@cappellina.fr pour connaître les prochains rendez-vous.';
+                    'Écrivez-nous à cappellina2b@gmail.com pour connaître les prochains rendez-vous.';
         if (listeAgenda) { message(listeAgenda, texte); }
         if (apercuAgenda) { message(apercuAgenda, texte); }
       });

@@ -49,8 +49,8 @@ python3 -m http.server 8000
     ├── data/galerie.json Photos de la galerie — modifiable depuis l'admin
     ├── data/site.json    Photos des pages et bureau — modifiable depuis l'admin
     ├── photos/           Photos envoyées depuis l'admin
-    ├── logo-cappellina.png   ← à déposer
-    └── banniere.jpg          ← à déposer
+    ├── logo-cappellina.png   Logo officiel, fond transparent
+    └── banniere.jpg          Illustration de l'accueil
 ```
 
 L'en-tête et le pied de page sont **répétés dans chaque page** : c'est le prix
@@ -63,12 +63,7 @@ reportée dans les 9 fichiers HTML.
 
 Tous les points ci-dessous sont signalés par un commentaire `TODO` dans le code.
 
-### 1. Les deux images
-
-Déposer `logo-cappellina.png` (fond transparent) et `banniere.jpg` dans
-`assets/`. Voir `assets/README.md` pour les formats attendus.
-
-### 2. Les liens HelloAsso
+### 1. Les liens HelloAsso
 
 Deux URL sont à remplacer. Elles contiennent volontairement le mot
 `VOTRE-ASSOCIATION` pour être impossibles à rater :
@@ -87,17 +82,18 @@ grep -rn "VOTRE-ASSOCIATION" .
 HelloAsso gère le paiement sécurisé et l'édition automatique du reçu fiscal :
 rien à installer côté site.
 
-### 3. Les coordonnées
+### 2. Les liens Facebook / Instagram
 
-- Adresse `contact@cappellina.fr` — à confirmer.
-- Liens Facebook / Instagram — actuellement du texte simple, à transformer en liens.
+Actuellement du texte simple dans le pied de page des 9 pages, à transformer
+en liens une fois les pages créées.
 
-Le téléphone (`06.33.25.34.97`) est en place et cliquable sur mobile.
+L'adresse `cappellina2b@gmail.com` et le téléphone `06.33.25.34.97` sont en
+place, tous deux cliquables.
 
-### 4. Les photos et le bureau
+### 3. Les photos des pages
 
-Tout se fait depuis l'espace admin (voir plus bas) — aucune retouche de code.
-Le trésorier et le secrétaire restent à nommer.
+Les zones rayées attendent les vraies photos. Tout se fait depuis l'espace
+admin (voir plus bas) — aucune retouche de code. Le bureau est renseigné.
 
 ---
 
