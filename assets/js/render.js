@@ -48,6 +48,37 @@
     return new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
   }
 
+  // Les photos envoyées depuis l'admin arrivent telles quelles : un cliché de
+  // téléphone pèse volontiers plusieurs mégaoctets. On les fait passer par le
+  // service de transformation d'images de Netlify, qui les redimensionne et
+  // les convertit en WebP à la volée. L'original reste intact dans le dépôt.
+  //
+  // En développement local le service n'existe pas : on garde le chemin brut.
+  // Et si la transformation échoue en ligne, chaque image retombe d'elle-même
+  // sur son fichier d'origine (voir imageOptimisee).
+  var SERVICE_IMAGES = !/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)
+                    && location.protocol !== 'file:';
+
+  function urlOptimisee(chemin, largeur) {
+    if (!SERVICE_IMAGES || !/^\//.test(chemin)) { return chemin; }
+    return '/.netlify/images?url=' + encodeURIComponent(chemin) +
+           '&w=' + largeur + '&fm=webp&q=80';
+  }
+
+  // Crée une image optimisée qui revient au fichier d'origine en cas d'échec.
+  function imageOptimisee(chemin, largeur, texte) {
+    var img = document.createElement('img');
+    img.alt = texte || '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.addEventListener('error', function auSecours() {
+      img.removeEventListener('error', auSecours);
+      img.src = chemin;
+    });
+    img.src = urlOptimisee(chemin, largeur);
+    return img;
+  }
+
   // Ne remplace la source d'une image que si elle diffère réellement.
   // Sans ce contrôle, le navigateur télécharge une seconde fois un fichier
   // déjà en cours de chargement — la bannière pèse plusieurs centaines de Ko.
@@ -181,12 +212,9 @@
 
     var grille = document.createDocumentFragment();
     photos.forEach(function (photo, index) {
-      var img = document.createElement('img');
-      img.src = photo.image;
-      img.alt = photo.alt || '';
-      img.loading = 'lazy';
-      img.decoding = 'async';
       var classe = classeFormat(photo, index);
+      // Une case sur 2 colonnes fait environ le double de large à l'écran
+      var img = imageOptimisee(photo.image, classe ? 1400 : 760, photo.alt);
       if (classe) { img.className = classe; }
       grille.append(img);
     });
@@ -213,11 +241,7 @@
     var cible = document.querySelector('[data-photo="' + emplacement + '"]');
     if (!cible || !chemin) { return; }
 
-    var img = document.createElement('img');
-    img.src = chemin;
-    img.alt = ALT_PHOTOS[emplacement] || '';
-    img.loading = 'lazy';
-    img.decoding = 'async';
+    var img = imageOptimisee(chemin, 900, ALT_PHOTOS[emplacement]);
     img.className = cible.className.replace(/\bph\b/, '').trim();
 
     cible.replaceWith(img);
@@ -232,10 +256,8 @@
       var bloc = el('div', 'team__member');
 
       if (membre.photo) {
-        var img = document.createElement('img');
-        img.src = membre.photo;
-        img.alt = membre.nom ? 'Portrait de ' + membre.nom : '';
-        img.loading = 'lazy';
+        var img = imageOptimisee(membre.photo, 320,
+          membre.nom ? 'Portrait de ' + membre.nom : '');
         img.className = 'team__photo';
         bloc.append(img);
       } else {
