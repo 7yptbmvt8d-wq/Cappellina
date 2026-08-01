@@ -1,6 +1,6 @@
 {
   "identite": {
-    "logo": "",
+    "logo": "/assets/photos/logo-cappellina.png",
     "banniere": ""
   },
   "photos": {
@@ -17,12 +17,12 @@
       "photo": ""
     },
     {
-      "nom": "",
-      "role": "Trésorier",
+      "nom": "Anne-Frédérique Beckmann ",
+      "role": "Trésorière",
       "photo": ""
     },
     {
-      "nom": "",
+      "nom": "Alexandre Giorgi",
       "role": "Secrétaire",
       "photo": ""
     }
