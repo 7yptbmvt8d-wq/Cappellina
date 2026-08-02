@@ -887,6 +887,18 @@ img.team__photo {
 }
 
 .agenda-month + .agenda-month { margin-top: 48px; }
+.agenda-month--espace { margin-top: 56px; }
+
+/* Séance hebdomadaire : à la place du chiffre du jour, le nom du jour.
+   Même gabarit que les rendez-vous datés, pour que les deux listes se
+   lisent d'un seul mouvement. */
+.event__jour {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--terracotta);
+  line-height: 1.2;
+}
 
 .events {
   display: flex;

@@ -47,17 +47,64 @@
   <div class="page-head">
     <span class="badge">Agenda</span>
     <h1>Nos prochains rendez-vous</h1>
-    <p>Retrouvez toutes nos activités. L'inscription se fait sur place ou en nous contactant.</p>
+    <p>Les séances hebdomadaires reviennent chaque semaine ; les rendez-vous ponctuels sont datés. L'inscription est nécessaire dans tous les cas.</p>
   </div>
 
   <div class="wrap">
     <section class="section--sm">
 
       <!--
-        Les événements sont gérés depuis l'espace admin (/admin) et stockés
-        dans assets/data/agenda.json. Les événements passés disparaissent
-        automatiquement, et le regroupement par mois est calculé à l'affichage.
+        RYTHME HEBDOMADAIRE
+        Ces séances reviennent chaque semaine : les lister date par date
+        représenterait une cinquantaine de lignes qui n'apprendraient rien de
+        plus que « tous les jeudis ». Elles sont donc décrites une fois ici,
+        et l'agenda daté ci-dessous ne porte que les rendez-vous ponctuels.
       -->
+      <h2 class="agenda-month">Chaque semaine</h2>
+      <div class="events">
+        <article class="event event--rythme">
+          <div class="event__date"><div class="event__jour">Jeudi</div></div>
+          <div class="event__body">
+            <div class="event__title">Couture, broderie, crochet — adultes</div>
+            <div class="event__meta">10h-12h · Maison des associations, Santa Maria Poggio</div>
+          </div>
+          <a class="btn btn--sm event__cta" href="adherer.html" aria-label="S'inscrire — Couture, broderie, crochet — adultes">S'inscrire</a>
+        </article>
+        <article class="event event--rythme">
+          <div class="event__date"><div class="event__jour">Jeudi</div></div>
+          <div class="event__body">
+            <div class="event__title">Couture, broderie, crochet — enfants</div>
+            <div class="event__meta">16h-18h · Maison des associations, Santa Maria Poggio</div>
+          </div>
+          <a class="btn btn--sm event__cta" href="adherer.html" aria-label="S'inscrire — Couture, broderie, crochet — enfants">S'inscrire</a>
+        </article>
+        <article class="event event--rythme">
+          <div class="event__date"><div class="event__jour">Jeudi</div></div>
+          <div class="event__body">
+            <div class="event__title">Arts plastiques — adultes</div>
+            <div class="event__meta">16h-18h · Maison des associations, Santa Maria Poggio</div>
+          </div>
+          <a class="btn btn--sm event__cta event__cta--billet" href="https://www.helloasso.com/associations/cappellina" target="_blank" rel="noopener noreferrer" aria-label="Réserver — Arts plastiques — adultes (ouvre un nouvel onglet)">Réserver</a>
+        </article>
+        <article class="event event--rythme">
+          <div class="event__date"><div class="event__jour">Vendredi</div></div>
+          <div class="event__body">
+            <div class="event__title">Graphothérapie</div>
+            <div class="event__meta">16h-18h · Maison des associations, Santa Maria Poggio · enfants</div>
+          </div>
+          <a class="btn btn--sm event__cta" href="adherer.html" aria-label="S'inscrire — Graphothérapie">S'inscrire</a>
+        </article>
+        <article class="event event--rythme">
+          <div class="event__date"><div class="event__jour">Samedi</div></div>
+          <div class="event__body">
+            <div class="event__title">Pickleball</div>
+            <div class="event__meta">11h-12h30 · Fronton de pelote basque · dès 8 ans</div>
+          </div>
+          <a class="btn btn--sm event__cta" href="adherer.html" aria-label="S'inscrire — Pickleball">S'inscrire</a>
+        </article>
+      </div>
+
+      <h2 class="agenda-month agenda-month--espace">Les rendez-vous</h2>
       <div id="agenda-liste">
         <p class="vide">Chargement de l'agenda…</p>
       </div>
