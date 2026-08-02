@@ -83,6 +83,15 @@ collections:
                 required: false
                 hint: "Exemple : gratuit, ouvert à tous"
 
+              - name: billetterie
+                label: Lien de billetterie
+                widget: string
+                required: false
+                hint: >-
+                  Adresse de réservation en ligne. Renseignée, le bouton de
+                  l'événement devient « Réserver » et y conduit. Laissée vide,
+                  il renvoie à la page de contact.
+
   # ------------------------------------------------------------------------
   # Galerie photos
   # ------------------------------------------------------------------------

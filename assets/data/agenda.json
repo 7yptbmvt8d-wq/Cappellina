@@ -1,46 +1,149 @@
 {
   "evenements": [
     {
-      "titre": "Atelier « Apprivoiser son smartphone »",
-      "date": "2026-09-12",
-      "horaire": "14h",
-      "lieu": "Salle des fêtes",
-      "precision": "gratuit"
+      "titre": "Jeux de société",
+      "date": "2026-09-09",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "tout public"
     },
     {
-      "titre": "Goûter-rencontre intergénérationnel",
-      "date": "2026-09-20",
-      "horaire": "16h",
-      "lieu": "Jardin partagé",
-      "precision": "ouvert à tous"
+      "titre": "Reprise — Couture, broderie, crochet (adultes)",
+      "date": "2026-09-10",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "puis tous les jeudis"
     },
     {
-      "titre": "Café-discussion « Nos souvenirs de village »",
-      "date": "2026-09-27",
-      "horaire": "10h",
-      "lieu": "Maison des associations",
-      "precision": ""
+      "titre": "Reprise — Arts plastiques (adultes)",
+      "date": "2026-09-10",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "puis tous les jeudis",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
-      "titre": "Sortie au musée & pique-nique",
-      "date": "2026-10-04",
-      "horaire": "10h",
-      "lieu": "Départ place centrale",
-      "precision": ""
+      "titre": "Reprise — Couture, broderie, crochet (enfants)",
+      "date": "2026-09-10",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "puis tous les jeudis"
     },
     {
-      "titre": "Atelier cuisine de saison",
-      "date": "2026-10-11",
-      "horaire": "15h",
-      "lieu": "Cantine scolaire",
-      "precision": ""
+      "titre": "Calligraphie",
+      "date": "2026-09-16",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "dès 8 ans",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
-      "titre": "Après-midi jeux de société",
-      "date": "2026-10-25",
-      "horaire": "14h",
-      "lieu": "Salle des fêtes",
-      "precision": "gratuit"
+      "titre": "Reprise — Pickleball",
+      "date": "2026-09-19",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans, puis tous les samedis"
+    },
+    {
+      "titre": "Arts plastiques — enfants",
+      "date": "2026-09-23",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Vannerie — enfants",
+      "date": "2026-10-07",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Jeux de société",
+      "date": "2026-10-14",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "tout public"
+    },
+    {
+      "titre": "Calligraphie",
+      "date": "2026-10-21",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "dès 8 ans",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Arts plastiques — enfants",
+      "date": "2026-10-28",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Vannerie — enfants",
+      "date": "2026-11-04",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Jeux de société",
+      "date": "2026-11-11",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "tout public"
+    },
+    {
+      "titre": "Calligraphie",
+      "date": "2026-11-18",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "dès 8 ans",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Arts plastiques — enfants",
+      "date": "2026-11-25",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Vannerie — enfants",
+      "date": "2026-12-02",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Jeux de société",
+      "date": "2026-12-09",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "tout public"
+    },
+    {
+      "titre": "Calligraphie",
+      "date": "2026-12-16",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "dès 8 ans",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Arts plastiques — enfants",
+      "date": "2026-12-23",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
     }
   ]
 }

@@ -132,8 +132,20 @@
     corps.append(el('div', 'event__title', ev.titre || 'Événement'));
     if (meta) { corps.append(el('div', 'event__meta', meta)); }
 
-    var cta = el('a', 'btn btn--sm event__cta', "S'inscrire");
-    cta.href = 'adherer.html';
+    // Avec une billetterie renseignée dans l'admin, le bouton y mène
+    // directement et s'ouvre à côté ; sinon il renvoie à la page de contact.
+    var cta;
+    if (ev.billetterie) {
+      cta = el('a', 'btn btn--sm event__cta event__cta--billet', 'Réserver');
+      cta.href = ev.billetterie;
+      cta.target = '_blank';
+      cta.rel = 'noopener noreferrer';
+      cta.setAttribute('aria-label',
+        'Réserver ' + (ev.titre || 'cette activité') + ' (ouvre un nouvel onglet)');
+    } else {
+      cta = el('a', 'btn btn--sm event__cta', "S'inscrire");
+      cta.href = 'adherer.html';
+    }
 
     article.append(bloc, corps, cta);
     return article;

@@ -847,6 +847,26 @@ img.team__photo {
 
 .event__cta:hover { color: var(--ink); }
 
+/* Réservation en ligne : plus appuyé que le simple « S'inscrire » */
+.event__cta--billet {
+  background: var(--peach);
+  font-weight: 700;
+}
+
+/* Bouton de réservation sur une fiche d'activité */
+.activite__action { margin: 20px 0 0; }
+
+.activite__action .btn {
+  background: #F3E4DA;
+  color: var(--ink);
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 20px;
+}
+
+.activite__action .btn:hover { color: var(--ink); }
+
 /* Message d'attente / d'absence de contenu (agenda, galerie) */
 .vide {
   font-family: var(--font-body);
