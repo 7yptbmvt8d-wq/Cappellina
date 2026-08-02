@@ -231,7 +231,6 @@
     accueil: 'Un moment de partage entre les générations',
     association: 'Les fondateurs de Cappellina lors des premiers ateliers',
     actions_sorties: 'Une sortie de groupe organisée par l’association',
-    actions_couture: 'Un cours de couture animé par Aurélie',
     actions_conferences: 'Une conférence tout public organisée par l’association',
     actions_soirees: 'Une soirée festive de l’association'
   };

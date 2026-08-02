@@ -164,7 +164,6 @@ collections:
               - { name: accueil, label: "Accueil — moment de partage", widget: image, required: false }
               - { name: association, label: "Association — les débuts de l'association", widget: image, required: false }
               - { name: actions_sorties, label: "Nos actions — sortie de groupe", widget: image, required: false }
-              - { name: actions_couture, label: "Nos actions — cours de couture", widget: image, required: false }
               - { name: actions_conferences, label: "Nos actions — conférence", widget: image, required: false }
               - { name: actions_soirees, label: "Nos actions — soirée festive", widget: image, required: false }
 
