@@ -1,6 +1,12 @@
 # ==========================================================================
 # Configuration Netlify — site vitrine Cappellina
 # Site statique : aucune commande de build, on publie la racine du dépôt.
+#
+# ORDRE DES RÈGLES D'EN-TÊTES — IMPORTANT
+# Netlify applique les blocs [[headers]] dans l'ordre du fichier, et la
+# dernière règle qui correspond l'emporte. Les règles doivent donc aller du
+# plus général au plus précis : une règle « /assets/* » placée après
+# « /assets/fonts/* » écraserait cette dernière.
 # ==========================================================================
 
 [build]
@@ -19,10 +25,21 @@
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
 
 # --------------------------------------------------------------------------
-# Mise en cache des ressources statiques
-#
-# Les polices ne changent jamais : cache long, sans revalidation.
+# Mise en cache — du plus général au plus précis
 # --------------------------------------------------------------------------
+
+# Par défaut : les images, remplaçables depuis l'espace admin. Une heure de
+# cache avec revalidation — le navigateur ne les retélécharge pas à chaque
+# page, mais une photo remplacée apparaît sans délai. Un cache long ferait
+# pire : il mémoriserait aussi l'absence d'un fichier pas encore déposé, et
+# le visiteur garderait une image cassée pendant des jours.
+[[headers]]
+  for = "/assets/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Les polices ne changent jamais : cache long, sans revalidation.
 [[headers]]
   for = "/assets/fonts/*"
 
@@ -32,7 +49,7 @@
 # Feuille de style et scripts : revalidés à chaque visite. Ils changent à
 # chaque retouche du site, et un cache de plusieurs heures sert au visiteur
 # une ancienne version avec la nouvelle page — mise en page cassée à la clé.
-# Ils sont légers, et une revalidation renvoie un simple « non modifié ».
+# Ils sont légers, et une revalidation coûte un simple « non modifié ».
 [[headers]]
   for = "/assets/css/*"
 
@@ -45,20 +62,9 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# Les images, elles, sont remplaçables depuis l'espace admin. Une heure de
-# cache avec revalidation : le navigateur ne retélécharge pas l'image à chaque
-# page, mais un logo ou une photo remplacé apparaît sans délai. Un cache long
-# ferait pire : il mémoriserait aussi l'absence d'un fichier pas encore
-# déposé, et le visiteur garderait une image cassée pendant des jours.
-[[headers]]
-  for = "/assets/*"
-
-  [headers.values]
-    Cache-Control = "public, max-age=3600, must-revalidate"
-
 # Les fichiers de données sont réécrits par l'espace admin : ils doivent être
 # revalidés à chaque visite, sinon une modification de l'agenda mettrait
-# jusqu'à une semaine à apparaître dans les navigateurs déjà venus.
+# jusqu'à une heure à apparaître dans les navigateurs déjà venus.
 [[headers]]
   for = "/assets/data/*"
 
