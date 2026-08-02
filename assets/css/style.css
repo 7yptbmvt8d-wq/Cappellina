@@ -884,24 +884,15 @@ img.team__photo {
   font-weight: 700;
 }
 
-/* Bouton de réservation : c'est l'action attendue de la fiche, il porte
-   donc l'accent principal, et non le beige discret des boutons secondaires. */
+/* Bouton de réservation : c'est l'action attendue de la fiche. Il emploie
+   le même composant que « Nous rejoindre » (.btn--primary), sans surcharge,
+   pour que les deux ne puissent pas diverger au fil des retouches.
+   Seuls l'espacement et le filet de séparation sont définis ici. */
 .activite__action {
   margin: 22px 0 0;
   padding-top: 20px;
   border-top: 1px solid var(--border-soft);
 }
-
-.activite__action .btn {
-  background: var(--peach);
-  color: var(--ink);
-  font-family: var(--font-title);
-  font-weight: 700;
-  font-size: 15px;
-  padding: 13px 26px;
-}
-
-.activite__action .btn:hover { color: var(--ink); }
 
 /* Message d'attente / d'absence de contenu (agenda, galerie) */
 .vide {
