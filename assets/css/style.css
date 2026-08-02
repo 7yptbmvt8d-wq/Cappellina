@@ -698,19 +698,28 @@ img.team__photo {
   box-shadow: var(--shadow-card);
 }
 
-/* Pictogramme de la fiche : mêmes teintes que les tags de catégorie */
+/* Pictogramme de la fiche : posé à côté du titre, discret.
+   Il repère l'activité d'un coup d'œil, il ne la remplace pas. */
+.activite__entete {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 10px;
+}
+
 .activite__icone {
-  width: 54px;
-  height: 54px;
-  border-radius: 16px;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .activite__icone svg {
-  width: 27px;
-  height: 27px;
+  width: 19px;
+  height: 19px;
   display: block;
 }
 
@@ -721,9 +730,10 @@ img.team__photo {
 
 .activite h3 {
   font-weight: 700;
-  font-size: 21px;
-  margin: 14px 0 8px;
+  font-size: 20px;
+  margin: 0;
   color: var(--ink);
+  text-wrap: balance;
 }
 
 .activite__desc {
@@ -874,16 +884,21 @@ img.team__photo {
   font-weight: 700;
 }
 
-/* Bouton de réservation sur une fiche d'activité */
-.activite__action { margin: 20px 0 0; }
+/* Bouton de réservation : c'est l'action attendue de la fiche, il porte
+   donc l'accent principal, et non le beige discret des boutons secondaires. */
+.activite__action {
+  margin: 22px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-soft);
+}
 
 .activite__action .btn {
-  background: #F3E4DA;
+  background: var(--peach);
   color: var(--ink);
   font-family: var(--font-title);
-  font-weight: 600;
-  font-size: 14px;
-  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 13px 26px;
 }
 
 .activite__action .btn:hover { color: var(--ink); }
