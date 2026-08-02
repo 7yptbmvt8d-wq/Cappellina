@@ -67,14 +67,14 @@
             <p>15 € par personne · 25 € par famille<br>Tarif réduit pour les étudiants et petits budgets.</p>
 
             <!--
-              Page HelloAsso de l'association. Si un formulaire d'adhésion
-              dédié est créé, pointer directement dessus : le visiteur arrive
-              sur le paiement plutôt que sur la liste des campagnes.
+              Page HelloAsso de l'association. Ouvre un nouvel onglet pour que
+              le futur adhérent garde le site sous la main.
             -->
             <p class="note__action">
               <a class="btn btn--primary"
                  href="https://www.helloasso.com/associations/cappellina"
-                 rel="noopener">Adhérer en ligne</a>
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Adhérer en ligne sur HelloAsso (ouvre un nouvel onglet)">Adhérer en ligne</a>
             </p>
           </div>
         </div>
@@ -146,7 +146,8 @@
     </div>
     <div class="footer-col">
       <strong>Nous suivre</strong><br>
-      <!-- TODO : remplacer par les URL réelles des pages Facebook / Instagram -->
+      <!-- TODO : remplacer par les URL réelles des pages Facebook / Instagram.
+           Étant des liens externes, penser à target="_blank" rel="noopener noreferrer". -->
       Facebook<br>
       Instagram
     </div>

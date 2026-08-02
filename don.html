@@ -95,12 +95,13 @@
 
           <!--
             Formulaire de don HelloAsso : paiement sécurisé et reçu fiscal
-            gérés de leur côté. L'URL est volontairement dépourvue de
-            paramètres de suivi (?_gl=…), propres à une session de navigation.
+            gérés de leur côté. Ouvre un nouvel onglet pour que le donateur
+            ne perde pas le site.
           -->
           <a class="btn btn--block"
-             href="https://www.helloasso.com/associations/cappellina/formulaires/1"
-             rel="noopener">Faire mon don</a>
+             href="https://www.helloasso.com/associations/cappellina/formulaires/1?_gl=1*1d8xe1*_gcl_aw*R0NMLjE3ODU2MDEyMDEuQ2owS0NRanc1SlhGQmhDckFSSXNBTDFja1B0MlBpV2xPei1lNmg3bTBURVpZVkNNRXk4dDJPcThpRl9MUzVkRjVXcW5Da3Q0WHA5TkdQTWFBc1FMRUFMd193Y0I.*_gcl_au*MTM1ODkzOTAwOC4xNzgwMjA2ODM2Li0uLS4xNzg1NjAxMjMzLjIyNDExNjU5OC4xNzg1NTgzNDY0LjE3ODU2MDcwMDY."
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Faire mon don sur HelloAsso (ouvre un nouvel onglet)">Faire mon don</a>
 
           <p class="panel__note">Paiement sécurisé · reçu fiscal sur demande</p>
         </div>
@@ -132,7 +133,8 @@
     </div>
     <div class="footer-col">
       <strong>Nous suivre</strong><br>
-      <!-- TODO : remplacer par les URL réelles des pages Facebook / Instagram -->
+      <!-- TODO : remplacer par les URL réelles des pages Facebook / Instagram.
+           Étant des liens externes, penser à target="_blank" rel="noopener noreferrer". -->
       Facebook<br>
       Instagram
     </div>
