@@ -1,33 +1,18 @@
 {
   "evenements": [
     {
+      "titre": "Fête de l'association",
+      "date": "2026-08-09",
+      "horaire": "",
+      "lieu": "",
+      "precision": "ouvert à tous — horaire et lieu à préciser"
+    },
+    {
       "titre": "Jeux de société",
       "date": "2026-09-09",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
       "precision": "tout public"
-    },
-    {
-      "titre": "Reprise — Couture, broderie, crochet (adultes)",
-      "date": "2026-09-10",
-      "horaire": "10h-12h",
-      "lieu": "Maison des associations, Santa Maria Poggio",
-      "precision": "puis tous les jeudis"
-    },
-    {
-      "titre": "Reprise — Arts plastiques (adultes)",
-      "date": "2026-09-10",
-      "horaire": "16h-18h",
-      "lieu": "Maison des associations, Santa Maria Poggio",
-      "precision": "puis tous les jeudis",
-      "billetterie": "https://www.helloasso.com/associations/cappellina"
-    },
-    {
-      "titre": "Reprise — Couture, broderie, crochet (enfants)",
-      "date": "2026-09-10",
-      "horaire": "16h-18h",
-      "lieu": "Maison des associations, Santa Maria Poggio",
-      "precision": "puis tous les jeudis"
     },
     {
       "titre": "Calligraphie",
@@ -36,13 +21,6 @@
       "lieu": "Maison des associations, Santa Maria Poggio",
       "precision": "dès 8 ans",
       "billetterie": "https://www.helloasso.com/associations/cappellina"
-    },
-    {
-      "titre": "Reprise — Pickleball",
-      "date": "2026-09-19",
-      "horaire": "11h-12h30",
-      "lieu": "Fronton de pelote basque",
-      "precision": "dès 8 ans, puis tous les samedis"
     },
     {
       "titre": "Arts plastiques — enfants",

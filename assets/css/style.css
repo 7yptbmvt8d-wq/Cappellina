@@ -176,6 +176,80 @@ h1, h2, h3 {
 }
 
 /* --------------------------------------------------------------------------
+   Bandeau d'annonce défilant (accueil)
+   Deux groupes identiques se suivent ; l'animation déplace la piste d'une
+   largeur de groupe exactement, d'où une boucle sans raccord. Chaque groupe
+   occupe au moins la largeur de l'écran, sinon un blanc apparaîtrait sur les
+   grands moniteurs.
+   -------------------------------------------------------------------------- */
+.annonce {
+  background: var(--ink);
+  color: var(--cream);
+  overflow: hidden;
+}
+
+.annonce__lien {
+  display: block;
+  color: inherit;
+  padding: 11px 0;
+}
+
+.annonce__lien:hover { color: inherit; }
+
+.annonce__piste {
+  display: flex;
+  width: max-content;
+  animation: annonce-defile 32s linear infinite;
+}
+
+.annonce__groupe {
+  display: flex;
+  flex: 0 0 auto;
+  min-width: 100vw;
+  justify-content: space-around;
+}
+
+.annonce__texte {
+  padding: 0 2.5rem;
+  white-space: nowrap;
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: .01em;
+}
+
+@keyframes annonce-defile {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Le défilement s'interrompt au survol et au clavier : sans cela, impossible
+   de lire tranquillement ni de viser le lien. */
+.annonce:hover .annonce__piste,
+.annonce:focus-within .annonce__piste {
+  animation-play-state: paused;
+}
+
+/* Un texte qui bouge est un obstacle pour une partie des lecteurs — vertiges,
+   troubles de l'attention, dyslexie. Quand le système signale cette
+   préférence, le message s'affiche simplement, centré et immobile. */
+@media (prefers-reduced-motion: reduce) {
+  .annonce__piste {
+    animation: none;
+    width: 100%;
+  }
+
+  .annonce__groupe { min-width: 0; }
+  .annonce__groupe + .annonce__groupe { display: none; }
+  .annonce__groupe .annonce__texte + .annonce__texte { display: none; }
+  .annonce__groupe { justify-content: center; }
+}
+
+@media (max-width: 640px) {
+  .annonce__texte { font-size: 14px; padding: 0 1.5rem; }
+}
+
+/* --------------------------------------------------------------------------
    03. En-tête + navigation
    -------------------------------------------------------------------------- */
 .site-header {
@@ -813,6 +887,18 @@ img.team__photo {
 }
 
 .agenda-month + .agenda-month { margin-top: 48px; }
+.agenda-month--espace { margin-top: 56px; }
+
+/* Séance hebdomadaire : à la place du chiffre du jour, le nom du jour.
+   Même gabarit que les rendez-vous datés, pour que les deux listes se
+   lisent d'un seul mouvement. */
+.event__jour {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--terracotta);
+  line-height: 1.2;
+}
 
 .events {
   display: flex;
