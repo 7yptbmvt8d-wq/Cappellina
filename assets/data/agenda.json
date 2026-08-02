@@ -1,6 +1,13 @@
 {
   "evenements": [
     {
+      "titre": "Fête de l'association",
+      "date": "2026-08-09",
+      "horaire": "",
+      "lieu": "",
+      "precision": "ouvert à tous — horaire et lieu à préciser"
+    },
+    {
       "titre": "Jeux de société",
       "date": "2026-09-09",
       "horaire": "16h-18h",
@@ -8,26 +15,26 @@
       "precision": "tout public"
     },
     {
-      "titre": "Reprise — Couture, broderie, crochet (adultes)",
+      "titre": "Couture, broderie, crochet — adultes",
       "date": "2026-09-10",
       "horaire": "10h-12h",
       "lieu": "Maison des associations, Santa Maria Poggio",
-      "precision": "puis tous les jeudis"
+      "precision": "reprise"
     },
     {
-      "titre": "Reprise — Arts plastiques (adultes)",
+      "titre": "Arts plastiques — adultes",
       "date": "2026-09-10",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
-      "precision": "puis tous les jeudis",
+      "precision": "reprise",
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
-      "titre": "Reprise — Couture, broderie, crochet (enfants)",
+      "titre": "Couture, broderie, crochet — enfants",
       "date": "2026-09-10",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
-      "precision": "puis tous les jeudis"
+      "precision": "reprise"
     },
     {
       "titre": "Calligraphie",
@@ -38,11 +45,33 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
-      "titre": "Reprise — Pickleball",
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-09-17",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-09-17",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-09-17",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
       "date": "2026-09-19",
       "horaire": "11h-12h30",
       "lieu": "Fronton de pelote basque",
-      "precision": "dès 8 ans, puis tous les samedis"
+      "precision": "dès 8 ans · reprise"
     },
     {
       "titre": "Arts plastiques — enfants",
@@ -53,6 +82,64 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-09-24",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-09-24",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-09-24",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
+      "date": "2026-09-26",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans"
+    },
+    {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-10-01",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-10-01",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-10-01",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
+      "date": "2026-10-03",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans"
+    },
+    {
       "titre": "Vannerie — enfants",
       "date": "2026-10-07",
       "horaire": "16h-18h",
@@ -61,11 +148,69 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-10-08",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-10-08",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-10-08",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
+      "date": "2026-10-10",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans"
+    },
+    {
       "titre": "Jeux de société",
       "date": "2026-10-14",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
       "precision": "tout public"
+    },
+    {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-10-15",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-10-15",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-10-15",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
+      "date": "2026-10-17",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans"
     },
     {
       "titre": "Calligraphie",
@@ -76,12 +221,70 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-10-22",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-10-22",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-10-22",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
+      "date": "2026-10-24",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans"
+    },
+    {
       "titre": "Arts plastiques — enfants",
       "date": "2026-10-28",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
       "precision": "",
       "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-10-29",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-10-29",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-10-29",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
+      "date": "2026-10-31",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans"
     },
     {
       "titre": "Vannerie — enfants",
@@ -92,11 +295,69 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-11-05",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-11-05",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-11-05",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
+      "date": "2026-11-07",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans"
+    },
+    {
       "titre": "Jeux de société",
       "date": "2026-11-11",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
       "precision": "tout public"
+    },
+    {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-11-12",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-11-12",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-11-12",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
+      "date": "2026-11-14",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans"
     },
     {
       "titre": "Calligraphie",
@@ -107,12 +368,70 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-11-19",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-11-19",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-11-19",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
+      "date": "2026-11-21",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans"
+    },
+    {
       "titre": "Arts plastiques — enfants",
       "date": "2026-11-25",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
       "precision": "",
       "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-11-26",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-11-26",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-11-26",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
+      "date": "2026-11-28",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans"
     },
     {
       "titre": "Vannerie — enfants",
@@ -123,11 +442,69 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-12-03",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-12-03",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-12-03",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
+      "date": "2026-12-05",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans"
+    },
+    {
       "titre": "Jeux de société",
       "date": "2026-12-09",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
       "precision": "tout public"
+    },
+    {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-12-10",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-12-10",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-12-10",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
+      "date": "2026-12-12",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans"
     },
     {
       "titre": "Calligraphie",
@@ -138,12 +515,92 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-12-17",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-12-17",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-12-17",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
+      "date": "2026-12-19",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans"
+    },
+    {
       "titre": "Arts plastiques — enfants",
       "date": "2026-12-23",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
       "precision": "",
       "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-12-24",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-12-24",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-12-24",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Pickleball",
+      "date": "2026-12-26",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans"
+    },
+    {
+      "titre": "Couture, broderie, crochet — adultes",
+      "date": "2026-12-31",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
+    },
+    {
+      "titre": "Arts plastiques — adultes",
+      "date": "2026-12-31",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "titre": "Couture, broderie, crochet — enfants",
+      "date": "2026-12-31",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": ""
     }
   ]
 }

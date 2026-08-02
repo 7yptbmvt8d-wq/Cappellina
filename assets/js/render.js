@@ -27,6 +27,26 @@
   var COULEURS = ['c-peach', 'c-sage', 'c-blue'];
 
   /* ---------------------------------------------------------------------
+     Bandeau d'annonce — retiré de lui-même une fois la date passée
+     Sans cela, il faudrait penser à supprimer le bandeau le lendemain de
+     l'événement : personne n'y pense, et le site annonce une fête révolue.
+     --------------------------------------------------------------------- */
+  (function () {
+    var annonce = document.querySelector('[data-annonce-jusquau]');
+    if (!annonce) { return; }
+
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(annonce.getAttribute('data-annonce-jusquau'));
+    if (!m) { return; }
+
+    var limite = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+    var aujourdhui = new Date();
+    aujourdhui.setHours(0, 0, 0, 0);
+
+    // Le bandeau reste visible le jour même de l'événement
+    if (aujourdhui > limite) { annonce.remove(); }
+  })();
+
+  /* ---------------------------------------------------------------------
      Utilitaires
      --------------------------------------------------------------------- */
 
