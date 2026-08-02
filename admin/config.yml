@@ -88,7 +88,7 @@ collections:
                 widget: string
                 required: false
                 hint: >-
-                  Adresse de réservation en ligne. Renseignée, le bouton de
+                  Adresse de la billetterie HelloAsso. Renseignée, le bouton de
                   l'événement devient « Réserver » et y conduit. Laissée vide,
                   il renvoie à la page de contact.
 
