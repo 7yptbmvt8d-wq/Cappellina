@@ -38,6 +38,7 @@
   --terracotta: #C97F55;     /* liens & survol */
   --sage: #8FA98A;
   --blue: #9AAEC4;
+  --sand: #D9BC93;           /* 4e accent, repris de la bande du flyer */
   --brown: #a8714f;          /* slogan */
 
   /* Bordures */
@@ -162,6 +163,7 @@ h1, h2, h3 {
 .bg-peach { background: var(--peach); }
 .bg-sage  { background: var(--sage); }
 .bg-blue  { background: var(--blue); }
+.bg-sand  { background: var(--sand); }
 
 .sr-only {
   position: absolute;
@@ -592,6 +594,10 @@ img.team__photo {
   gap: 24px;
 }
 
+/* Quatre activités : 4 colonnes, puis 2, puis 1.
+   Sélecteur doublé pour passer devant les règles responsive de .cards. */
+.cards.cards--4 { grid-template-columns: repeat(4, 1fr); }
+
 .card {
   background: #fff;
   border-radius: 24px;
@@ -641,9 +647,10 @@ img.team__photo {
   border-radius: 999px;
 }
 
-.tag--ateliers    { background: #F3D9C9; color: #a8714f; }
-.tag--rencontres  { background: #D9E5D6; color: #5f7a58; }
 .tag--sorties     { background: #CFDCE8; color: #4f6480; }
+.tag--couture     { background: #F3D9C9; color: #a8714f; }
+.tag--conferences { background: #F1E3CB; color: #8a6b3c; }
+.tag--soirees     { background: #D9E5D6; color: #5f7a58; }
 
 /* Membres du bureau */
 .team {
@@ -1099,6 +1106,7 @@ textarea.input {
   .split__media { flex-basis: 340px; }
   .split--histoire .split__media { flex-basis: 360px; }
   .cards { gap: 20px; }
+  .cards.cards--4 { grid-template-columns: repeat(2, 1fr); }
   .card { padding: 28px; }
   .cards--valeurs .card { padding: 28px; }
   .panel { padding: 32px; }
@@ -1160,6 +1168,8 @@ textarea.input {
     grid-template-columns: 1fr;
   }
 
+  .cards.cards--4 { grid-template-columns: repeat(2, 1fr); }
+
   .two-col,
   .two-col--form {
     grid-template-columns: 1fr;
@@ -1208,6 +1218,8 @@ textarea.input {
     grid-template-columns: 1fr;
     margin-top: -32px;
   }
+
+  .cards.cards--4 { grid-template-columns: 1fr; }
 
   .section-title,
   .section-head h2,

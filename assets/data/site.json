@@ -6,9 +6,10 @@
   "photos": {
     "accueil": "",
     "association": "",
-    "actions_ateliers": "",
-    "actions_rencontres": "",
-    "actions_sorties": ""
+    "actions_sorties": "",
+    "actions_couture": "",
+    "actions_conferences": "",
+    "actions_soirees": ""
   },
   "bureau": [
     {
