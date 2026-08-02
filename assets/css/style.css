@@ -867,34 +867,15 @@ img.team__photo {
 
 .panel__note--lg { font-size: 14px; margin-top: 20px; }
 
-/* Sélecteur de montant */
-.amounts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.amount {
-  border: 1.5px solid var(--border);
-  border-radius: 14px;
-  padding: 16px 0;
+/* Phrase d'introduction de la carte de don */
+.panel__lead {
+  font-family: var(--font-body);
   text-align: center;
-  font-family: var(--font-title);
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--ink);
-  background: #fff;
-  cursor: pointer;
-  transition: border-color .15s ease, background-color .15s ease;
-}
-
-.amount:hover { border-color: var(--peach); }
-
-.amount[aria-pressed="true"] {
-  border-width: 2px;
-  border-color: var(--peach);
-  background: #FBF3EC;
+  color: var(--ink-2);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 24px;
+  text-wrap: pretty;
 }
 
 /* Champs */
@@ -929,12 +910,6 @@ img.team__photo {
   outline: none;
   border-color: var(--peach);
   box-shadow: 0 0 0 3px rgba(232, 183, 158, .35);
-}
-
-.input--lg {
-  border-radius: 14px;
-  padding: 14px 18px;
-  margin-bottom: 20px;
 }
 
 textarea.input {
@@ -1290,8 +1265,6 @@ textarea.input {
   }
 
   .panel { padding: 26px; border-radius: 22px; }
-  .amounts { gap: 8px; }
-  .amount { font-size: 16px; padding: 14px 0; }
 
   .split__media,
   .split--histoire .split__media,
