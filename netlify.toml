@@ -29,6 +29,22 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Feuille de style et scripts : revalidés à chaque visite. Ils changent à
+# chaque retouche du site, et un cache de plusieurs heures sert au visiteur
+# une ancienne version avec la nouvelle page — mise en page cassée à la clé.
+# Ils sont légers, et une revalidation renvoie un simple « non modifié ».
+[[headers]]
+  for = "/assets/css/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/js/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
 # Les images, elles, sont remplaçables depuis l'espace admin. Une heure de
 # cache avec revalidation : le navigateur ne retélécharge pas l'image à chaque
 # page, mais un logo ou une photo remplacé apparaît sans délai. Un cache long
