@@ -14,17 +14,17 @@
     {
       "nom": "Christophe Mori",
       "role": "Président",
-      "photo": ""
+      "photo": "/assets/photos/christophe.jpg"
     },
     {
       "nom": "Anne-Frédérique Beckmann ",
       "role": "Trésorière",
-      "photo": ""
+      "photo": "/assets/photos/photo-anne.jpg"
     },
     {
       "nom": "Alexandre Giorgi",
       "role": "Secrétaire",
-      "photo": ""
+      "photo": "/assets/photos/photo-alexandre.jpg"
     }
   ]
 }
