@@ -1,0 +1,207 @@
+{
+  "familles": [
+    {
+      "titre": "Ateliers hebdomadaires",
+      "lieu": "Maison des associations · Vanga di l'Oru, Santa Maria Poggio",
+      "activites": [
+        {
+          "titre": "Jeux de société",
+          "description": "Des moments de convivialité et de réflexion loin des écrans.",
+          "icone": "jeux",
+          "couleur": "sage",
+          "lieu": "",
+          "horaires": [
+            "2ᵉ mercredi du mois, 16h-18h, dès le 9 septembre"
+          ],
+          "public": "Tout public",
+          "contacts": [
+            {
+              "nom": "Jean-Marie",
+              "telephone": "06 13 09 48 44"
+            }
+          ],
+          "payante": false,
+          "billetterie": ""
+        },
+        {
+          "titre": "Calligraphie",
+          "description": "Cours donnés par une intervenante japonaise.",
+          "icone": "calligraphie",
+          "couleur": "sand",
+          "lieu": "",
+          "horaires": [
+            "3ᵉ mercredi du mois, 16h-18h, dès le 16 septembre"
+          ],
+          "public": "Adultes et enfants à partir de 8 ans",
+          "contacts": [
+            {
+              "nom": "Maya",
+              "telephone": "06 73 65 04 14"
+            }
+          ],
+          "payante": true,
+          "billetterie": "https://www.helloasso.com/associations/cappellina"
+        },
+        {
+          "titre": "Arts plastiques",
+          "description": "Peinture, sculpture, modelage.",
+          "icone": "palette",
+          "couleur": "peach",
+          "lieu": "",
+          "horaires": [
+            "Enfants : 4ᵉ mercredi du mois, 16h-18h, dès le 23 septembre",
+            "Adultes : jeudi, 16h-18h, dès le 10 septembre"
+          ],
+          "public": "",
+          "contacts": [
+            {
+              "nom": "Marie-Joëlle",
+              "telephone": "06 46 24 35 13"
+            }
+          ],
+          "payante": true,
+          "billetterie": "https://www.helloasso.com/associations/cappellina"
+        },
+        {
+          "titre": "Vannerie",
+          "description": "Fabrication de paniers et décorations.",
+          "icone": "panier",
+          "couleur": "sand",
+          "lieu": "",
+          "horaires": [
+            "Enfants : 1er mercredi du mois, 16h-18h, dès le 7 octobre"
+          ],
+          "public": "",
+          "contacts": [
+            {
+              "nom": "Natalina",
+              "telephone": "06 83 30 16 61"
+            }
+          ],
+          "payante": true,
+          "billetterie": "https://www.helloasso.com/associations/cappellina"
+        },
+        {
+          "titre": "Couture, broderie, crochet",
+          "description": "Créations textiles et vêtements, en partenariat avec les écoles.",
+          "icone": "ciseaux",
+          "couleur": "peach",
+          "lieu": "",
+          "horaires": [
+            "Adultes : jeudi, 10h-12h, dès le 10 septembre",
+            "Enfants : jeudi, 16h-18h, dès le 10 septembre"
+          ],
+          "public": "",
+          "contacts": [
+            {
+              "nom": "Aurélie",
+              "telephone": "06 10 11 01 15"
+            },
+            {
+              "nom": "Sandra",
+              "telephone": "06 33 25 34 97"
+            }
+          ],
+          "payante": false,
+          "billetterie": ""
+        },
+        {
+          "titre": "Graphothérapie",
+          "description": "Ateliers de rééducation de l'écriture pour les enfants ayant des difficultés.",
+          "icone": "cahier",
+          "couleur": "blue",
+          "lieu": "",
+          "horaires": [
+            "Vendredi, 16h-18h"
+          ],
+          "public": "Enfants",
+          "contacts": [],
+          "payante": false,
+          "billetterie": ""
+        }
+      ]
+    },
+    {
+      "titre": "Le coin des sportifs",
+      "lieu": "Bouger ensemble, à son rythme, toute l'année",
+      "activites": [
+        {
+          "titre": "Pickleball",
+          "description": "Un sport de raquette accessible, à mi-chemin entre le tennis et le badminton.",
+          "icone": "raquette",
+          "couleur": "blue",
+          "lieu": "Fronton de pelote basque",
+          "horaires": [
+            "Samedi 11h-12h30, dès le 16 septembre"
+          ],
+          "public": "Adultes et enfants à partir de 8 ans",
+          "contacts": [
+            {
+              "nom": "Régis",
+              "telephone": "06 85 05 32 80"
+            }
+          ],
+          "payante": false,
+          "billetterie": ""
+        },
+        {
+          "titre": "Danse Escucha Bachata",
+          "description": "Apprendre à danser à deux, dans la bonne humeur.",
+          "icone": "musique",
+          "couleur": "peach",
+          "lieu": "Salle des fêtes",
+          "horaires": [
+            "Un dimanche sur 2, 16h-18h, de septembre à juin"
+          ],
+          "public": "Adultes",
+          "contacts": [
+            {
+              "nom": "Lucas",
+              "telephone": "06 72 19 11 69"
+            }
+          ],
+          "payante": false,
+          "billetterie": ""
+        },
+        {
+          "titre": "Vélo",
+          "description": "Vélos électriques mis à disposition au départ de San Giovanni.",
+          "icone": "velo",
+          "couleur": "sage",
+          "lieu": "Départ de San Giovanni",
+          "horaires": [
+            "1 sortie par mois, de septembre à novembre et de mars à mai"
+          ],
+          "public": "Adultes",
+          "contacts": [
+            {
+              "nom": "Sandra",
+              "telephone": "06 33 25 34 97"
+            }
+          ],
+          "payante": false,
+          "billetterie": ""
+        },
+        {
+          "titre": "Sorties pédestres, geocaching",
+          "description": "Sur les sentiers de la Costa Verde et au-delà.",
+          "icone": "randonnee",
+          "couleur": "blue",
+          "lieu": "Sentiers de la Costa Verde",
+          "horaires": [
+            "1 sortie par mois, de septembre à novembre et de mars à mai"
+          ],
+          "public": "Adultes",
+          "contacts": [
+            {
+              "nom": "Sandra",
+              "telephone": "06 33 25 34 97"
+            }
+          ],
+          "payante": false,
+          "billetterie": ""
+        }
+      ]
+    }
+  ]
+}

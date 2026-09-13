@@ -45,18 +45,18 @@
 <main id="contenu">
 
   <div class="page-head">
-    <span class="badge">Qui sommes-nous</span>
-    <h1>Une association née du besoin de créer du lien</h1>
-    <p>Cappellina rassemble les générations autour de gestes simples : apprendre, partager, s'entraider.</p>
+    <span class="badge" data-texte="association.badge">Qui sommes-nous</span>
+    <h1 data-texte="association.titre">Une association née du besoin de créer du lien</h1>
+    <p data-texte="association.chapo">Cappellina rassemble les générations autour de gestes simples : apprendre, partager, s'entraider.</p>
   </div>
 
   <!-- Notre histoire -->
   <div class="wrap">
     <section class="split split--histoire section">
       <div class="split__body">
-        <h2>Notre histoire</h2>
-        <p>Tout a commencé par une observation simple. Dans nos villages, les aînés trouvent les hivers longs, les plus jeunes se réfugient derrière leurs écrans, d'autres sont happés par le tourbillon de la vie active.</p>
-        <p>Cappellina est née pour offrir à tous des moments de partage et de convivialité, des activités multiples et variées où chacun peut trouver son bonheur.</p>
+        <h2 data-texte="association.histoire_titre">Notre histoire</h2>
+        <p data-texte="association.histoire_p1">Tout a commencé par une observation simple. Dans nos villages, les aînés trouvent les hivers longs, les plus jeunes se réfugient derrière leurs écrans, d'autres sont happés par le tourbillon de la vie active.</p>
+        <p data-texte="association.histoire_p2">Cappellina est née pour offrir à tous des moments de partage et de convivialité, des activités multiples et variées où chacun peut trouver son bonheur.</p>
       </div>
       <div class="ph split__media" data-photo="association">photo — les débuts de l'association</div>
     </section>
@@ -66,23 +66,23 @@
   <div class="band">
     <div class="wrap">
       <section class="section">
-        <h2 class="section-title section-title--sm section-title--spaced">Nos valeurs</h2>
+        <h2 class="section-title section-title--sm section-title--spaced" data-texte="association.valeurs_titre">Nos valeurs</h2>
 
         <div class="cards cards--valeurs">
           <article class="card">
             <div class="card__icon bg-peach"></div>
-            <h3>Partager</h3>
-            <p>Des savoirs, des rires, du temps. Chacun a quelque chose à offrir.</p>
+            <h3 data-texte="association.valeur1_titre">Partager</h3>
+            <p data-texte="association.valeur1_texte">Des savoirs, des rires, du temps. Chacun a quelque chose à offrir.</p>
           </article>
           <article class="card">
             <div class="card__icon bg-sage"></div>
-            <h3>Transmettre</h3>
-            <p>Entre les âges, dans les deux sens, sans hiérarchie.</p>
+            <h3 data-texte="association.valeur2_titre">Transmettre</h3>
+            <p data-texte="association.valeur2_texte">Entre les âges, dans les deux sens, sans hiérarchie.</p>
           </article>
           <article class="card">
             <div class="card__icon bg-blue"></div>
-            <h3>Se retrouver</h3>
-            <p>Dans différents lieux, différents contextes, pour des activités multiples afin de varier les plaisirs.</p>
+            <h3 data-texte="association.valeur3_titre">Se retrouver</h3>
+            <p data-texte="association.valeur3_texte">Dans différents lieux, différents contextes, pour des activités multiples afin de varier les plaisirs.</p>
           </article>
         </div>
       </section>
@@ -92,8 +92,8 @@
   <!-- Le bureau -->
   <div class="wrap">
     <section class="section">
-      <h2 class="section-title section-title--sm">Le bureau</h2>
-      <p class="section-lead">Une équipe de bénévoles à votre écoute</p>
+      <h2 class="section-title section-title--sm" data-texte="association.bureau_titre">Le bureau</h2>
+      <p class="section-lead" data-texte="association.bureau_chapo">Une équipe de bénévoles à votre écoute</p>
 
       <!-- Noms, fonctions et portraits gérés depuis l'espace admin (/admin) -->
       <div class="team" id="bureau-liste">
@@ -112,7 +112,7 @@
   <div class="site-footer__cols">
     <div class="site-footer__brand">
       <img class="site-footer__logo" data-logo width="328" height="168" loading="lazy" decoding="async" src="assets/logo-cappellina.png" alt="Cappellina">
-      <p>Créer du lien entre les générations, un moment à la fois.</p>
+      <p data-texte="pied.baseline">Créer du lien entre les générations, un moment à la fois.</p>
     </div>
     <div class="footer-col">
       <strong>Navigation</strong><br>
@@ -123,19 +123,17 @@
     </div>
     <div class="footer-col">
       <strong>Contact</strong><br>
-      <a href="mailto:cappellina2b@gmail.com">cappellina2b@gmail.com</a><br>
-      <a href="tel:+33633253497">06.33.25.34.97</a><br>
+      <a data-contact="email" href="mailto:cappellina2b@gmail.com">cappellina2b@gmail.com</a><br>
+      <a data-contact="telephone" href="tel:+33633253497">06.33.25.34.97</a><br>
       <a href="don.html">Faire un don</a>
     </div>
     <div class="footer-col">
       <strong>Nous suivre</strong><br>
-      <!-- TODO : remplacer par les URL réelles des pages Facebook / Instagram.
-           Étant des liens externes, penser à target="_blank" rel="noopener noreferrer". -->
-      Facebook<br>
-      Instagram
+      <span data-reseau="facebook">Facebook</span><br>
+      <span data-reseau="instagram">Instagram</span>
     </div>
   </div>
-  <div class="site-footer__legal">© 2026 Cappellina · Association loi 1901</div>
+  <div class="site-footer__legal" data-texte="pied.mentions">© 2026 Cappellina · Association loi 1901</div>
 </footer>
 
 <script src="assets/js/main.js?v=2" defer></script>

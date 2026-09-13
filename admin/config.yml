@@ -35,6 +35,338 @@ display_url: /
 collections:
 
   # ------------------------------------------------------------------------
+  # Textes des pages
+  #
+  # Chaque champ correspond à un endroit précis du site. Un champ laissé vide
+  # conserve le texte actuellement en ligne : rien ne peut « disparaître » par
+  # mégarde. Les paragraphes acceptent les retours à la ligne.
+  # ------------------------------------------------------------------------
+  - name: textes
+    label: Textes des pages
+    files:
+      - name: contenu
+        label: Tous les textes du site
+        file: assets/data/textes.json
+        description: >-
+          Les titres et paragraphes de chaque page. Dépliez la page à modifier.
+          Un champ vidé garde le texte actuel.
+        fields:
+
+          - name: pied
+            label: Pied de page (toutes les pages)
+            widget: object
+            collapsed: true
+            fields:
+              - { name: baseline, label: Phrase sous le logo, widget: string }
+              - { name: mentions, label: Mention légale, widget: string }
+
+          - name: accueil
+            label: Page d'accueil
+            widget: object
+            collapsed: true
+            fields:
+              - { name: badge, label: "Pastille au-dessus du titre", widget: string }
+              - { name: titre, label: "Grand titre", widget: string }
+              - { name: chapo, label: "Phrase d'accroche", widget: text }
+              - { name: bouton_rejoindre, label: "Bouton 1", widget: string }
+              - { name: bouton_agenda, label: "Bouton 2", widget: string }
+              - { name: chiffre1_nombre, label: "Chiffre 1 — nombre", widget: string }
+              - { name: chiffre1_label, label: "Chiffre 1 — légende", widget: string }
+              - { name: chiffre2_nombre, label: "Chiffre 2 — nombre", widget: string }
+              - { name: chiffre2_label, label: "Chiffre 2 — légende", widget: string }
+              - { name: chiffre3_nombre, label: "Chiffre 3 — nombre", widget: string }
+              - { name: chiffre3_label, label: "Chiffre 3 — légende", widget: string }
+              - { name: qui_surtitre, label: "Qui sommes-nous — surtitre", widget: string }
+              - { name: qui_titre, label: "Qui sommes-nous — titre", widget: string }
+              - { name: qui_texte, label: "Qui sommes-nous — texte", widget: text }
+              - { name: actions_titre, label: "Nos actions — titre", widget: string }
+              - { name: actions_chapo, label: "Nos actions — sous-titre", widget: string }
+              - { name: carte1_titre, label: "Carte 1 — titre", widget: string }
+              - { name: carte1_texte, label: "Carte 1 — texte", widget: text }
+              - { name: carte2_titre, label: "Carte 2 — titre", widget: string }
+              - { name: carte2_texte, label: "Carte 2 — texte", widget: text }
+              - { name: carte3_titre, label: "Carte 3 — titre", widget: string }
+              - { name: carte3_texte, label: "Carte 3 — texte", widget: text }
+              - { name: carte4_titre, label: "Carte 4 — titre", widget: string }
+              - { name: carte4_texte, label: "Carte 4 — texte", widget: text }
+              - { name: actions_bouton, label: "Nos actions — bouton", widget: string }
+              - { name: rdv_titre, label: "Prochains rendez-vous — titre", widget: string }
+              - { name: don_titre, label: "Bande don — titre", widget: string }
+              - { name: don_texte, label: "Bande don — texte", widget: text }
+              - { name: don_bouton, label: "Bande don — bouton", widget: string }
+
+          - name: association
+            label: Page Association
+            widget: object
+            collapsed: true
+            fields:
+              - { name: badge, label: Pastille, widget: string }
+              - { name: titre, label: Grand titre, widget: string }
+              - { name: chapo, label: "Phrase d'accroche", widget: text }
+              - { name: histoire_titre, label: "Notre histoire — titre", widget: string }
+              - { name: histoire_p1, label: "Notre histoire — 1er paragraphe", widget: text }
+              - { name: histoire_p2, label: "Notre histoire — 2e paragraphe", widget: text }
+              - { name: valeurs_titre, label: "Nos valeurs — titre", widget: string }
+              - { name: valeur1_titre, label: "Valeur 1 — titre", widget: string }
+              - { name: valeur1_texte, label: "Valeur 1 — texte", widget: text }
+              - { name: valeur2_titre, label: "Valeur 2 — titre", widget: string }
+              - { name: valeur2_texte, label: "Valeur 2 — texte", widget: text }
+              - { name: valeur3_titre, label: "Valeur 3 — titre", widget: string }
+              - { name: valeur3_texte, label: "Valeur 3 — texte", widget: text }
+              - { name: bureau_titre, label: "Le bureau — titre", widget: string }
+              - { name: bureau_chapo, label: "Le bureau — sous-titre", widget: string }
+
+          - name: actions
+            label: Page Nos actions
+            widget: object
+            collapsed: true
+            fields:
+              - { name: badge, label: Pastille, widget: string }
+              - { name: titre, label: Grand titre, widget: string }
+              - { name: chapo, label: "Phrase d'accroche", widget: text }
+              - { name: mois_titre, label: "Au fil des mois — titre", widget: string }
+              - { name: mois_chapo, label: "Au fil des mois — sous-titre", widget: string }
+              - { name: sorties_etiquette, label: "Sorties — étiquette", widget: string }
+              - { name: sorties_titre, label: "Sorties — titre", widget: string }
+              - { name: sorties_texte, label: "Sorties — texte", widget: text }
+              - { name: conferences_etiquette, label: "Conférences — étiquette", widget: string }
+              - { name: conferences_titre, label: "Conférences — titre", widget: string }
+              - { name: conferences_texte, label: "Conférences — texte", widget: text }
+              - { name: soirees_etiquette, label: "Soirées — étiquette", widget: string }
+              - { name: soirees_titre, label: "Soirées — titre", widget: string }
+              - { name: soirees_texte, label: "Soirées — texte", widget: text }
+              - { name: cta_titre, label: "Encart final — titre", widget: string }
+              - { name: cta_texte, label: "Encart final — texte", widget: text }
+              - { name: cta_bouton, label: "Encart final — bouton", widget: string }
+
+          - name: agenda
+            label: Page Agenda
+            widget: object
+            collapsed: true
+            fields:
+              - { name: badge, label: Pastille, widget: string }
+              - { name: titre, label: Grand titre, widget: string }
+              - { name: chapo, label: "Phrase d'accroche", widget: text }
+              - { name: rythme_titre, label: "Titre du bloc hebdomadaire", widget: string }
+              - { name: rdv_titre, label: "Titre du bloc des rendez-vous datés", widget: string }
+
+          - name: galerie
+            label: Page Galerie
+            widget: object
+            collapsed: true
+            fields:
+              - { name: badge, label: Pastille, widget: string }
+              - { name: titre, label: Grand titre, widget: string }
+              - { name: chapo, label: "Phrase d'accroche", widget: text }
+
+          - name: adherer
+            label: Page Nous rejoindre
+            widget: object
+            collapsed: true
+            fields:
+              - { name: badge, label: Pastille, widget: string }
+              - { name: titre, label: Grand titre, widget: string }
+              - { name: chapo, label: "Phrase d'accroche", widget: text }
+              - { name: pourquoi_titre, label: "Pourquoi adhérer — titre", widget: string }
+              - { name: avantage1, label: "Avantage 1", widget: string }
+              - { name: avantage2, label: "Avantage 2", widget: string }
+              - { name: avantage3, label: "Avantage 3", widget: string }
+              - { name: cotisation_titre, label: "Cotisation — titre", widget: string }
+              - name: cotisation_texte
+                label: "Cotisation — montant et conditions"
+                widget: text
+                hint: "Le retour à la ligne est conservé : montant sur une ligne, conditions sur la suivante."
+              - { name: cotisation_bouton, label: "Cotisation — bouton", widget: string }
+              - { name: formulaire_titre, label: "Formulaire de contact — titre", widget: string }
+
+          - name: don
+            label: Page Faire un don
+            widget: object
+            collapsed: true
+            fields:
+              - { name: badge, label: Pastille, widget: string }
+              - { name: titre, label: Grand titre, widget: string }
+              - { name: chapo, label: "Phrase d'accroche", widget: text }
+              - { name: usage_titre, label: "À quoi sert votre don — titre", widget: string }
+              - { name: palier1_montant, label: "Palier 1 — montant", widget: string }
+              - { name: palier1_texte, label: "Palier 1 — à quoi il sert", widget: string }
+              - { name: palier2_montant, label: "Palier 2 — montant", widget: string }
+              - { name: palier2_texte, label: "Palier 2 — à quoi il sert", widget: string }
+              - { name: palier3_montant, label: "Palier 3 — montant", widget: string }
+              - { name: palier3_texte, label: "Palier 3 — à quoi il sert", widget: string }
+              - { name: panneau_titre, label: "Encart don — titre", widget: string }
+              - { name: panneau_texte, label: "Encart don — texte", widget: text }
+              - { name: panneau_bouton, label: "Encart don — bouton", widget: string }
+              - { name: panneau_note, label: "Encart don — mention sous le bouton", widget: string }
+
+          - name: merci
+            label: Page de remerciement (après le formulaire)
+            widget: object
+            collapsed: true
+            fields:
+              - { name: badge, label: Pastille, widget: string }
+              - { name: titre, label: Grand titre, widget: string }
+              - { name: chapo, label: Texte, widget: text }
+
+          - name: erreur404
+            label: Page « adresse introuvable »
+            widget: object
+            collapsed: true
+            fields:
+              - { name: badge, label: Pastille, widget: string }
+              - { name: titre, label: Grand titre, widget: string }
+              - { name: chapo, label: Texte, widget: text }
+
+  # ------------------------------------------------------------------------
+  # Activités — page « Nos actions »
+  # ------------------------------------------------------------------------
+  - name: activites
+    label: Activités
+    files:
+      - name: familles
+        label: Les activités par famille
+        file: assets/data/activites.json
+        description: >-
+          Une famille regroupe plusieurs activités sous un même titre. L'ordre
+          des listes est celui de la page. Les familles s'affichent en alternant
+          fond clair et fond coloré.
+        fields:
+          - name: familles
+            label: Familles
+            label_singular: Famille
+            widget: list
+            summary: "{{fields.titre}}"
+            fields:
+              - { name: titre, label: "Titre de la famille", widget: string, hint: "Exemple : Ateliers hebdomadaires" }
+              - name: lieu
+                label: "Sous-titre de la famille"
+                widget: string
+                required: false
+                hint: "Lieu commun, ou une phrase. Exemple : Maison des associations · Vanga di l'Oru"
+
+              - name: activites
+                label: Activités
+                label_singular: Activité
+                widget: list
+                summary: "{{fields.titre}}"
+                fields:
+                  - { name: titre, label: "Nom de l'activité", widget: string }
+                  - { name: description, label: Description, widget: text, required: false, hint: "Une phrase courte." }
+
+                  - name: icone
+                    label: Pictogramme
+                    widget: select
+                    default: etoile
+                    options:
+                      - { label: "Dé — jeux de société", value: jeux }
+                      - { label: "Pinceau — calligraphie, écriture", value: calligraphie }
+                      - { label: "Palette — arts plastiques, peinture", value: palette }
+                      - { label: "Panier — vannerie", value: panier }
+                      - { label: "Ciseaux — couture, broderie", value: ciseaux }
+                      - { label: "Cahier — écriture, lecture", value: cahier }
+                      - { label: "Raquette — pickleball, sports de raquette", value: raquette }
+                      - { label: "Note de musique — danse, chant", value: musique }
+                      - { label: "Vélo", value: velo }
+                      - { label: "Montagne — randonnée, sorties", value: randonnee }
+                      - { label: "Groupe — rencontres, convivialité", value: groupe }
+                      - { label: "Étoile — autre activité", value: etoile }
+
+                  - name: couleur
+                    label: Couleur du pictogramme
+                    widget: select
+                    default: sage
+                    options:
+                      - { label: "Vert", value: sage }
+                      - { label: "Rose", value: peach }
+                      - { label: "Bleu", value: blue }
+                      - { label: "Sable", value: sand }
+
+                  - { name: lieu, label: Lieu, widget: string, required: false, hint: "À renseigner seulement si l'activité n'a pas lieu à l'adresse de la famille." }
+
+                  - name: horaires
+                    label: Horaires
+                    label_singular: Horaire
+                    widget: list
+                    required: false
+                    field: { name: horaire, label: Horaire, widget: string }
+                    hint: "Une ligne par créneau. Exemple : Adultes : jeudi, 10h-12h, dès le 10 septembre"
+
+                  - { name: public, label: Public, widget: string, required: false, hint: "Exemple : Tout public, Adultes, Enfants à partir de 8 ans" }
+
+                  - name: contacts
+                    label: Référents
+                    label_singular: Référent
+                    widget: list
+                    required: false
+                    summary: "{{fields.nom}} — {{fields.telephone}}"
+                    fields:
+                      - { name: nom, label: Prénom, widget: string, required: false }
+                      - { name: telephone, label: Téléphone, widget: string, required: false, hint: "Écrit comme on le lit : 06 12 34 56 78. Le lien d'appel est fabriqué automatiquement." }
+
+                  - name: payante
+                    label: Activité payante
+                    widget: boolean
+                    default: false
+                    hint: >-
+                      Cochée, le bouton devient « Réserver une place » et mène à la
+                      billetterie. Décochée, il affiche « S'inscrire » et mène à la
+                      page d'adhésion.
+
+                  - name: billetterie
+                    label: Lien de billetterie
+                    widget: string
+                    required: false
+                    hint: >-
+                      Adresse HelloAsso de cette activité. Utilisé seulement si
+                      « Activité payante » est cochée. Laissé vide, le bouton mène
+                      à la page HelloAsso de l'association.
+
+  # ------------------------------------------------------------------------
+  # Coordonnées et liens
+  # ------------------------------------------------------------------------
+  - name: reglages
+    label: Coordonnées & liens
+    files:
+      - name: contenu
+        label: Coordonnées, HelloAsso et réseaux sociaux
+        file: assets/data/reglages.json
+        description: >-
+          Modifiés ici, l'adresse e-mail et le téléphone changent sur toutes les
+          pages du site à la fois.
+        fields:
+          - name: contact
+            label: Coordonnées
+            widget: object
+            fields:
+              - { name: email, label: Adresse e-mail, widget: string }
+              - { name: telephone, label: Téléphone, widget: string, hint: "Écrit comme on le lit : 06.33.25.34.97" }
+
+          - name: liens
+            label: Liens externes
+            widget: object
+            fields:
+              - name: adhesion
+                label: HelloAsso — adhésion
+                widget: string
+                hint: "Destination des boutons « Adhérer en ligne » et « Réserver une place »."
+              - name: don
+                label: HelloAsso — don
+                widget: string
+                hint: "Destination du bouton « Faire mon don »."
+              - name: facebook
+                label: Page Facebook
+                widget: string
+                required: false
+                hint: >-
+                  Laissé vide, « Facebook » reste écrit en bas de page sans être
+                  cliquable — mieux qu'un lien qui ne mène nulle part.
+              - name: instagram
+                label: Compte Instagram
+                widget: string
+                required: false
+                hint: "Même principe que pour Facebook."
+
+  # ------------------------------------------------------------------------
   # Agenda
   # ------------------------------------------------------------------------
   - name: agenda

@@ -45,18 +45,26 @@
 <main id="contenu">
 
   <div class="page-head">
-    <span class="badge">Nos actions</span>
-    <h1>Apprendre, bouger, se retrouver</h1>
-    <p>Ateliers hebdomadaires, activités sportives et rendez-vous ponctuels : se retrouver pour des moments à partager en toute simplicité.</p>
+    <span class="badge" data-texte="actions.badge">Nos actions</span>
+    <h1 data-texte="actions.titre">Apprendre, bouger, se retrouver</h1>
+    <p data-texte="actions.chapo">Ateliers hebdomadaires, activités sportives et rendez-vous ponctuels : se retrouver pour des moments à partager en toute simplicité.</p>
   </div>
 
   <!--
-    BILLETTERIE — calligraphie, arts plastiques et vannerie
-    Elle sera hébergée sur HelloAsso. En attendant sa création, les boutons
-    « Réserver une place » mènent à la page de l'association. Le jour venu,
-    remplacer l'URL ici (3 occurrences) et, pour l'agenda, renseigner le champ
-    « Lien de billetterie » de chaque événement dans l'espace admin.
+    LES FAMILLES D'ACTIVITÉS
+    Elles sont gérées depuis l'espace admin (/admin → Activités) et lues dans
+    assets/data/activites.json : ajouter, retirer ou modifier une fiche s'y
+    fait sans toucher au HTML.
+
+    Les fiches ci-dessous sont celles de la dernière mise en ligne. Elles
+    restent affichées pour les visiteurs sans JavaScript, et sont remplacées
+    par le fichier dès qu'il est chargé. Inutile de les tenir à jour à la main.
+
+    Une activité cochée « payante » affiche « Réserver une place » et mène à sa
+    billetterie ; une activité gratuite affiche « S'inscrire » et mène à la page
+    d'adhésion.
   -->
+  <div id="activites-familles">
   <div class="wrap">
     <section class="section">
       <h2 class="section-title section-title--sm">Ateliers hebdomadaires</h2>
@@ -244,36 +252,37 @@
       </section>
     </div>
   </div>
+  </div><!-- /#activites-familles -->
 
   <div class="wrap">
     <div class="section">
-      <h2 class="section-title section-title--sm">Au fil des mois</h2>
-      <p class="famille-lieu">Des rendez-vous ponctuels, ouverts à tous</p>
+      <h2 class="section-title section-title--sm" data-texte="actions.mois_titre">Au fil des mois</h2>
+      <p class="famille-lieu" data-texte="actions.mois_chapo">Des rendez-vous ponctuels, ouverts à tous</p>
 
       <section class="split split--action">
         <div class="ph split__media" data-photo="actions_sorties">photo — sortie de groupe</div>
         <div class="split__body">
-          <span class="tag tag--sorties">Sorties</span>
-          <h3>Redécouvrir notre environnement</h3>
-          <p>Nous organisons le transport pour des visites, balades, excursions en dehors de la saison estivale. Rejoignez-nous pour redécouvrir notre environnement lors de joyeuses parenthèses collectives.</p>
+          <span class="tag tag--sorties" data-texte="actions.sorties_etiquette">Sorties</span>
+          <h3 data-texte="actions.sorties_titre">Redécouvrir notre environnement</h3>
+          <p data-texte="actions.sorties_texte">Nous organisons le transport pour des visites, balades, excursions en dehors de la saison estivale. Rejoignez-nous pour redécouvrir notre environnement lors de joyeuses parenthèses collectives.</p>
         </div>
       </section>
 
       <section class="split split--action split--reverse">
         <div class="ph split__media" data-photo="actions_conferences">photo — conférence</div>
         <div class="split__body">
-          <span class="tag tag--conferences">Conférences</span>
-          <h3>Nourrir la curiosité</h3>
-          <p>Des conférences tout public pour découvrir notre patrimoine insulaire naturel et bâti, les illusions d'optique éclairées par les neurosciences, les processus d'apprentissage, et bien d'autres sujets qui nourrissent notre curiosité.</p>
+          <span class="tag tag--conferences" data-texte="actions.conferences_etiquette">Conférences</span>
+          <h3 data-texte="actions.conferences_titre">Nourrir la curiosité</h3>
+          <p data-texte="actions.conferences_texte">Des conférences tout public pour découvrir notre patrimoine insulaire naturel et bâti, les illusions d'optique éclairées par les neurosciences, les processus d'apprentissage, et bien d'autres sujets qui nourrissent notre curiosité.</p>
         </div>
       </section>
 
       <section class="split split--action">
         <div class="ph split__media" data-photo="actions_soirees">photo — soirée festive</div>
         <div class="split__body">
-          <span class="tag tag--soirees">Soirées festives</span>
-          <h3>Partager de bons moments</h3>
-          <p>Jouez, riez, dansez, chantez, partagez… Animons nos soirées par de simples moments de convivialité.</p>
+          <span class="tag tag--soirees" data-texte="actions.soirees_etiquette">Soirées festives</span>
+          <h3 data-texte="actions.soirees_titre">Partager de bons moments</h3>
+          <p data-texte="actions.soirees_texte">Jouez, riez, dansez, chantez, partagez… Animons nos soirées par de simples moments de convivialité.</p>
         </div>
       </section>
 
@@ -285,9 +294,9 @@
     <div class="wrap">
       <div class="section--sm">
         <div class="cta-card">
-          <h2>Envie de participer ?</h2>
-          <p>Toutes nos activités sont ouvertes aux adhérents. Rejoignez-nous, c'est simple et chaleureux.</p>
-          <a class="btn btn--primary" href="adherer.html">Nous rejoindre</a>
+          <h2 data-texte="actions.cta_titre">Envie de participer ?</h2>
+          <p data-texte="actions.cta_texte">Toutes nos activités sont ouvertes aux adhérents. Rejoignez-nous, c'est simple et chaleureux.</p>
+          <a class="btn btn--primary" href="adherer.html" data-texte="actions.cta_bouton">Nous rejoindre</a>
         </div>
       </div>
     </div>
@@ -299,7 +308,7 @@
   <div class="site-footer__cols">
     <div class="site-footer__brand">
       <img class="site-footer__logo" data-logo width="328" height="168" loading="lazy" decoding="async" src="assets/logo-cappellina.png" alt="Cappellina">
-      <p>Créer du lien entre les générations, un moment à la fois.</p>
+      <p data-texte="pied.baseline">Créer du lien entre les générations, un moment à la fois.</p>
     </div>
     <div class="footer-col">
       <strong>Navigation</strong><br>
@@ -310,19 +319,17 @@
     </div>
     <div class="footer-col">
       <strong>Contact</strong><br>
-      <a href="mailto:cappellina2b@gmail.com">cappellina2b@gmail.com</a><br>
-      <a href="tel:+33633253497">06.33.25.34.97</a><br>
+      <a data-contact="email" href="mailto:cappellina2b@gmail.com">cappellina2b@gmail.com</a><br>
+      <a data-contact="telephone" href="tel:+33633253497">06.33.25.34.97</a><br>
       <a href="don.html">Faire un don</a>
     </div>
     <div class="footer-col">
       <strong>Nous suivre</strong><br>
-      <!-- TODO : remplacer par les URL réelles des pages Facebook / Instagram.
-           Étant des liens externes, penser à target="_blank" rel="noopener noreferrer". -->
-      Facebook<br>
-      Instagram
+      <span data-reseau="facebook">Facebook</span><br>
+      <span data-reseau="instagram">Instagram</span>
     </div>
   </div>
-  <div class="site-footer__legal">© 2026 Cappellina · Association loi 1901</div>
+  <div class="site-footer__legal" data-texte="pied.mentions">© 2026 Cappellina · Association loi 1901</div>
 </footer>
 
 <script src="assets/js/main.js?v=2" defer></script>

@@ -45,9 +45,9 @@
 <main id="contenu">
 
   <div class="page-head">
-    <span class="badge">Nous rejoindre</span>
-    <h1>Devenez membre de Cappellina</h1>
-    <p>Adhérer, c'est participer à toutes nos activités et soutenir le lien intergénérationnel dans notre village.</p>
+    <span class="badge" data-texte="adherer.badge">Nous rejoindre</span>
+    <h1 data-texte="adherer.titre">Devenez membre de Cappellina</h1>
+    <p data-texte="adherer.chapo">Adhérer, c'est participer à toutes nos activités et soutenir le lien intergénérationnel dans notre village.</p>
   </div>
 
   <div class="wrap">
@@ -55,23 +55,25 @@
       <div class="two-col two-col--form">
 
         <div>
-          <h2 class="block-title">Pourquoi adhérer ?</h2>
+          <h2 class="block-title" data-texte="adherer.pourquoi_titre">Pourquoi adhérer ?</h2>
           <ul class="checklist">
-            <li>Accès aux sorties, cours de couture, conférences et soirées festives</li>
-            <li>Une communauté chaleureuse et solidaire</li>
-            <li>Vous soutenez le lien entre les générations</li>
+            <li data-texte="adherer.avantage1">Accès aux sorties, cours de couture, conférences et soirées festives</li>
+            <li data-texte="adherer.avantage2">Une communauté chaleureuse et solidaire</li>
+            <li data-texte="adherer.avantage3">Vous soutenez le lien entre les générations</li>
           </ul>
 
           <div class="note">
-            <div class="note__title">Cotisation annuelle</div>
-            <p>20 € par personne<br>Tarif réduit pour les étudiants et petits budgets.</p>
+            <div class="note__title" data-texte="adherer.cotisation_titre">Cotisation annuelle</div>
+            <p data-texte="adherer.cotisation_texte">20 € par personne<br>Tarif réduit pour les étudiants et petits budgets.</p>
 
             <!--
               Page HelloAsso de l'association. Ouvre un nouvel onglet pour que
               le futur adhérent garde le site sous la main.
+              L'adresse se modifie depuis l'admin (Coordonnées & liens).
             -->
             <p class="note__action">
-              <a class="btn btn--primary"
+              <a class="btn btn--primary" data-lien="adhesion"
+                 data-texte="adherer.cotisation_bouton"
                  href="https://www.helloasso.com/associations/cappellina"
                  target="_blank" rel="noopener noreferrer"
                  aria-label="Adhérer en ligne sur HelloAsso (ouvre un nouvel onglet)">Adhérer en ligne</a>
@@ -80,7 +82,7 @@
         </div>
 
         <div class="panel">
-          <h2 class="panel__title">Formulaire de contact</h2>
+          <h2 class="panel__title" data-texte="adherer.formulaire_titre">Formulaire de contact</h2>
 
           <!--
             Formulaire géré par Netlify Forms : aucune configuration serveur.
@@ -116,7 +118,7 @@
             <button class="btn btn--block" type="submit">Envoyer ma demande</button>
           </form>
 
-          <p class="panel__note panel__note--lg">Ou écrivez-nous à <a href="mailto:cappellina2b@gmail.com">cappellina2b@gmail.com</a></p>
+          <p class="panel__note panel__note--lg">Ou écrivez-nous à <a data-contact="email" href="mailto:cappellina2b@gmail.com">cappellina2b@gmail.com</a></p>
         </div>
 
       </div>
@@ -129,7 +131,7 @@
   <div class="site-footer__cols">
     <div class="site-footer__brand">
       <img class="site-footer__logo" data-logo width="328" height="168" loading="lazy" decoding="async" src="assets/logo-cappellina.png" alt="Cappellina">
-      <p>Créer du lien entre les générations, un moment à la fois.</p>
+      <p data-texte="pied.baseline">Créer du lien entre les générations, un moment à la fois.</p>
     </div>
     <div class="footer-col">
       <strong>Navigation</strong><br>
@@ -140,19 +142,17 @@
     </div>
     <div class="footer-col">
       <strong>Contact</strong><br>
-      <a href="mailto:cappellina2b@gmail.com">cappellina2b@gmail.com</a><br>
-      <a href="tel:+33633253497">06.33.25.34.97</a><br>
+      <a data-contact="email" href="mailto:cappellina2b@gmail.com">cappellina2b@gmail.com</a><br>
+      <a data-contact="telephone" href="tel:+33633253497">06.33.25.34.97</a><br>
       <a href="don.html">Faire un don</a>
     </div>
     <div class="footer-col">
       <strong>Nous suivre</strong><br>
-      <!-- TODO : remplacer par les URL réelles des pages Facebook / Instagram.
-           Étant des liens externes, penser à target="_blank" rel="noopener noreferrer". -->
-      Facebook<br>
-      Instagram
+      <span data-reseau="facebook">Facebook</span><br>
+      <span data-reseau="instagram">Instagram</span>
     </div>
   </div>
-  <div class="site-footer__legal">© 2026 Cappellina · Association loi 1901</div>
+  <div class="site-footer__legal" data-texte="pied.mentions">© 2026 Cappellina · Association loi 1901</div>
 </footer>
 
 <script src="assets/js/main.js?v=2" defer></script>

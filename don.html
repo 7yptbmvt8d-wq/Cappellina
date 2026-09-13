@@ -45,9 +45,9 @@
 <main id="contenu">
 
   <div class="page-head">
-    <span class="badge">Faire un don</span>
-    <h1>Votre soutien fait vivre le lien</h1>
-    <p>Chaque contribution finance une sortie, un cours de couture, une conférence, une soirée. Merci de faire partie de l'aventure.</p>
+    <span class="badge" data-texte="don.badge">Faire un don</span>
+    <h1 data-texte="don.titre">Votre soutien fait vivre le lien</h1>
+    <p data-texte="don.chapo">Chaque contribution finance une sortie, un cours de couture, une conférence, une soirée. Merci de faire partie de l'aventure.</p>
   </div>
 
   <div class="wrap">
@@ -55,49 +55,49 @@
       <div class="two-col">
 
         <div>
-          <h2 class="block-title">À quoi sert votre don ?</h2>
+          <h2 class="block-title" data-texte="don.usage_titre">À quoi sert votre don ?</h2>
           <div class="tiers">
             <div class="tier">
               <div class="tier__dot bg-peach"></div>
               <div>
-                <div class="tier__amount">15 €</div>
-                <p>le tissu et le matériel d'un cours de couture</p>
+                <div class="tier__amount" data-texte="don.palier1_montant">15 €</div>
+                <p data-texte="don.palier1_texte">le tissu et le matériel d'un cours de couture</p>
               </div>
             </div>
             <div class="tier">
               <div class="tier__dot bg-sage"></div>
               <div>
-                <div class="tier__amount">30 €</div>
-                <p>l'accueil d'un intervenant pour une conférence</p>
+                <div class="tier__amount" data-texte="don.palier2_montant">30 €</div>
+                <p data-texte="don.palier2_texte">l'accueil d'un intervenant pour une conférence</p>
               </div>
             </div>
             <div class="tier">
               <div class="tier__dot bg-blue"></div>
               <div>
-                <div class="tier__amount">60 €</div>
-                <p>le transport d'une sortie de groupe</p>
+                <div class="tier__amount" data-texte="don.palier3_montant">60 €</div>
+                <p data-texte="don.palier3_texte">le transport d'une sortie de groupe</p>
               </div>
             </div>
           </div>
         </div>
 
         <div class="panel">
-          <h2 class="panel__title panel__title--center">Je fais un don</h2>
+          <h2 class="panel__title panel__title--center" data-texte="don.panneau_titre">Je fais un don</h2>
 
-          <p class="panel__lead">Vous choisirez librement le montant de votre don
-          sur la page sécurisée de HelloAsso.</p>
+          <p class="panel__lead" data-texte="don.panneau_texte">Vous choisirez librement le montant de votre don sur la page sécurisée de HelloAsso.</p>
 
           <!--
             Formulaire de don HelloAsso : paiement sécurisé et reçu fiscal
             gérés de leur côté. Ouvre un nouvel onglet pour que le donateur
             ne perde pas le site.
+            L'adresse se modifie depuis l'admin (Coordonnées & liens).
           -->
-          <a class="btn btn--block"
+          <a class="btn btn--block" data-lien="don" data-texte="don.panneau_bouton"
              href="https://www.helloasso.com/associations/cappellina/formulaires/1?_gl=1*1d8xe1*_gcl_aw*R0NMLjE3ODU2MDEyMDEuQ2owS0NRanc1SlhGQmhDckFSSXNBTDFja1B0MlBpV2xPei1lNmg3bTBURVpZVkNNRXk4dDJPcThpRl9MUzVkRjVXcW5Da3Q0WHA5TkdQTWFBc1FMRUFMd193Y0I.*_gcl_au*MTM1ODkzOTAwOC4xNzgwMjA2ODM2Li0uLS4xNzg1NjAxMjMzLjIyNDExNjU5OC4xNzg1NTgzNDY0LjE3ODU2MDcwMDY."
              target="_blank" rel="noopener noreferrer"
              aria-label="Faire mon don sur HelloAsso (ouvre un nouvel onglet)">Faire mon don</a>
 
-          <p class="panel__note">Paiement sécurisé · reçu fiscal sur demande</p>
+          <p class="panel__note" data-texte="don.panneau_note">Paiement sécurisé · reçu fiscal sur demande</p>
         </div>
 
       </div>
@@ -110,7 +110,7 @@
   <div class="site-footer__cols">
     <div class="site-footer__brand">
       <img class="site-footer__logo" data-logo width="328" height="168" loading="lazy" decoding="async" src="assets/logo-cappellina.png" alt="Cappellina">
-      <p>Créer du lien entre les générations, un moment à la fois.</p>
+      <p data-texte="pied.baseline">Créer du lien entre les générations, un moment à la fois.</p>
     </div>
     <div class="footer-col">
       <strong>Navigation</strong><br>
@@ -121,19 +121,17 @@
     </div>
     <div class="footer-col">
       <strong>Contact</strong><br>
-      <a href="mailto:cappellina2b@gmail.com">cappellina2b@gmail.com</a><br>
-      <a href="tel:+33633253497">06.33.25.34.97</a><br>
+      <a data-contact="email" href="mailto:cappellina2b@gmail.com">cappellina2b@gmail.com</a><br>
+      <a data-contact="telephone" href="tel:+33633253497">06.33.25.34.97</a><br>
       <a href="don.html">Faire un don</a>
     </div>
     <div class="footer-col">
       <strong>Nous suivre</strong><br>
-      <!-- TODO : remplacer par les URL réelles des pages Facebook / Instagram.
-           Étant des liens externes, penser à target="_blank" rel="noopener noreferrer". -->
-      Facebook<br>
-      Instagram
+      <span data-reseau="facebook">Facebook</span><br>
+      <span data-reseau="instagram">Instagram</span>
     </div>
   </div>
-  <div class="site-footer__legal">© 2026 Cappellina · Association loi 1901</div>
+  <div class="site-footer__legal" data-texte="pied.mentions">© 2026 Cappellina · Association loi 1901</div>
 </footer>
 
 <script src="assets/js/main.js?v=2" defer></script>

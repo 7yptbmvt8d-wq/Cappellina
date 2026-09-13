@@ -1,0 +1,133 @@
+{
+  "pied": {
+    "baseline": "Créer du lien entre les générations, un moment à la fois.",
+    "mentions": "© 2026 Cappellina · Association loi 1901"
+  },
+
+  "accueil": {
+    "badge": "Le lien qui nous rassemble",
+    "titre": "Se retrouver, échanger, découvrir, rire, partager",
+    "chapo": "Ateliers, sport, sorties et soirées : se retrouver pour des moments à partager, en toute simplicité.",
+    "bouton_rejoindre": "Nous rejoindre",
+    "bouton_agenda": "Voir l'agenda",
+    "chiffre1_nombre": "120+",
+    "chiffre1_label": "adhérents actifs",
+    "chiffre2_nombre": "3",
+    "chiffre2_label": "générations réunies",
+    "chiffre3_nombre": "50+",
+    "chiffre3_label": "rencontres par an",
+    "qui_surtitre": "Qui sommes-nous",
+    "qui_titre": "Une association pour tisser des liens",
+    "qui_texte": "Cappellina est née de l'envie de créer des ponts entre les âges. Nous pensons qu'un après-midi passé ensemble vaut mille discours — alors on organise des rendez-vous simples où chacun apporte ce qu'il sait.",
+    "actions_titre": "Nos actions",
+    "actions_chapo": "Se retrouver pour des moments à partager, au fil des mois",
+    "carte1_titre": "Ateliers hebdomadaires",
+    "carte1_texte": "Jeux de société, calligraphie, arts plastiques, vannerie, couture… à la Maison des associations.",
+    "carte2_titre": "Le coin des sportifs",
+    "carte2_texte": "Pickleball, danse bachata, vélo électrique, sorties pédestres et geocaching.",
+    "carte3_titre": "Sorties & conférences",
+    "carte3_texte": "Visites et excursions hors saison, conférences tout public sur le patrimoine insulaire.",
+    "carte4_titre": "Soirées festives",
+    "carte4_texte": "Jouez, riez, dansez, chantez : de simples moments de convivialité.",
+    "actions_bouton": "Découvrir toutes nos actions",
+    "rdv_titre": "Prochains rendez-vous",
+    "don_titre": "Soutenez le lien qui nous unit",
+    "don_texte": "Chaque don finance une sortie, un cours de couture, une conférence, une soirée. Un petit geste, de grands sourires.",
+    "don_bouton": "Faire un don"
+  },
+
+  "association": {
+    "badge": "Qui sommes-nous",
+    "titre": "Une association née du besoin de créer du lien",
+    "chapo": "Cappellina rassemble les générations autour de gestes simples : apprendre, partager, s'entraider.",
+    "histoire_titre": "Notre histoire",
+    "histoire_p1": "Tout a commencé par une observation simple. Dans nos villages, les aînés trouvent les hivers longs, les plus jeunes se réfugient derrière leurs écrans, d'autres sont happés par le tourbillon de la vie active.",
+    "histoire_p2": "Cappellina est née pour offrir à tous des moments de partage et de convivialité, des activités multiples et variées où chacun peut trouver son bonheur.",
+    "valeurs_titre": "Nos valeurs",
+    "valeur1_titre": "Partager",
+    "valeur1_texte": "Des savoirs, des rires, du temps. Chacun a quelque chose à offrir.",
+    "valeur2_titre": "Transmettre",
+    "valeur2_texte": "Entre les âges, dans les deux sens, sans hiérarchie.",
+    "valeur3_titre": "Se retrouver",
+    "valeur3_texte": "Dans différents lieux, différents contextes, pour des activités multiples afin de varier les plaisirs.",
+    "bureau_titre": "Le bureau",
+    "bureau_chapo": "Une équipe de bénévoles à votre écoute"
+  },
+
+  "actions": {
+    "badge": "Nos actions",
+    "titre": "Apprendre, bouger, se retrouver",
+    "chapo": "Ateliers hebdomadaires, activités sportives et rendez-vous ponctuels : se retrouver pour des moments à partager en toute simplicité.",
+    "mois_titre": "Au fil des mois",
+    "mois_chapo": "Des rendez-vous ponctuels, ouverts à tous",
+    "sorties_etiquette": "Sorties",
+    "sorties_titre": "Redécouvrir notre environnement",
+    "sorties_texte": "Nous organisons le transport pour des visites, balades, excursions en dehors de la saison estivale. Rejoignez-nous pour redécouvrir notre environnement lors de joyeuses parenthèses collectives.",
+    "conferences_etiquette": "Conférences",
+    "conferences_titre": "Nourrir la curiosité",
+    "conferences_texte": "Des conférences tout public pour découvrir notre patrimoine insulaire naturel et bâti, les illusions d'optique éclairées par les neurosciences, les processus d'apprentissage, et bien d'autres sujets qui nourrissent notre curiosité.",
+    "soirees_etiquette": "Soirées festives",
+    "soirees_titre": "Partager de bons moments",
+    "soirees_texte": "Jouez, riez, dansez, chantez, partagez… Animons nos soirées par de simples moments de convivialité.",
+    "cta_titre": "Envie de participer ?",
+    "cta_texte": "Toutes nos activités sont ouvertes aux adhérents. Rejoignez-nous, c'est simple et chaleureux.",
+    "cta_bouton": "Nous rejoindre"
+  },
+
+  "agenda": {
+    "badge": "Agenda",
+    "titre": "Nos prochains rendez-vous",
+    "chapo": "Les séances hebdomadaires reviennent chaque semaine ; les rendez-vous ponctuels sont datés. L'inscription est nécessaire dans tous les cas.",
+    "rythme_titre": "Chaque semaine",
+    "rdv_titre": "Les rendez-vous"
+  },
+
+  "galerie": {
+    "badge": "Galerie",
+    "titre": "Nos plus beaux moments",
+    "chapo": "Quelques images de nos sorties, cours de couture, conférences et soirées festives. Les sourires parlent d'eux-mêmes."
+  },
+
+  "adherer": {
+    "badge": "Nous rejoindre",
+    "titre": "Devenez membre de Cappellina",
+    "chapo": "Adhérer, c'est participer à toutes nos activités et soutenir le lien intergénérationnel dans notre village.",
+    "pourquoi_titre": "Pourquoi adhérer ?",
+    "avantage1": "Accès aux sorties, cours de couture, conférences et soirées festives",
+    "avantage2": "Une communauté chaleureuse et solidaire",
+    "avantage3": "Vous soutenez le lien entre les générations",
+    "cotisation_titre": "Cotisation annuelle",
+    "cotisation_texte": "20 € par personne\nTarif réduit pour les étudiants et petits budgets.",
+    "cotisation_bouton": "Adhérer en ligne",
+    "formulaire_titre": "Formulaire de contact"
+  },
+
+  "don": {
+    "badge": "Faire un don",
+    "titre": "Votre soutien fait vivre le lien",
+    "chapo": "Chaque contribution finance une sortie, un cours de couture, une conférence, une soirée. Merci de faire partie de l'aventure.",
+    "usage_titre": "À quoi sert votre don ?",
+    "palier1_montant": "15 €",
+    "palier1_texte": "le tissu et le matériel d'un cours de couture",
+    "palier2_montant": "30 €",
+    "palier2_texte": "l'accueil d'un intervenant pour une conférence",
+    "palier3_montant": "60 €",
+    "palier3_texte": "le transport d'une sortie de groupe",
+    "panneau_titre": "Je fais un don",
+    "panneau_texte": "Vous choisirez librement le montant de votre don sur la page sécurisée de HelloAsso.",
+    "panneau_bouton": "Faire mon don",
+    "panneau_note": "Paiement sécurisé · reçu fiscal sur demande"
+  },
+
+  "merci": {
+    "badge": "Message envoyé",
+    "titre": "Merci, votre message est parti !",
+    "chapo": "Un membre du bureau vous répondra très vite. À bientôt parmi nous."
+  },
+
+  "erreur404": {
+    "badge": "Erreur 404",
+    "titre": "Cette page s'est perdue en chemin",
+    "chapo": "Le lien que vous avez suivi n'existe plus, ou l'adresse comporte peut-être une coquille."
+  }
+}

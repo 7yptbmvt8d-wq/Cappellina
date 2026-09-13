@@ -45,9 +45,9 @@
 <main id="contenu">
 
   <div class="page-head">
-    <span class="badge">Galerie</span>
-    <h1>Nos plus beaux moments</h1>
-    <p>Quelques images de nos sorties, cours de couture, conférences et soirées festives. Les sourires parlent d'eux-mêmes.</p>
+    <span class="badge" data-texte="galerie.badge">Galerie</span>
+    <h1 data-texte="galerie.titre">Nos plus beaux moments</h1>
+    <p data-texte="galerie.chapo">Quelques images de nos sorties, cours de couture, conférences et soirées festives. Les sourires parlent d'eux-mêmes.</p>
   </div>
 
   <div class="wrap">
@@ -73,7 +73,7 @@
   <div class="site-footer__cols">
     <div class="site-footer__brand">
       <img class="site-footer__logo" data-logo width="328" height="168" loading="lazy" decoding="async" src="assets/logo-cappellina.png" alt="Cappellina">
-      <p>Créer du lien entre les générations, un moment à la fois.</p>
+      <p data-texte="pied.baseline">Créer du lien entre les générations, un moment à la fois.</p>
     </div>
     <div class="footer-col">
       <strong>Navigation</strong><br>
@@ -84,19 +84,17 @@
     </div>
     <div class="footer-col">
       <strong>Contact</strong><br>
-      <a href="mailto:cappellina2b@gmail.com">cappellina2b@gmail.com</a><br>
-      <a href="tel:+33633253497">06.33.25.34.97</a><br>
+      <a data-contact="email" href="mailto:cappellina2b@gmail.com">cappellina2b@gmail.com</a><br>
+      <a data-contact="telephone" href="tel:+33633253497">06.33.25.34.97</a><br>
       <a href="don.html">Faire un don</a>
     </div>
     <div class="footer-col">
       <strong>Nous suivre</strong><br>
-      <!-- TODO : remplacer par les URL réelles des pages Facebook / Instagram.
-           Étant des liens externes, penser à target="_blank" rel="noopener noreferrer". -->
-      Facebook<br>
-      Instagram
+      <span data-reseau="facebook">Facebook</span><br>
+      <span data-reseau="instagram">Instagram</span>
     </div>
   </div>
-  <div class="site-footer__legal">© 2026 Cappellina · Association loi 1901</div>
+  <div class="site-footer__legal" data-texte="pied.mentions">© 2026 Cappellina · Association loi 1901</div>
 </footer>
 
 <script src="assets/js/main.js?v=2" defer></script>

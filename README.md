@@ -43,11 +43,15 @@ python3 -m http.server 8000
     ├── css/style.css     Feuille de style unique (tous les tokens du design)
     ├── css/fonts.css     Déclarations @font-face des polices auto-hébergées
     ├── fonts/            Quicksand + Nunito au format woff2
-    ├── js/main.js        Menu mobile + sélection du montant de don
-    ├── js/render.js      Affiche agenda, galerie, photos et bureau
-    ├── data/agenda.json  Événements — modifiable depuis l'admin
-    ├── data/galerie.json Photos de la galerie — modifiable depuis l'admin
-    ├── data/site.json    Photos des pages et bureau — modifiable depuis l'admin
+    ├── js/main.js        Menu mobile
+    ├── js/render.js      Applique les textes et affiche activités, agenda,
+    │                     galerie, photos et bureau
+    ├── data/textes.json    Textes des 9 pages — modifiable depuis l'admin
+    ├── data/activites.json Familles et fiches d'activité — modifiable depuis l'admin
+    ├── data/reglages.json  Coordonnées et liens externes — modifiable depuis l'admin
+    ├── data/agenda.json    Événements — modifiable depuis l'admin
+    ├── data/galerie.json   Photos de la galerie — modifiable depuis l'admin
+    ├── data/site.json      Photos des pages et bureau — modifiable depuis l'admin
     ├── photos/           Photos envoyées depuis l'admin
     ├── logo-cappellina.png   Logo officiel, fond transparent
     └── banniere.jpg          Illustration de l'accueil
@@ -206,20 +210,34 @@ au bureau de gérer, sans toucher au code :
 
 | Rubrique | Contenu |
 |---|---|
+| **Textes des pages** | Tous les titres, paragraphes, chiffres et libellés de boutons des 9 pages |
+| **Activités** | Les familles et leurs fiches : nom, description, pictogramme, horaires, référents, tarif |
+| **Coordonnées & liens** | E-mail, téléphone, adresses HelloAsso, Facebook, Instagram |
 | **Agenda** | Les rendez-vous : titre, date, heure, lieu, précision |
 | **Galerie photos** | Les photos de la page Galerie et leur taille dans la mosaïque |
 | **Photos du site & bureau** | Les 5 photos d'illustration des pages, et les membres du bureau |
+
+Il n'y a plus de texte du site qui échappe à l'admin.
 
 L'admin repose sur **Decap CMS** — le même outil que le site Kanjo Aïkido —
 avec le dépôt GitHub comme backend : tout ce qui est enregistré (textes **et**
 photos) devient un fichier du dépôt. Rien n'est stocké sur un service tiers.
 
-### Deux automatismes utiles
+### Automatismes utiles
 
 - **Les événements passés disparaissent tout seuls** du site. Inutile de faire
   le ménage : il suffit d'ajouter les nouveaux.
 - **Les deux prochains rendez-vous remontent automatiquement sur l'accueil.**
   Il n'y a qu'un seul endroit à tenir à jour.
+- **Un champ de texte vidé garde le texte actuellement en ligne.** Effacer un
+  champ par mégarde ne peut pas creuser un trou dans une page.
+- **Le bouton d'une activité découle de la case « payante ».** Cochée :
+  « Réserver une place » vers la billetterie. Décochée : « S'inscrire » vers la
+  page d'adhésion. Les deux ne peuvent pas se désaccorder.
+- **Les liens d'appel sont fabriqués seuls.** Un numéro saisi `06 12 34 56 78`
+  devient `tel:+33612345678` : il se compose d'un doigt sur un mobile.
+- **Facebook et Instagram restent du simple texte** tant qu'aucune adresse
+  n'est renseignée — mieux qu'un lien qui ne mène nulle part.
 
 ### Publier
 
@@ -229,10 +247,15 @@ minutes après. Il n'y a rien d'autre à faire.
 
 > Un montage à deux temps a existé un moment — l'admin écrivait sur une
 > branche `brouillon` et une action GitHub publiait le lot d'un coup, pour
-> n'avoir qu'un seul déploiement. Il a été retiré : le libellé « Publish » de
-> Decap laissait croire que le site partait en ligne, et le site n'ayant
-> aucune étape de build, multiplier les déploiements ne coûte rien.
+> n'avoir qu'un seul déploiement. Il a été retiré parce que le libellé
+> « Publish » de Decap laissait croire que le site partait en ligne.
 > Le nécessaire reste dans l'historique Git si le besoin revenait.
+>
+> Attention : un déploiement n'est pas gratuit, même sans étape de build.
+> L'offre gratuite de Netlify alloue 300 crédits par mois et facture
+> 15 crédits par déploiement, soit une vingtaine de mises en ligne
+> mensuelles. Enregistrer plusieurs modifications avant de publier reste donc
+> une bonne habitude.
 
 ### Mise en service
 
@@ -251,15 +274,39 @@ collaboratrice du dépôt : c'est la contrepartie du choix « tout sur GitHub »
 > ce qui rallonge le circuit sans bénéfice pour une petite équipe. Pour
 > l'ajouter, il suffit de la ligne correspondante dans `admin/config.yml`.
 
-### Bon à savoir
+### Comment l'admin pilote les pages, sans étape de build
 
-L'agenda et la galerie sont assemblés dans le navigateur à partir des fichiers
-`assets/data/*.json`. C'est ce qui permet de garder un site sans build tout en
-ayant une admin. Conséquence : ces contenus ne sont pas dans le HTML livré, et
-un moteur de recherche les indexe moins bien qu'un texte statique. Sans
-importance pour des événements par nature éphémères ; si l'agenda devait un
-jour être un vrai levier de référencement, il faudrait ajouter un générateur
-statique (Eleventy) qui pré-calcule les pages.
+Deux mécanismes cohabitent, selon la nature du contenu.
+
+**Les textes sont remplacés, pas générés.** Chaque élément modifiable porte un
+attribut `data-texte` pointant vers une clé de `assets/data/textes.json` :
+
+```html
+<h1 data-texte="accueil.titre">Se retrouver, échanger, découvrir, rire, partager</h1>
+```
+
+Le texte reste écrit en clair dans le HTML. C'est lui que voient les visiteurs
+sans JavaScript et les moteurs de recherche au premier passage ; le fichier ne
+fait que le remplacer quand le bureau l'a modifié. Le référencement est donc
+préservé, et une panne de JavaScript laisse un site complet, jamais une page
+vide. Contrepartie : après une modification dans l'admin, le texte de repli du
+HTML n'est plus celui en ligne — sans conséquence visible, mais c'est la raison
+pour laquelle il ne faut pas s'étonner de les voir diverger.
+
+**Les listes sont reconstruites.** Agenda, galerie, membres du bureau et fiches
+d'activité peuvent gagner ou perdre des éléments : un simple remplacement de
+texte n'y suffit pas. Ils sont donc rendus entièrement depuis leur fichier
+JSON. Là encore le HTML conserve la dernière version connue comme secours.
+
+Tout est construit avec les API du DOM (`textContent`), jamais avec
+`innerHTML` : un texte saisi dans l'admin ne peut ni casser une page ni y
+injecter de balises. Les pictogrammes, seuls fragments de SVG du lot, sont des
+constantes du fichier `render.js` — l'admin ne fait qu'en choisir le nom dans
+une liste — et passent par `DOMParser` plutôt que par `innerHTML`.
+
+Si le site devait un jour faire du référencement un vrai levier, la marche à
+suivre serait d'ajouter un générateur statique (Eleventy) qui pré-calcule les
+pages à partir des mêmes fichiers JSON.
 
 ## Ajouter un événement sans passer par l'admin
 

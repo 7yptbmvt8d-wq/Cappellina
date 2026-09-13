@@ -96,6 +96,33 @@
     });
   }
 
+  // « accueil.qui_titre » → donnees.accueil.qui_titre, sans planter si une
+  // étape du chemin manque.
+  function valeurProfonde(objet, chemin) {
+    return String(chemin).split('.').reduce(function (courant, cle) {
+      return (courant && typeof courant === 'object') ? courant[cle] : undefined;
+    }, objet);
+  }
+
+  // Écrit un texte en respectant les retours à la ligne saisis dans l'admin.
+  // Les lignes sont posées en nœuds de texte séparés par des <br> : le contenu
+  // reste du texte pur, aucune balise saisie ne peut prendre effet.
+  function poserTexte(node, valeur) {
+    var fragment = document.createDocumentFragment();
+    String(valeur).split('\n').forEach(function (ligne, i) {
+      if (i) { fragment.append(document.createElement('br')); }
+      fragment.append(document.createTextNode(ligne));
+    });
+    node.replaceChildren(fragment);
+  }
+
+  // « 06 33 25 34 97 » → « tel:+33633253497 ». Le format international est le
+  // seul que les mobiles composent correctement depuis l'étranger.
+  function telHref(numero) {
+    var chiffres = String(numero || '').replace(/[^\d+]/g, '');
+    return 'tel:' + (/^0\d{9}$/.test(chiffres) ? '+33' + chiffres.slice(1) : chiffres);
+  }
+
   /* ---------------------------------------------------------------------
      Agenda
      --------------------------------------------------------------------- */
@@ -285,12 +312,231 @@
   }
 
   /* ---------------------------------------------------------------------
+     Textes des pages (assets/data/textes.json)
+
+     Chaque élément modifiable porte un attribut data-texte pointant vers une
+     clé du fichier. Le texte reste écrit en clair dans le HTML : c'est lui que
+     voient les visiteurs sans JavaScript et les moteurs de recherche au
+     premier passage. Le fichier ne fait que le remplacer quand le bureau l'a
+     modifié depuis l'admin.
+     --------------------------------------------------------------------- */
+
+  function appliquerTextes(donnees) {
+    document.querySelectorAll('[data-texte]').forEach(function (node) {
+      var valeur = valeurProfonde(donnees, node.getAttribute('data-texte'));
+      // Un champ vidé dans l'admin laisse le texte d'origine plutôt que de
+      // creuser un trou dans la page.
+      if (typeof valeur === 'string' && valeur.trim()) { poserTexte(node, valeur); }
+    });
+  }
+
+  /* ---------------------------------------------------------------------
+     Coordonnées et liens (assets/data/reglages.json)
+     --------------------------------------------------------------------- */
+
+  // Renseignés depuis l'admin, ils servent aussi de destination par défaut aux
+  // boutons « Réserver » des activités payantes.
+  var LIENS = {};
+
+  function appliquerReglages(donnees) {
+    var contact = (donnees && donnees.contact) || {};
+    LIENS = (donnees && donnees.liens) || {};
+
+    if (contact.email) {
+      document.querySelectorAll('[data-contact="email"]').forEach(function (a) {
+        a.href = 'mailto:' + contact.email;
+        a.textContent = contact.email;
+      });
+    }
+
+    if (contact.telephone) {
+      document.querySelectorAll('[data-contact="telephone"]').forEach(function (a) {
+        a.href = telHref(contact.telephone);
+        a.textContent = contact.telephone;
+      });
+    }
+
+    // Liens externes : seule l'adresse change, le libellé reste celui de la page.
+    document.querySelectorAll('[data-lien]').forEach(function (a) {
+      var url = LIENS[a.getAttribute('data-lien')];
+      if (url) { a.href = url; }
+    });
+
+    // Réseaux sociaux : tant qu'aucune adresse n'est renseignée, le nom reste
+    // du simple texte — mieux qu'un lien qui ne mène nulle part.
+    document.querySelectorAll('[data-reseau]').forEach(function (node) {
+      var url = LIENS[node.getAttribute('data-reseau')];
+      if (!url) { return; }
+      var a = el('a', node.className || null, node.textContent);
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      node.replaceWith(a);
+    });
+  }
+
+  /* ---------------------------------------------------------------------
+     Activités (assets/data/activites.json)
+     --------------------------------------------------------------------- */
+
+  // Bibliothèque de pictogrammes. Ces chaînes sont des constantes écrites ici,
+  // jamais du contenu saisi : l'admin ne fait que choisir un nom dans la liste.
+  var ICONES = {
+    jeux: '<rect x="3.8" y="3.8" width="16.4" height="16.4" rx="3.6"/><circle cx="8.6" cy="8.6" r="1.15" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.15" fill="currentColor" stroke="none"/><circle cx="15.4" cy="15.4" r="1.15" fill="currentColor" stroke="none"/>',
+    calligraphie: '<path d="M15.5 3.2 20.8 8.5 10.6 18.7 4.5 20.5l1.8-6.1z"/><path d="M13.4 5.3 18.7 10.6"/><path d="M6.3 14.4l4.3 4.3"/>',
+    palette: '<path d="M12 3.4a8.6 8.6 0 1 0 0 17.2c1.1 0 1.9-.8 1.9-1.8 0-.4-.2-.8-.5-1.1-.3-.3-.4-.6-.4-1 0-.9.7-1.5 1.6-1.5h1.3a4.7 4.7 0 0 0 4.7-4.7c0-3.9-3.9-7.1-8.6-7.1Z"/><circle cx="7.6" cy="11.6" r=".95" fill="currentColor" stroke="none"/><circle cx="9.7" cy="7.9" r=".95" fill="currentColor" stroke="none"/><circle cx="14" cy="7.6" r=".95" fill="currentColor" stroke="none"/>',
+    panier: '<path d="M3.8 9.4h16.4l-1.5 9.4a2.1 2.1 0 0 1-2.1 1.8H7.4a2.1 2.1 0 0 1-2.1-1.8z"/><path d="M8 9.4a4 4 0 0 1 8 0"/><path d="M9.2 12.6v6M12 12.6v6M14.8 12.6v6"/><path d="M4.4 14.2h15.2"/>',
+    ciseaux: '<circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M19.8 4 8.7 16.3"/><path d="M4.2 4l11.1 12.3"/>',
+    cahier: '<rect x="4.5" y="2.8" width="15" height="18.4" rx="2.6"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+    raquette: '<ellipse cx="9.4" cy="8.8" rx="5.6" ry="6.6"/><path d="M9.4 15.4v4.2"/><path d="M7.6 20.6h3.6"/><circle cx="18.4" cy="16.2" r="3.1"/><circle cx="17.3" cy="15.2" r=".45" fill="currentColor" stroke="none"/><circle cx="19.6" cy="15.4" r=".45" fill="currentColor" stroke="none"/><circle cx="18.3" cy="17.6" r=".45" fill="currentColor" stroke="none"/>',
+    musique: '<circle cx="6.4" cy="18" r="2.6"/><circle cx="16.6" cy="15.6" r="2.6"/><path d="M9 18V6.4l10.2-2.6v11.8"/><path d="M9 9.6 19.2 7"/>',
+    velo: '<circle cx="5.6" cy="17" r="3.6"/><circle cx="18.4" cy="17" r="3.6"/><path d="M5.6 17 9.4 7.6h5.2L18.4 17"/><path d="M9.4 7.6h6.2"/><path d="M8.2 17h6.6"/><path d="M14.6 7.6 12 4.6"/>',
+    randonnee: '<path d="M2.5 20.4h19"/><path d="M3.6 20.4 8.8 10.6l3.6 6.6 1.9-3 4.2 6.2"/><path d="M18.6 2.6c1.6 0 2.9 1.3 2.9 2.9 0 2.1-2.9 4.9-2.9 4.9s-2.9-2.8-2.9-4.9c0-1.6 1.3-2.9 2.9-2.9Z"/><circle cx="18.6" cy="5.5" r=".9"/>',
+    groupe: '<circle cx="9" cy="8" r="3.2"/><path d="M3.4 20.2a5.6 5.6 0 0 1 11.2 0"/><circle cx="17.2" cy="9.6" r="2.4"/><path d="M16.4 15.2a4.6 4.6 0 0 1 4.2 5"/>',
+    etoile: '<path d="m12 3.6 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.8-5.2 2.8 1-5.8L3.6 9.7l5.8-.8z"/>'
+  };
+
+  // DOMParser plutôt qu'innerHTML : le pictogramme est construit comme un
+  // document à part, puis importé. Aucune chaîne n'est interprétée dans la page.
+  function pictogramme(nom) {
+    var formes = ICONES[nom] || ICONES.etoile;
+    var doc = new DOMParser().parseFromString(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" ' +
+      'fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" ' +
+      'stroke-linejoin="round" aria-hidden="true">' + formes + '</svg>', 'image/svg+xml');
+    return document.importNode(doc.documentElement, true);
+  }
+
+  function carteActivite(act) {
+    var article = el('article', 'activite');
+
+    var entete = el('div', 'activite__entete');
+    var icone = el('div', 'activite__icone icone--' + (act.couleur || 'sage'));
+    icone.append(pictogramme(act.icone));
+    entete.append(icone, el('h3', null, act.titre || ''));
+    article.append(entete);
+
+    if (act.description) { article.append(el('p', 'activite__desc', act.description)); }
+
+    var infos = el('ul', 'activite__infos');
+    if (act.lieu) { infos.append(el('li', 'info--lieu', act.lieu)); }
+
+    (act.horaires || []).forEach(function (horaire) {
+      if (horaire) { infos.append(el('li', 'info--horaire', horaire)); }
+    });
+
+    if (act.public) { infos.append(el('li', 'info--public', act.public)); }
+
+    (act.contacts || []).forEach(function (contact) {
+      if (!contact || (!contact.nom && !contact.telephone)) { return; }
+      var li = el('li', 'info--tel');
+      if (contact.nom) {
+        li.append(document.createTextNode(contact.nom + (contact.telephone ? ' · ' : '')));
+      }
+      if (contact.telephone) {
+        var lien = el('a', null, contact.telephone);
+        lien.href = telHref(contact.telephone);
+        li.append(lien);
+      }
+      infos.append(li);
+    });
+
+    if (infos.childElementCount) { article.append(infos); }
+
+    // Règle du bureau : on réserve une activité payante, on s'inscrit à une
+    // activité gratuite. Le bouton découle de la case « payante », il n'est
+    // pas saisi séparément — impossible de les désaccorder.
+    var action = el('p', 'activite__action');
+    var bouton;
+
+    if (act.payante) {
+      bouton = el('a', 'btn btn--primary', 'Réserver une place');
+      bouton.href = act.billetterie || LIENS.adhesion || 'adherer.html';
+      bouton.target = '_blank';
+      bouton.rel = 'noopener noreferrer';
+      bouton.setAttribute('aria-label',
+        'Réserver — ' + (act.titre || '') + ' (ouvre un nouvel onglet)');
+    } else {
+      // Apostrophe droite, comme dans le reste des pages : le rendu doit être
+      // le sosie exact des fiches de secours écrites dans le HTML.
+      bouton = el('a', 'btn btn--ghost', "S'inscrire");
+      bouton.href = 'adherer.html';
+      bouton.setAttribute('aria-label', "S'inscrire — " + (act.titre || ''));
+    }
+
+    action.append(bouton);
+    article.append(action);
+    return article;
+  }
+
+  function afficherActivites(cible, donnees) {
+    var familles = (donnees && donnees.familles) || [];
+    if (!familles.length) { return; }
+
+    var fragment = document.createDocumentFragment();
+
+    familles.forEach(function (famille, index) {
+      var section = el('section', 'section');
+      section.append(el('h2', 'section-title section-title--sm', famille.titre || ''));
+      if (famille.lieu) { section.append(el('p', 'famille-lieu', famille.lieu)); }
+
+      var grille = el('div', 'activites');
+      (famille.activites || []).forEach(function (act) {
+        if (act && act.titre) { grille.append(carteActivite(act)); }
+      });
+      section.append(grille);
+
+      var wrap = el('div', 'wrap');
+      wrap.append(section);
+
+      // Une famille sur deux est posée sur un fond coloré, comme dans la maquette.
+      if (index % 2) {
+        var bande = el('div', 'band');
+        bande.append(wrap);
+        fragment.append(bande);
+      } else {
+        fragment.append(wrap);
+      }
+    });
+
+    cible.replaceChildren(fragment);
+  }
+
+  /* ---------------------------------------------------------------------
      Démarrage
      --------------------------------------------------------------------- */
 
   var listeAgenda = document.getElementById('agenda-liste');
   var apercuAgenda = document.getElementById('agenda-apercu');
   var grilleGalerie = document.getElementById('galerie-grille');
+  var blocActivites = document.getElementById('activites-familles');
+
+  if (document.querySelector('[data-texte]')) {
+    chargerJSON('assets/data/textes.json')
+      .then(appliquerTextes)
+      .catch(function (erreur) {
+        // Sans ce fichier la page garde les textes écrits dans le HTML :
+        // elle reste complète, simplement figée à la dernière mise en ligne.
+        console.error('Textes des pages indisponibles :', erreur);
+      });
+  }
+
+  // Les réglages sont chargés avant les activités : le bouton « Réserver »
+  // d'une activité sans billetterie propre retombe sur le lien d'adhésion.
+  chargerJSON('assets/data/reglages.json')
+    .then(appliquerReglages)
+    .catch(function (erreur) {
+      console.error('Coordonnées et liens indisponibles :', erreur);
+    })
+    .then(function () {
+      if (!blocActivites) { return; }
+      return chargerJSON('assets/data/activites.json')
+        .then(function (donnees) { afficherActivites(blocActivites, donnees); })
+        .catch(function (erreur) {
+          // Les fiches écrites dans le HTML restent affichées.
+          console.error('Activités indisponibles :', erreur);
+        });
+    });
 
   if (listeAgenda || apercuAgenda) {
     chargerJSON('assets/data/agenda.json')
