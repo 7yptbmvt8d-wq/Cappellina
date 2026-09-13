@@ -373,17 +373,69 @@ collections:
     label: Agenda
     files:
       - name: evenements
-        label: Prochains rendez-vous
+        label: Planning et rendez-vous
         file: assets/data/agenda.json
         description: >-
-          Les événements passés disparaissent automatiquement du site : inutile
-          de les supprimer. Les deux prochains s'affichent aussi sur l'accueil.
+          Deux listes, qui correspondent aux deux blocs de la page Agenda.
+          « Chaque semaine » pour ce qui revient tous les jeudis ; « Les
+          rendez-vous » pour ce qui a une date précise.
         fields:
-          - name: evenements
-            label: Événements
-            label_singular: Événement
+
+          # ------------------------------------------------------------------
+          # Bloc « Chaque semaine »
+          # ------------------------------------------------------------------
+          - name: rythme
+            label: Séances hebdomadaires
+            label_singular: Séance
             widget: list
+            required: false
+            summary: "{{fields.jour}} {{fields.horaire}} · {{fields.titre}}"
+            description: >-
+              Les séances qui reviennent chaque semaine. Elles sont rangées
+              automatiquement dans l'ordre de la semaine : l'ordre de saisie
+              n'a pas d'importance.
+            fields:
+              - name: jour
+                label: Jour
+                widget: select
+                default: Jeudi
+                options: [Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi, Dimanche]
+
+              - { name: titre, label: Intitulé, widget: string, hint: "Exemple : Couture, broderie, crochet — adultes" }
+              - { name: horaire, label: Horaire, widget: string, required: false, hint: "Exemple : 10h-12h" }
+              - { name: lieu, label: Lieu, widget: string, required: false, hint: "Exemple : Maison des associations, Santa Maria Poggio" }
+              - { name: precision, label: Précision, widget: string, required: false, hint: "Exemple : enfants, dès 8 ans" }
+
+              - name: payante
+                label: Séance payante
+                widget: boolean
+                default: false
+                hint: >-
+                  Cochée, le bouton devient « Réserver » et mène à la
+                  billetterie. Décochée, il affiche « S'inscrire » et mène à la
+                  page d'adhésion.
+
+              - name: billetterie
+                label: Lien de billetterie
+                widget: string
+                required: false
+                hint: >-
+                  Utilisé seulement si « Séance payante » est cochée. Laissé
+                  vide, le bouton mène à la page HelloAsso de l'association.
+
+          # ------------------------------------------------------------------
+          # Bloc « Les rendez-vous »
+          # ------------------------------------------------------------------
+          - name: evenements
+            label: Rendez-vous datés
+            label_singular: Rendez-vous
+            widget: list
+            required: false
             summary: "{{fields.date}} · {{fields.titre}}"
+            description: >-
+              Les événements passés disparaissent automatiquement du site :
+              inutile de les supprimer. Les deux prochains s'affichent aussi
+              sur l'accueil.
             fields:
               - name: titre
                 label: Titre

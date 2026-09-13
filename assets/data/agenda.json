@@ -1,4 +1,51 @@
 {
+  "rythme": [
+    {
+      "jour": "Jeudi",
+      "titre": "Couture, broderie, crochet — adultes",
+      "horaire": "10h-12h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "payante": false,
+      "billetterie": ""
+    },
+    {
+      "jour": "Jeudi",
+      "titre": "Couture, broderie, crochet — enfants",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "payante": false,
+      "billetterie": ""
+    },
+    {
+      "jour": "Jeudi",
+      "titre": "Arts plastiques — adultes",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "",
+      "payante": true,
+      "billetterie": "https://www.helloasso.com/associations/cappellina"
+    },
+    {
+      "jour": "Vendredi",
+      "titre": "Graphothérapie",
+      "horaire": "16h-18h",
+      "lieu": "Maison des associations, Santa Maria Poggio",
+      "precision": "enfants",
+      "payante": false,
+      "billetterie": ""
+    },
+    {
+      "jour": "Samedi",
+      "titre": "Pickleball",
+      "horaire": "11h-12h30",
+      "lieu": "Fronton de pelote basque",
+      "precision": "dès 8 ans",
+      "payante": false,
+      "billetterie": ""
+    }
+  ],
   "evenements": [
     {
       "titre": "Fête de l'association",

@@ -469,6 +469,77 @@
     return article;
   }
 
+  /* ---------------------------------------------------------------------
+     Rythme hebdomadaire (assets/data/agenda.json → « rythme »)
+
+     Ces séances reviennent chaque semaine. Les lister date par date
+     représenterait une cinquantaine de lignes qui n'apprendraient rien de plus
+     que « tous les jeudis » : elles sont donc décrites une fois, et l'agenda
+     daté ne porte que les rendez-vous ponctuels.
+     --------------------------------------------------------------------- */
+
+  var JOURS = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+
+  // Un jour non reconnu passe en fin de liste plutôt qu'en tête.
+  function rangJour(jour) {
+    var i = JOURS.indexOf(jour);
+    return i < 0 ? JOURS.length : i;
+  }
+
+  // Même règle que pour les activités : on réserve une séance payante, on
+  // s'inscrit à une séance gratuite.
+  function boutonSeance(seance) {
+    var bouton;
+
+    if (seance.payante) {
+      bouton = el('a', 'btn btn--sm event__cta event__cta--billet', 'Réserver');
+      bouton.href = seance.billetterie || LIENS.adhesion || 'adherer.html';
+      bouton.target = '_blank';
+      bouton.rel = 'noopener noreferrer';
+      bouton.setAttribute('aria-label',
+        'Réserver — ' + seance.titre + ' (ouvre un nouvel onglet)');
+    } else {
+      bouton = el('a', 'btn btn--sm event__cta', "S'inscrire");
+      bouton.href = 'adherer.html';
+      bouton.setAttribute('aria-label', "S'inscrire — " + seance.titre);
+    }
+
+    return bouton;
+  }
+
+  function afficherRythme(cible, donnees) {
+    var seances = ((donnees && donnees.rythme) || [])
+      .filter(function (s) { return s && s.titre; })
+      // Rangées dans l'ordre de la semaine : une séance ajoutée un lundi se
+      // place d'elle-même en tête, sans réordonner la liste dans l'admin.
+      .sort(function (a, b) { return rangJour(a.jour) - rangJour(b.jour); });
+
+    if (!seances.length) { return; }
+
+    var liste = el('div', 'events');
+
+    seances.forEach(function (seance) {
+      var article = el('article', 'event event--rythme');
+
+      var date = el('div', 'event__date');
+      date.append(el('div', 'event__jour', seance.jour || ''));
+      article.append(date);
+
+      var corps = el('div', 'event__body');
+      corps.append(el('div', 'event__title', seance.titre));
+
+      var meta = [seance.horaire, seance.lieu, seance.precision]
+        .filter(Boolean).join(' · ');
+      if (meta) { corps.append(el('div', 'event__meta', meta)); }
+
+      article.append(corps);
+      article.append(boutonSeance(seance));
+      liste.append(article);
+    });
+
+    cible.replaceChildren(liste);
+  }
+
   function afficherActivites(cible, donnees) {
     var familles = (donnees && donnees.familles) || [];
     if (!familles.length) { return; }
@@ -508,6 +579,7 @@
 
   var listeAgenda = document.getElementById('agenda-liste');
   var apercuAgenda = document.getElementById('agenda-apercu');
+  var blocRythme = document.getElementById('agenda-rythme');
   var grilleGalerie = document.getElementById('galerie-grille');
   var blocActivites = document.getElementById('activites-familles');
 
@@ -521,38 +593,44 @@
       });
   }
 
-  // Les réglages sont chargés avant les activités : le bouton « Réserver »
-  // d'une activité sans billetterie propre retombe sur le lien d'adhésion.
+  // Les réglages passent en premier : les boutons « Réserver » d'une séance ou
+  // d'une activité sans billetterie propre retombent sur le lien d'adhésion,
+  // qui vient de ce fichier. Les deux rendus qui en dépendent l'attendent donc.
   chargerJSON('assets/data/reglages.json')
     .then(appliquerReglages)
     .catch(function (erreur) {
       console.error('Coordonnées et liens indisponibles :', erreur);
     })
     .then(function () {
-      if (!blocActivites) { return; }
-      return chargerJSON('assets/data/activites.json')
-        .then(function (donnees) { afficherActivites(blocActivites, donnees); })
+      if (blocActivites) {
+        chargerJSON('assets/data/activites.json')
+          .then(function (donnees) { afficherActivites(blocActivites, donnees); })
+          .catch(function (erreur) {
+            // Les fiches écrites dans le HTML restent affichées.
+            console.error('Activités indisponibles :', erreur);
+          });
+      }
+
+      if (!listeAgenda && !apercuAgenda && !blocRythme) { return; }
+
+      chargerJSON('assets/data/agenda.json')
+        .then(function (donnees) {
+          if (blocRythme) { afficherRythme(blocRythme, donnees); }
+
+          var items = evenementsAVenir(donnees);
+          if (listeAgenda) { afficherAgenda(listeAgenda, items); }
+          if (apercuAgenda) { afficherApercu(apercuAgenda, items); }
+        })
         .catch(function (erreur) {
-          // Les fiches écrites dans le HTML restent affichées.
-          console.error('Activités indisponibles :', erreur);
+          console.error('Agenda indisponible :', erreur);
+          // Le planning hebdomadaire écrit dans le HTML reste affiché ; seuls
+          // les rendez-vous datés, qui n'ont pas de repli, sont annoncés absents.
+          var texte = 'L’agenda n’a pas pu être chargé. ' +
+                      'Écrivez-nous à cappellina2b@gmail.com pour connaître les prochains rendez-vous.';
+          if (listeAgenda) { message(listeAgenda, texte); }
+          if (apercuAgenda) { message(apercuAgenda, texte); }
         });
     });
-
-  if (listeAgenda || apercuAgenda) {
-    chargerJSON('assets/data/agenda.json')
-      .then(function (donnees) {
-        var items = evenementsAVenir(donnees);
-        if (listeAgenda) { afficherAgenda(listeAgenda, items); }
-        if (apercuAgenda) { afficherApercu(apercuAgenda, items); }
-      })
-      .catch(function (erreur) {
-        console.error('Agenda indisponible :', erreur);
-        var texte = 'L’agenda n’a pas pu être chargé. ' +
-                    'Écrivez-nous à cappellina2b@gmail.com pour connaître les prochains rendez-vous.';
-        if (listeAgenda) { message(listeAgenda, texte); }
-        if (apercuAgenda) { message(apercuAgenda, texte); }
-      });
-  }
 
   if (grilleGalerie) {
     chargerJSON('assets/data/galerie.json')

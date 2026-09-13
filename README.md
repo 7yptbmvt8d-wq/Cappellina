@@ -213,7 +213,7 @@ au bureau de gérer, sans toucher au code :
 | **Textes des pages** | Tous les titres, paragraphes, chiffres et libellés de boutons des 9 pages |
 | **Activités** | Les familles et leurs fiches : nom, description, pictogramme, horaires, référents, tarif |
 | **Coordonnées & liens** | E-mail, téléphone, adresses HelloAsso, Facebook, Instagram |
-| **Agenda** | Les rendez-vous : titre, date, heure, lieu, précision |
+| **Agenda** | Le planning hebdomadaire (jour, horaire, lieu) **et** les rendez-vous datés |
 | **Galerie photos** | Les photos de la page Galerie et leur taille dans la mosaïque |
 | **Photos du site & bureau** | Les 5 photos d'illustration des pages, et les membres du bureau |
 
@@ -229,6 +229,8 @@ photos) devient un fichier du dépôt. Rien n'est stocké sur un service tiers.
   le ménage : il suffit d'ajouter les nouveaux.
 - **Les deux prochains rendez-vous remontent automatiquement sur l'accueil.**
   Il n'y a qu'un seul endroit à tenir à jour.
+- **Les séances hebdomadaires se rangent seules dans l'ordre de la semaine.**
+  Une séance ajoutée un lundi passe en tête sans qu'on ait à réordonner la liste.
 - **Un champ de texte vidé garde le texte actuellement en ligne.** Effacer un
   champ par mégarde ne peut pas creuser un trou dans une page.
 - **Le bouton d'une activité découle de la case « payante ».** Cochée :
@@ -308,9 +310,31 @@ Si le site devait un jour faire du référencement un vrai levier, la marche à
 suivre serait d'ajouter un générateur statique (Eleventy) qui pré-calcule les
 pages à partir des mêmes fichiers JSON.
 
-## Ajouter un événement sans passer par l'admin
+## Le planning, sans passer par l'admin
 
-Ouvrir `assets/data/agenda.json` et ajouter un objet à la liste :
+`assets/data/agenda.json` porte les deux blocs de la page Agenda, dans deux
+listes distinctes.
+
+**`rythme`** — ce qui revient chaque semaine :
+
+```json
+{
+  "jour": "Jeudi",
+  "titre": "Couture, broderie, crochet — adultes",
+  "horaire": "10h-12h",
+  "lieu": "Maison des associations, Santa Maria Poggio",
+  "precision": "",
+  "payante": false,
+  "billetterie": ""
+}
+```
+
+L'ordre de saisie n'a pas d'importance : les séances sont rangées dans l'ordre
+de la semaine à l'affichage, et deux séances du même jour gardent leur ordre
+de saisie. Un jour mal orthographié passe en fin de liste au lieu de fausser
+le classement.
+
+**`evenements`** — ce qui a une date précise :
 
 ```json
 {
@@ -318,10 +342,17 @@ Ouvrir `assets/data/agenda.json` et ajouter un objet à la liste :
   "date": "2026-11-14",
   "horaire": "15h",
   "lieu": "Cantine scolaire",
-  "precision": "gratuit"
+  "precision": "gratuit",
+  "billetterie": ""
 }
 ```
 
-La date s'écrit `AAAA-MM-JJ`. L'ordre dans le fichier n'a pas d'importance :
+La date s'écrit `AAAA-MM-JJ`. Là non plus l'ordre du fichier n'importe pas :
 le tri, le regroupement par mois et la couleur du chiffre sont calculés à
-l'affichage.
+l'affichage, et les dates passées disparaissent d'elles-mêmes.
+
+Dans les deux listes, `payante` (ou un lien `billetterie` pour les événements
+datés) commande le bouton : « Réserver » vers la billetterie, sinon
+« S'inscrire » vers la page d'adhésion. Une séance payante sans lien propre
+retombe sur la page HelloAsso de l'association, renseignée dans
+`assets/data/reglages.json`.

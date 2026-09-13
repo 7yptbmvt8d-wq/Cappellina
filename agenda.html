@@ -59,8 +59,15 @@
         représenterait une cinquantaine de lignes qui n'apprendraient rien de
         plus que « tous les jeudis ». Elles sont donc décrites une fois ici,
         et l'agenda daté ci-dessous ne porte que les rendez-vous ponctuels.
+
+        Elles se modifient depuis l'espace admin (/admin → Agenda → Séances
+        hebdomadaires) et sont lues dans assets/data/agenda.json. Les séances
+        ci-dessous sont celles de la dernière mise en ligne : elles restent
+        affichées pour les visiteurs sans JavaScript et sont remplacées dès que
+        le fichier est chargé. Inutile de les tenir à jour à la main.
       -->
       <h2 class="agenda-month" data-texte="agenda.rythme_titre">Chaque semaine</h2>
+      <div id="agenda-rythme">
       <div class="events">
         <article class="event event--rythme">
           <div class="event__date"><div class="event__jour">Jeudi</div></div>
@@ -103,6 +110,7 @@
           <a class="btn btn--sm event__cta" href="adherer.html" aria-label="S'inscrire — Pickleball">S'inscrire</a>
         </article>
       </div>
+      </div><!-- /#agenda-rythme -->
 
       <h2 class="agenda-month agenda-month--espace" data-texte="agenda.rdv_titre">Les rendez-vous</h2>
       <div id="agenda-liste">
