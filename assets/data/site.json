@@ -4,11 +4,11 @@
     "banniere": "/assets/banniere.jpg"
   },
   "photos": {
-    "accueil": "",
-    "association": "",
-    "actions_sorties": "",
+    "accueil": "/assets/photos/photo-2026-09-07-13-52-00.jpg",
+    "association": "/assets/photos/jeux-fête.jpg",
+    "actions_sorties": "/assets/photos/sortie-vélo.jpg",
     "actions_conferences": "",
-    "actions_soirees": ""
+    "actions_soirees": "/assets/photos/bachata.jpg"
   },
   "bureau": [
     {
