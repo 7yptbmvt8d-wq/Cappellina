@@ -32,6 +32,11 @@
     {
       "format": "auto",
       "image": "/assets/photos/img_5627.jpg"
+    },
+    {
+      "format": "auto",
+      "image": "/assets/photos/pickleball.jpg",
+      "alt": "Pickleball"
     }
   ]
 }
