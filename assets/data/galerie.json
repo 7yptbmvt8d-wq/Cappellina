@@ -1,3 +1,37 @@
 {
-  "photos": []
+  "photos": [
+    {
+      "format": "auto",
+      "image": "/assets/photos/img_5656.jpg",
+      "alt": "Sortie vélo à la découverte des sources et fontaines."
+    },
+    {
+      "format": "auto",
+      "image": "/assets/photos/img_5692.jpg",
+      "alt": "Atelier couture multigénérationnel"
+    },
+    {
+      "format": "auto",
+      "image": "/assets/photos/img_5496.jpg",
+      "alt": "Atelier calligraphie avec Maya"
+    },
+    {
+      "format": "auto",
+      "image": "/assets/photos/img_5197.jpg",
+      "alt": "Vannerie avec Natalina : fabrication de panier et objets décoratifs."
+    },
+    {
+      "format": "auto",
+      "image": "/assets/photos/calligraphie.jpg"
+    },
+    {
+      "format": "auto",
+      "image": "/assets/photos/f8c60743-4426-40b5-9a12-3320515099aa.jpg",
+      "alt": "Atelier kinusaiga"
+    },
+    {
+      "format": "auto",
+      "image": "/assets/photos/img_5627.jpg"
+    }
+  ]
 }
