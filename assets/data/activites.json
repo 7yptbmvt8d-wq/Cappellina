@@ -70,7 +70,7 @@
           "horaires": [
             "Jeudi 16h15-18h "
           ],
-          "lieu": "",
+          "lieu": "Vanga di l'Oru",
           "titre": "Vannerie",
           "contacts": [
             {
@@ -131,7 +131,8 @@
           "public": "Adultes et enfants à partir de 8 ans",
           "icone": "raquette",
           "horaires": [
-            "Samedi 11h-12h30, dès le 16 septembre"
+            "Samedi 11h-12h30 Fronton de pelote basque ou COSEC de Cervioni selon météo",
+            "Mercredi 18h - 19h30 COSEC de Cervioni"
           ],
           "lieu": "Fronton de pelote basque",
           "titre": "Pickleball",
@@ -150,9 +151,9 @@
           "public": "Adultes",
           "icone": "musique",
           "horaires": [
-            "Un dimanche sur 2, 16h-18h, de septembre à juin"
+            "Un dimanche après-midi par mois de septembre à juin"
           ],
-          "lieu": "Salle des fêtes",
+          "lieu": "Salle des fêtes de Muchjetu ou de Santa Maria Poggio",
           "titre": "Danse Escucha Bachata",
           "contacts": [
             {
@@ -160,7 +161,7 @@
               "telephone": "06 72 19 11 69"
             }
           ],
-          "description": "Apprendre à danser à deux, dans la bonne humeur.",
+          "description": "Danser et partager un moment de convivialité.",
           "couleur": "peach"
         },
         {
