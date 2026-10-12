@@ -44,6 +44,13 @@
       "precision": "dès 8 ans",
       "payante": false,
       "billetterie": ""
+    },
+    {
+      "jour": "Mercredi",
+      "payante": false,
+      "titre": "Pickleball",
+      "horaire": "Mercredi 18h - 19h30",
+      "lieu": "COSEC de Cervioni"
     }
   ],
   "evenements": [
@@ -172,7 +179,7 @@
     },
     {
       "titre": "Cappellina in festa à Santa Maria Poggio",
-      "date": "1906-10-24",
+      "date": "2026-10-24",
       "horaire": "à partir de 15h",
       "lieu": "Village de Santa Maria Poggio (rdv sur la place pour le début de la chasse au trésor ; ateliers couture, arts plastiques, jeux dans la salle des fêtes).",
       "precision": "Ouvert à tous, crêpes et gaufres au goûter ; restauration sur place le soir."
