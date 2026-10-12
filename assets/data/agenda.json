@@ -11,8 +11,8 @@
     },
     {
       "jour": "Jeudi",
-      "titre": "Couture, broderie, crochet — enfants",
-      "horaire": "16h-18h",
+      "titre": "Vannerie",
+      "horaire": "16h15-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
       "precision": "",
       "payante": false,
@@ -20,8 +20,8 @@
     },
     {
       "jour": "Jeudi",
-      "titre": "Arts plastiques — adultes",
-      "horaire": "16h-18h",
+      "titre": "Arts plastiques",
+      "horaire": "Enfants :16h-17h15 - Adultes : 17h30 - 19h",
       "lieu": "Maison des associations, Santa Maria Poggio",
       "precision": "",
       "payante": true,
@@ -77,7 +77,7 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
-      "titre": "Arts plastiques — enfants",
+      "titre": "Arts plastiques",
       "date": "2026-09-23",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
@@ -85,7 +85,7 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
-      "titre": "Vannerie — enfants",
+      "titre": "Couture",
       "date": "2026-10-07",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
@@ -108,7 +108,7 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
-      "titre": "Arts plastiques — enfants",
+      "titre": "Arts plastiques ",
       "date": "2026-10-28",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
@@ -116,7 +116,7 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
-      "titre": "Vannerie — enfants",
+      "titre": "Couture",
       "date": "2026-11-04",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
@@ -139,7 +139,7 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
-      "titre": "Arts plastiques — enfants",
+      "titre": "Arts plastiques",
       "date": "2026-11-25",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
@@ -147,7 +147,7 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
-      "titre": "Vannerie — enfants",
+      "titre": "Couture",
       "date": "2026-12-02",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
@@ -170,7 +170,7 @@
       "billetterie": "https://www.helloasso.com/associations/cappellina"
     },
     {
-      "titre": "Arts plastiques — enfants",
+      "titre": "Arts plastiques",
       "date": "2026-12-23",
       "horaire": "16h-18h",
       "lieu": "Maison des associations, Santa Maria Poggio",
